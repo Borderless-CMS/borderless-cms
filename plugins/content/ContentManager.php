@@ -1,20 +1,35 @@
-<?php
+<?php if(!defined('BORDERLESS')) { header('Location: / ',true,403); exit(); }
+/* Borderless CMS - the easiest and most flexible way to a valid website
+ *   (c) 2004-2007 Alexander Heusingfeld <aheusingfeld@borderlesscms.de>
+ *   Distributed under the terms and conditions of the GPL as stated in /license.txt
+ * EXCLUSION:
+ *   The files in the folder /pear/* are part of the PHP PEAR Project and are therefore
+ *   distributed under the terms and conditions of the PHP License as stated in /pear/LICENSE
+ */
+
+require 'content/BcmsArticle.php';
 require 'content/Article_DAL.php';
 require 'content/History_DAL.php';
 require 'content/Content.php';
 require 'content/ContentConfig_DAL.php';
+require 'content/Layout_DAL.php';
+require 'content/class.cArticleLayout.php';
+require 'content/LatestContent.php';
+
 /**
  * Contains ContentManager class
  *
- * @module ContentManager.php
- * @author ahe <aheusingfeld@borderlesscms.de>
- * @package plugins/content
+ * @since 0.8
+ * @author ahe <aheusingfeld@borderlessscms.de>
+ * @date 2006-01-27
+ * @class ContentManager
+ * @ingroup content
+ * @package content
  */
-
 class ContentManager extends AbstractManager {
 
 	// the versionstring is needed e.g. for getHashcode()
-	protected $versionstring = '0.9';
+	protected $versionstring = '0.11';
 	protected $modname = 'ContentManager';
   	protected $articleDalObj = null;
   	protected $dalObj = null;
@@ -34,24 +49,43 @@ class ContentManager extends AbstractManager {
 			BcmsConfig::getInstance()->setTablename('history', 'history');
 			BcmsConfig::getInstance()->setTablename('articles', 'plg_articles');
 			BcmsConfig::getInstance()->setTablename('content_config', 'plg_art_cat_conf');
+			BcmsConfig::getInstance()->setTablename('layoutpresets', 'layoutpresets');
 
+			$this->configDalObj = ContentConfig_DAL::getInstance();
+			$this->plgCatConfig = $this->configDalObj->getObject($catId);
+			$this->plgCatConfig['sort_direction'] =
+				($this->plgCatConfig['sort_direction'])==41 ? 'ASC' : 'DESC'; // \bug URGENT use classifications!
+			$this->plgCatConfig['comments_sort_direction'] =
+				($this->plgCatConfig['comments_sort_direction'])==41 ? 'ASC' : 'DESC'; // \bug URGENT use classifications!
 			$this->articleDalObj = new Article_DAL();
 			$this->dalObj = new History_DAL();
-			$this->configDalObj = ContentConfig_DAL::getInstance();
 			$this->logicObj = new cContent($this);
 			$this->modArray = PluginManager::getInstance()->getCurrentMainPlugin();
 			$this->logicObj->init($this->modArray['func']);
-			$this->plgCatConfig = $this->configDalObj->getObject($catId);
-			$this->plgCatConfig['sort_direction'] =
-				($this->plgCatConfig['sort_direction'])==41 ? 'ASC' : 'DESC'; // URGENT use classifications!
 			$this->initCalled = true;
 		}
 	}
 
+	public function getArticleActions(){
+		return array(
+		0 => array('status', PluginManager::getPlgInstance('Dictionary')->getTrans('changeStatus'), 'ChangeStatus'),
+		//			1 => array('delete', PluginManager::getPlgInstance('Dictionary')->getTrans('delete'), 'Delete'),
+		1 => array('edit', PluginManager::getPlgInstance('Dictionary')->getTrans('edit'), 'Edit')
+		);
+	}
+
+	public function getHistoryActions(){
+		return array(
+		0 => array('sync', PluginManager::getPlgInstance('Dictionary')->getTrans('setVersionActive'), 'Sync'),
+		1 => array('delete', PluginManager::getPlgInstance('Dictionary')->getTrans('delete'), 'Delete')
+		);
+	}
 
 	public function getPlgCatConfig() { return $this->plgCatConfig; }
 
 	public function getArticleDalObj() { return $this->articleDalObj; }
+
+	public function getDalObj() { return $this->dalObj; }
 
 	public function main($menuId){
 		echo $this->logicObj->createEditContentMenu();
@@ -61,7 +95,7 @@ class ContentManager extends AbstractManager {
 			case 'list':
 				return $this->logicObj->showContentList();
 			case 'listall':
-				return $this->logicObj->getCompleteList();
+				return $this->getCompleteList();
 			case 'single':
 				return $this->logicObj->showSingleArticle();
 			case 'edit_article':
@@ -69,8 +103,10 @@ class ContentManager extends AbstractManager {
 				  && !isset($_POST['article_edit_submit']))
 				{
 				  return $this->logicObj->editArticle($_SESSION['mod']['oid']);
-				} // if article is submitted the "break is missed" and the
-				  //  "show" function will be executed!
+				}
+
+				// if article is submitted the "break is missed" and the
+				//  "show" function will be executed!
 			case 'show':
 				return $this->logicObj->showArticle($_SESSION['mod']['oid']);
 			case 'sync':
@@ -93,6 +129,15 @@ class ContentManager extends AbstractManager {
 			header('Location: '.$location, false);
 		}
 
+		// check whether content editing/ writing process has been aborted
+		if(isset($_POST['abort_action'])) {
+			// in that case, remove all remaining session data for article editing...
+			unset($_SESSION['current_article_data']);
+			session_unregister('current_article_data');
+			// ... and redirect to article show phase
+			header('Location: ../show/'.$_SESSION['mod']['oid'],true);
+		}
+
 		if(isset($_POST['submit_deletion'])) {
 			$deleteIds = preg_grep('/^elemid_(\d+)$/',array_keys($_POST));
 			$where = '';
@@ -101,7 +146,7 @@ class ContentManager extends AbstractManager {
 				$where .='history_id='.intval($_POST[$value]);
 			}
 			$error = $this->dalObj->delete($where);
-			if($error instanceof PEAR_ERROR){ // URGENT overwrite delete()-method and implement error handling!
+			if($error instanceof PEAR_ERROR){ // \bug URGENT overwrite delete()-method and implement error handling!
 				return BcmsSystem::raiseError($error, BcmsSystem::LOGTYPE_DELETE,
 				BcmsSystem::SEVERITY_ERROR, 'checkTransactions()'
 					,__FILE__, __LINE__);
@@ -111,31 +156,30 @@ class ContentManager extends AbstractManager {
 		if(isset($_POST['table_action_select_history_table'])){
 			$i = -1;
 			$actionFound = false;
-			$actions = $this->logicObj->getHistoryActions();
-			while($i < sizeof($actions) && !$actionFound){
+			$this->actions = $this->getHistoryActions();
+			while($i < sizeof($this->actions) && !$actionFound){
 				$i++;
-				if($_POST['table_action_select_history_table'] == $actions[$i][0])
+				if($_POST['table_action_select_history_table'] == $this->actions[$i][0])
 					$actionFound=true;
 			}
-			$methodName = 'check'.$actions[$i][2].'History';
+			$methodName = 'check'.$this->actions[$i][2].'History';
 			if(method_exists($this, $methodName))
 				return $this->$methodName();
 		}
-		
-		
+
+
 		if(isset($_POST['table_action_select_article_table'])
 //			&& !isset($_POST['action_chosen_article_table'])
 			){
 			$i = -1;
 			$actionFound = false;
-			$actions = $this->logicObj->getArticleActions();
-			while($i < sizeof($actions) && !$actionFound){
+			$this->actions = $this->getArticleActions();
+			while($i < sizeof($this->actions) && !$actionFound){
 				$i++;
-				if($_POST['table_action_select_article_table'] == $actions[$i][0])
+				if($_POST['table_action_select_article_table'] == $this->actions[$i][0])
 					$actionFound=true;
 			}
-			$methodName = 'check'.$actions[$i][2].'Article';
-			echo $methodName;
+			$methodName = 'check'.$this->actions[$i][2].'Article';
 			if(method_exists($this, $methodName))
 				return $this->$methodName();
 		}
@@ -158,28 +202,30 @@ class ContentManager extends AbstractManager {
 	}
 
 	/**
-	 * Checks whether a
+	 * Checks whether a comment shall be added
 	 *
 	 * @param enclosing_method_arguments
 	 * @return return_type
 	 * @author ahe
 	 * @date 20.10.2006 21:34:47
-	 * @package htdocs/plugins/content
 	 */
 	protected function checkForCommentAdded(){
 		if(!isset($_POST['comm_action'])) return;
 
-		if(!PluginManager::getPlgInstance('UserManager')->hasRight('COMMENT_WRITE'))
+		if(!BcmsSystem::getUserManager()->hasRight('COMMENT_WRITE'))
 		 	return BcmsSystem::raiseNoAccessRightNotice(
 				'POST[comm_action]',__FILE__, __LINE__);
 
-		$this->logicObj->addComment($_POST['comm_heading'],$_POST['comm_text'],
-			$_SESSION['mod']['oid'], $GLOBALS['ARTICLE_STATUS']['published'], // TODO use classifications for status!
-			$_POST['comm_author']);
-	 	return BcmsSystem::raiseNotice('comment "'.$_POST['comm_heading']
-	 	  	.'"added by '.$userObj->getUsername, BcmsSystem::LOGTYPE_CHECK,
-			BcmsSystem::SEVERITY_DEBUG,'POST[comm_action]'
+		$author = empty($_POST['comm_author']) ? null : $_POST['comm_author'];
+		if($this->logicObj->addComment($_POST['comm_heading'],$_POST['comm_text'],
+			$_SESSION['mod']['oid'], $GLOBALS['ARTICLE_STATUS']['published'], // @todo use classifications for status!
+			$author))
+		{
+		 	return BcmsSystem::raiseNotice('comment "'.$_POST['comm_heading']
+		 	  	.'"added by '.$userObj->getUsername, BcmsSystem::LOGTYPE_CHECK,
+				BcmsSystem::SEVERITY_DEBUG,'POST[comm_action]'
 		 	  	,__FILE__, __LINE__);
+		}
 	}
 
 	public function getCss($menuId=0){
@@ -190,7 +236,7 @@ class ContentManager extends AbstractManager {
 					."\n".'div#formatting_info dt { display:block; margin-top:1em;}'
 					.$this->logicObj->getCSS();
 			default:
-				return $this->logicObj->getCSS(); // TODO replace with own interpretation
+				return $this->logicObj->getCSS(); // @todo replace with own interpretation
 		}
 
 	}
@@ -201,7 +247,6 @@ class ContentManager extends AbstractManager {
 	 * @return string the current menu's name
 	 * @author ahe
 	 * @date 01.05.2006 00:20:33
-	 * @package htdocs/plugins/content
 	 */
 	public function getPageTitle() {
 
@@ -210,18 +255,18 @@ class ContentManager extends AbstractManager {
 			case 'list':
 				return '';
 			case 'listall':
-				$dictDAL = Factory::getObject('Dictionary')->getModel();
+				$dictDAL = BcmsSystem::getDictionaryManager()->getModel();
 				return $dictDAL->getTrans('articlesurvey');
 			case 'history':
 			case 'version':
-				$dictDAL = Factory::getObject('Dictionary')->getModel();
+				$dictDAL = BcmsSystem::getDictionaryManager()->getModel();
 				$articleData = $this->logicObj->getCurrentArticleData();
 				return $dictDAL->getTrans('articleHistoryOf').' "'.$articleData['heading'].'"';
 			case 'write':
 				if( !isset($_POST['abort_action'])
 				  && !isset($_POST['article_edit_submit']))
 				{
-				$dictDAL = Factory::getObject('Dictionary')->getModel();
+				$dictDAL = BcmsSystem::getDictionaryManager()->getModel();
 				return $dictDAL->getTrans('cont.WriteArticle');
 				} // if article is submitted the "break is missed" and the
 				  //  "show" function will be executed!
@@ -229,7 +274,7 @@ class ContentManager extends AbstractManager {
 				if( !isset($_POST['abort_action'])
 				  && !isset($_POST['article_edit_submit']))
 				{
-				return Factory::getObject('Dictionary')->getTrans('cont.EditArticle');
+				return BcmsSystem::getDictionaryManager()->getTrans('cont.EditArticle');
 				} // if article is submitted the "break is missed" and the
 				  //  "show" function will be executed!
 			case 'single':
@@ -243,10 +288,9 @@ class ContentManager extends AbstractManager {
 	/**
 	 * returns the MetaDescription of the current menu
 	 *
-	 * @return string
+	 * @return String
 	 * @author ahe
 	 * @date 01.05.2006 00:21:56
-	 * @package htdocs/plugins/content
 	 */
 	public function getMetaDescription() {
 		$articleData = $this->logicObj->getCurrentArticleData();
@@ -256,10 +300,9 @@ class ContentManager extends AbstractManager {
 	/**
 	 * returns the MetaKeywords of the current menu
 	 *
-	 * @return string
+	 * @return String
 	 * @author ahe
 	 * @date 01.05.2006 00:23:41
-	 * @package htdocs/plugins/content
 	 */
 	public function getMetaKeywords() {
 		$articleData = $this->logicObj->getCurrentArticleData();
@@ -274,39 +317,40 @@ class ContentManager extends AbstractManager {
 	}
 
 	private function checkChangeStatusArticle() {
+		if(!isset($_POST['content_id'])) return null;
 		$id=intval($_POST['content_id']);
 		$status = intval($_POST['status']);
-		$error = $this->articleDalObj->update(array('status'=>$status),'content_id = '.$id);
+		$error = $this->articleDalObj->update(array('status_id'=>$status),'content_id = '.$id);
 		if($error instanceof PEAR_ERROR){
 			return BcmsSystem::raiseError($error, BcmsSystem::LOGTYPE_SELECT,
-				BcmsSystem::SEVERITY_ERROR, 'checkTransactions()'
+				BcmsSystem::SEVERITY_ERROR, 'checkChangeStatusArticle()'
 				,__FILE__, __LINE__);
 		}
 		return true;
 	}
 
-	protected function createChangeStatusArticleDialog(){
-        if( !PluginManager::getPlgInstance('UserManager')->hasRight($this->plgCatConfig['change_status_right']) ) // TODO plg_cat_conf-edit_right should actually be checked here!
+	protected function createChangeStatusDialog(){
+        if( !BcmsSystem::getUserManager()->hasRight($this->plgCatConfig['change_status_right']) ) // @todo plg_cat_conf-edit_right should actually be checked here!
 		    return BcmsSystem::raiseNoAccessRightNotice(
 				'createChangeStatusArticleDialog()',__FILE__, __LINE__);
 
 		$result = HTMLTable::getAffectedIds();
 		$id=$result[0];
 		$articleObj = $this->articleDalObj->getObject($id);
-		$parser = BcmsFactory::getInstanceOf('Parser');
-		$articleObj= $parser->stripArrayFieldsInverse($articleObj,array('content_id','status'));
+		$parser = BcmsSystem::getParser();
+		$articleObj= $parser->stripArrayFieldsInverse($articleObj,array('content_id','status_id'));
 		$form = $this->articleDalObj->getForm('articleeditstatusform','editArticleStatus'
-			,Factory::getObject('Dictionary')->getTrans('save'),$articleObj);
-		$form->addElement('hidden','table_action_select_article_table','status');
+			,BcmsSystem::getDictionaryManager()->getTrans('save'),$articleObj);
+		$form->addElement('hidden','table_action_select_article_table','status_id');
 		$form->addElement('hidden','dialog_submit','1');
 		return $form->toHTML();
 	}
 
 	protected function createDeleteHistoryDialog(){
-		// TODO check right for delete history action!
+		// @todo check right for delete history action!
 		include_once 'pear/HTML/QuickForm.php';
 		$result = HTMLTable::getAffectedIds();
-		$parser = BcmsFactory::getInstanceOf('Parser');
+		$parser = BcmsSystem::getParser();
 		$retStr = '';
 		$action_url = $parser->getServerParameter('REDIRECT_URL');
 		$form = new HTML_QuickForm('delete_elements','post',$action_url);
@@ -316,15 +360,15 @@ class ContentManager extends AbstractManager {
 			if($retStr!='') $retStr .= ', ';
 			$retStr .= $id;
 		}
-		$heading = Factory::getObject('Dictionary')->getTrans('dict.h.deleteEntries');
-		$question =	Factory::getObject('Dictionary')->getTrans('really_delete');
+		$heading = BcmsSystem::getDictionaryManager()->getTrans('dict.h.deleteEntries');
+		$question =	BcmsSystem::getDictionaryManager()->getTrans('really_delete');
 		$retStr = $question."<br/>\n".$retStr;
 
 		$element = $form->addElement('submit','submit_deletion',
-			Factory::getObject('Dictionary')->getTrans('submit'), 'id="submit_deletion"');
+			BcmsSystem::getDictionaryManager()->getTrans('submit'), 'id="submit_deletion"');
 		$element->setLabel('&nbsp;');
 		$element = $form->addElement('submit', 'abort_action',
-			Factory::getObject('Dictionary')->getTrans('cancel'), 'id="abort_action"');
+			BcmsSystem::getDictionaryManager()->getTrans('cancel'), 'id="abort_action"');
 		$element->setLabel('&nbsp;');
 		return $retStr.$form->toHTML();
 	}
@@ -345,15 +389,83 @@ class ContentManager extends AbstractManager {
 	public function printCategoryConfigForm($catId){
 		$cols = $this->configDalObj->getObject($catId);
 		$form = $this->configDalObj->getForm('catconfigform','cat_config_submit'
-			,Factory::getObject('Dictionary')->getTrans('save'), $cols);
+			,BcmsSystem::getDictionaryManager()->getTrans('save'), $cols);
 		if(count($cols)<1){
 		  $form->addElement('hidden', 'new_record');
 		}
 		$heading =
-			Factory::getObject('GuiUtility')->createHeading(3,
-				Factory::getObject('Dictionary')->getTrans(
+			BcmsFactory::getInstanceOf('GuiUtility')->createHeading(3,
+				BcmsSystem::getDictionaryManager()->getTrans(
 				'h.category_plugin_config'));
 		return $heading.$form->toHtml();
 	}
+
+	/**
+	 * Lists all content objects according to filter
+	 * @return String - rendered html
+	 */
+	protected function getCompleteList()
+	{
+		if(isset($_POST['table_action_select_article_table'])
+			&& !isset($_POST['dialog_submit']))
+		{ // AHE: The field 'dialog_submit' must be added to each dialog
+				$dialog = $this->performListAction('article_table');
+				if($dialog!=null) return $dialog;
+		}
+		// ...else print general table overview
+
+		if( !BcmsSystem::getUserManager()->hasViewRight() )
+			return BcmsSystem::raiseNoAccessRightNotice('getCompleteList()',__FILE__, __LINE__);
+
+		$tableObj = new HTMLTable('article_table');
+		$tableObj->setTranslationPrefix('cont.');
+		$tableObj->setActions($this->getArticleActions());
+		$tableObj->setBounds('page',null,$this->articleDalObj->getNumberOfEntries());
+		$limit = $tableObj->getListLimit();
+		$offset = $tableObj->getListOffset();
+
+		// prepare searching
+		list($searchphrase,$offset,$limit) = $tableObj->setSearchBehaviour(true);
+
+		$articles = $this->articleDalObj->getAllArticlesList(null,null,null,$limit,$offset,$searchphrase);
+		$articles = $this->prepareArticleListValues($articles);
+		$tableObj->setData($articles);
+		unset($articles);
+
+		$showForm=BcmsSystem::getUserManager()->hasRight($this->plgCatConfig['edit_right']);
+		return $tableObj->render(PluginManager::getPlgInstance('Dictionary')->getTrans('articlesurvey'),
+		'content_id', $showForm);
+	}
+
+	/**
+	 * Prepares values of specified array for list view
+	 *
+	 * @param Array articles - array containing data for list view
+	 * @return Array - contains same as input array but with prepared values
+	 * @author ahe
+	 * @date 16.12.2006 02:04:23
+	 */
+	protected function prepareArticleListValues($articles) {
+		for ($i = 0; $i < count($articles); $i++) {
+			$h_id = '';
+			foreach($articles[$i] as $key => $value) {
+				if($key == 'heading') {
+					$value = BcmsFactory::getInstanceOf('GuiUtility')->createAnchorTag('show/'.$h_id
+					,$value);
+				}
+				if($key == 'author') {
+					$value = BcmsFactory::getInstanceOf('GuiUtility')->createAuthorName($value);
+				}
+				if($key == 'status_id') {
+					$value = PluginManager::getPlgInstance('Dictionary')->getStatusTrans($value);
+				}
+				$articleArr[$i][$key] = $value;
+				if($key == 'content_id')
+				$h_id = $value;
+			}
+		}
+		return $articleArr;
+	}
+
 }
 ?>

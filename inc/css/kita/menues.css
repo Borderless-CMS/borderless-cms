@@ -1,0 +1,74 @@
+/** DEFINITION OF ALL MENU RELEVANT CSS **/
+div#menusection {}
+div#menusection a { behavior: url(/css/iepngfix.htc);}
+
+div#menusection ul { list-style:none;}
+div#mainmenu li {
+	margin:0.2em 0px;
+	padding:0.5em 1em;
+	padding-left:2.2em;
+	background:#bd0000 url('arrow.gif') no-repeat 0.9em 0.85em;
+}
+div#mainmenu li.selected {background:#bd0000 url('plus.gif') no-repeat 0.9em 0.8em;}
+
+div#mainmenu li ul li,
+div#mainmenu li ul li.selected {
+	padding-left:1.4em;
+	font-size:0.9em;
+	background-position:0em 0.85em;
+}
+div#mainmenu a {
+	font-size:1em;
+	color:#fff;
+	font-weight:bold;
+	text-transform:uppercase;
+	font-size:0.95em;
+	text-decoration:none;
+}
+
+/* USERMENU */
+div#usermenu h2 { display:block; position:static; font-size:1.1em;
+	background-color:#4C6F00; color: #fff; padding:2px 4px;
+}
+div#usermenu, div#adminmenu {
+	background-color:#DFFF9F;
+	border-bottom:1px solid #999;
+}
+
+div#adminmenu li,
+div#usermenu li {
+	padding:3px 0px;
+	padding-left:2.2em;}
+div#adminmenu li a,
+div#usermenu li a {
+	padding:2px 0px;
+}
+div#logged_in_as {
+	background-color:#7eaa23;
+	padding:0.5em;
+	padding-top:0.8em;
+	color:#fff;
+	border-top:0.8em solid #b8de6d;
+}
+a#showHideMenu { display:none;}
+
+
+/* SYSTEMMENU */
+div#menusection div#systemmenu {
+	text-align:right;
+	position:absolute;
+	top:0.5em;
+	left:320px;
+	margin:0px;
+	padding:0px;
+	width:600px;
+	font-size:1em;
+	color:#666;
+}
+div#systemmenu h2 { position:absolute; left:-3000px;}
+div#systemmenu ul 		{ display:inline; text-indent: 0px; }
+div#systemmenu ul li 	{ display:inline; padding:2px; padding-left:3em; border:0px; text-indent:0px; }
+div#systemmenu ul li a	{ text-decoration:none; border:0px; color:#444;	font-weight:normal;}
+div#systemmenu ul li a:hover	{ text-decoration:underline; }
+
+div#menusection a.small_link { font-size: 0.8em; font-weight:normal; text-transform:none;}

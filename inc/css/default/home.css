@@ -1,0 +1,204 @@
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*  CSS-Layout for home-section of borderLeSS CMS
+*                 ------------
+*  This CSS-File is copyright by goldstift. Feel free to take this as lecture
+*  though I don't think that anyone can use it. I think I was kind of too much
+*  in perfection-mode when I created the DOM of my cms. *hehe*
+*  But, well, what I gained is very near to FULL FLEXIBILITY... ;-)
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+
+div#homecontent {
+  padding: 0px;
+}
+
+div.content {
+  margin-bottom: 15px;
+}
+div.content:hover {
+}
+
+h3.storyheader {
+  margin-top: 15px;
+  background-color:#036;
+  color: #fff;
+  padding:2px 4px;
+}
+h3.storyheader span {
+}
+div#edit_article_icon {
+}
+
+div#edit_article_icon img,
+div#edit_article_icon a {
+	border: 0px;
+}
+
+div.storycontent {
+  padding: 5px;
+}
+div.storycontent span {
+}
+div.storycontent span.content {
+}
+div.storycontent span.content span.sr_desc {
+  display:none;
+}
+div.storycontent span.content span.sr_desc strong {
+}
+div.storycontent span.content a {
+}
+div.storycontent span.content img {
+  margin: 15px;
+  border:1px solid #000;
+}
+div.storycontent span.description {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  display:block;
+}
+div.storycontent span.description span.sr_desc {
+  display:block;
+}
+div.storycontent span.description span.sr_desc strong {
+}
+
+/* images inside of the articles */
+div.storycontent span #Image1 {
+}
+div.storycontent span #Image2 {
+}
+div.storycontent span #Image3 {
+}
+div.storycontent span #Image4 {
+}
+div.storycontent span #Image5 {
+}
+/* and so on */
+
+div.story_info {
+  clear:both;
+}
+div.story_info span.author {
+  margin-left: 5px;  
+}
+div.story_info span.author span.sr_desc {
+}
+div.story_info span.author a {
+}
+
+div.story_info span.edate {
+  display:block;
+  margin-left: 15px;
+}
+div.story_info span.edate span.sr_desc {
+  margin-right: 5px;
+}
+div.story_info span.vdate {
+  display:block;
+  margin-left: 15px;
+}
+div.story_info span.vdate span.sr_desc {
+  margin-right: 5px;
+}
+
+div.story_info span.editor {
+  display:none;
+}
+div.story_info span.editor span.sr_desc {
+}
+div.story_info span.editor a {
+}
+div.story_info span.editdate {
+  display:none;
+}
+div.story_info span.editdate span.sr_desc {
+}
+
+
+/* LATEST SECTION */
+
+div#homecontent div#latestContent h3.menuheader {
+  border-top:0px;
+  margin: 0px 2px 0px 0px;
+  text-align: left;
+}
+div#homecontent div#latestContent h3.menuheader span {
+}
+
+div#latestContent  form#latestForm {
+  text-align:left;
+}
+div#latestContent  form#latestForm div#latest_type {
+margin:2px 2px;
+}
+div#latestContent  form#latestForm div#latest_type select {
+  width:130px;
+}
+div#latestContent  form#latestForm div#latest_type select option {
+}
+
+div#latestContent  .latestcont {
+}
+
+div#latestContent  .latestcont h4.latestheader {
+  margin: 12px 0px 3px 0px;
+  background-color:#ffcb63;
+}
+div#latestContent  .latestcont h4.latestheader span {
+  margin-left:5px;
+}
+
+div#latestContent  .latestcont p.latestcontent {
+  margin-left:10px;
+}
+div#latestContent  .latestcont p.latestcontent span {
+}
+div#latestContent  .latestcont p.latestcontent a {
+/* Link [mehr] bringt den User zum Artikel */
+}
+
+div#latestContent  .latestcont p.latestinfo  {
+  margin:10px;
+  margin-bottom:20px;
+  background-color: #fff;
+  padding:2px;
+  background-color: #e4e4e4;
+  border:2px solid #ccc
+}
+div#latestContent  .latestcont p.latestinfo  span.author {
+  padding-left: 12px;
+  background-image: url("bullet_double.gif");
+  background-repeat:  no-repeat;
+}
+div#latestContent  .latestcont p.latestinfo  span.date {
+  padding-left: 5px;
+}
+
+div#latestContent  #latestcont1 {
+}
+div#latestContent  #latestcont2 {
+}
+div#latestContent  #latestcont3 {
+}
+div#latestContent  #latestcont4 {
+}
+div#latestContent  #latestcont5 {
+}
+
+div#use_text_version {
+  position:absolute;
+  top:230px;
+  left:30px;
+  width:220px;
+  z-index:999;
+  border: 0px;
+  padding: 2px;
+  z-index:999;
+  margin: 0px 0px 5px 0px;
+  
+}
+div#use_text_version p {
+  text-align:justify;
+}

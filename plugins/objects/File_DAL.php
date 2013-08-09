@@ -1,9 +1,23 @@
-<?php
-
-/*
- * Adapt singleton pattern to all parallel classes!
+<?php if(!defined('BORDERLESS')) { header('Location: / ',true,403); exit(); }
+/* Borderless CMS - the easiest and most flexible way to a valid website
+ *   (c) 2004-2007 Alexander Heusingfeld <aheusingfeld@borderlesscms.de>
+ *   Distributed under the terms and conditions of the GPL as stated in /license.txt
+ * EXCLUSION:
+ *   The files in the folder /pear/* are part of the PHP PEAR Project and are therefore
+ *   distributed under the terms and conditions of the PHP License as stated in /pear/LICENSE
  */
 
+/**
+ *
+ * @todo document this
+ *
+ * @since 0.9
+ * @author ahe <aheusingfeld@borderlessscms.de>
+ * @date 2006-01-11
+ * @class File_DAL
+ * @ingroup files
+ * @package files
+ */
 class File_DAL extends DataAbstractionLayer {
 
 	// needed for use of Singleton
@@ -139,6 +153,10 @@ class File_DAL extends DataAbstractionLayer {
 			'order'  => 'object_importdate DESC',
 			'fetchmode' => DB_FETCHMODE_ASSOC
 		),
+		'nextAndPrevious' => array(
+			'select' => 'object_id, object_filename, object_shortdesc',
+			'fetchmode' => DB_FETCHMODE_ASSOC
+		),
 		'list_by_shortdesc' => array(
 			'select' => 'object_id, object_filename, object_shortdesc, object_type, object_width, object_height',
 			'order'  => 'object_importdate DESC',
@@ -150,8 +168,8 @@ class File_DAL extends DataAbstractionLayer {
 		'object_importdate','object_import_user');
 
 	public $elementsToFreeze = array(
-		'object_id','object_type','object_filename','object_folder',
-		'object_smallimage_filename','object_width','object_height'
+	'object_id','object_type','object_filename','object_folder',
+	'object_smallimage_filename','object_width','object_height','object_import_user'
 	);
 
 	/**
@@ -159,6 +177,9 @@ class File_DAL extends DataAbstractionLayer {
 	 * @access protected
 	 */
 	protected $categoryTechname = null;
+	protected $primaryKeyColumnName = 'object_id';
+
+
 
 /*
  * Declaration of methods
@@ -186,7 +207,7 @@ class File_DAL extends DataAbstractionLayer {
 					'object_width, object_height, object_smallimage_filename, ' .
 					'object_origin, object_author, object_created, ' .
 					'object_importdate, CONCAT(user.nachname, \',\', user.vorname) as object_import_user, ' .
-					'obj.object_import_user as object_import_user_id',
+					'obj.object_import_user',
 			'from' => $this->table.' as obj, ',
 			'join' => BcmsConfig::getInstance()->getTablename('user').' as user ',
 			'where' => ' obj.object_import_user = user.user_id ',
@@ -202,7 +223,7 @@ class File_DAL extends DataAbstractionLayer {
 	public function checkSpecialFields(&$p_aCols, $func) {
 
 			if($func=='insert') $p_aCols['object_id'] = $this->nextID();
-			$p_aCols['object_import_user'] = PluginManager::getPlgInstance('UserManager')->getLogic()->getUserID();
+			$p_aCols['object_import_user'] = BcmsSystem::getUserManager()->getUserId();
 			$p_aCols['object_importdate'] = date('YmdHis');
 /* 20051026 AHE: Wird erst gesetzt, wenn hidden fields mit IDs statt werten gefuellt werden
 			$p_aCols['object_type'] = "";
@@ -221,18 +242,22 @@ class File_DAL extends DataAbstractionLayer {
 	 * @author ahe
 	 * @return array
 	 */
-	public function getList($offset=null,$limit=null,$where=null,$searchphrase=null, $order_by=null, $order_dir=null)
+	public function getList($folder,$offset=null,$limit=null,$where=null,$searchphrase=null, $order_by=null, $order_dir=null)
 	{
+		if(!empty($folder)) {
+			if(!empty($where)) $where .= ' AND ';
+			$where .= ' obj.object_folder='.$this->db->quote($folder);
+		}
 		$this->sql['list_small'] = array(
 			'select' => 'obj.object_id, obj.object_filename , object_shortdesc '
-					.', obj.object_type , obj.object_importdate , user.username AS object_import_user',
+					.', obj.object_importdate , user.username AS object_import_user',
 			'from' => $this->table.' as obj, ',
 			'join' => BcmsConfig::getInstance()->getTablename('user').' as user ',
-			'where' => ' obj.object_import_user = user.user_id ',
+			'where' => ' obj.object_import_user = user.user_id',
 			'order'  => 'object_filename ASC',
 			'fetchmode' => DB_FETCHMODE_ASSOC
 		);
-		return parent::getList($offset,$limit,$where, $order_by,$order_dir,$searchphrase,'om.',' obj.','list_small');
+		return parent::getList($offset, $limit, $where, $order_by, $order_dir, $searchphrase,'om.',' obj.','list_small');
 	}
 
 	protected function getSearchableFieldsArray()
@@ -258,7 +283,11 @@ class File_DAL extends DataAbstractionLayer {
 
 	public function getObject($id) {
 		$row = $this->select('list_everything','object_id='.$id);
-		return $row[0];
+		if(count($row)>0){
+			return $row[0];
+		} else {
+			return null;
+		}
 	}
 
 	public function getObjectIdByWhere($where) {
@@ -267,7 +296,11 @@ class File_DAL extends DataAbstractionLayer {
 			'fetchmode' => DB_FETCHMODE_ASSOC
 		);
 		$row = $this->select('getId',$where);
-		return $row[0];
+		if(count($row)>0){
+			return $row[0];
+		} else {
+			return 0;
+		}
 	}
 
 	public function getObjectFilenameById($id) {
@@ -294,30 +327,41 @@ class File_DAL extends DataAbstractionLayer {
 		return $row[0][1].$row[0][0];
 	}
 
-	// TODO Unbedingt Zustaendigkeiten besser verteilen! Plugin sollte sowas nicht machen muessen!
+	public function checkFilenameExists($filename) {
+		$this->sql['checkExists'] = array(
+			'select' => 'object_id'
+		);
+		$row = $this->select('checkExists',
+			'object_filename = '.$this->quote($filename).' OR '.
+			'object_smallimage_filename = '.$this->quote($filename));
+		return !empty($row);
+	}
+
+	// @todo Unbedingt Zustaendigkeiten besser verteilen! Plugin sollte sowas nicht machen muessen!
 	public function getPluginsCatName() {
 		if(empty($this->categoryTechname)) {
 			$confInst = BcmsConfig::getInstance();
 			$sql = 'SELECT cat.techname '.
 				'FROM '.$confInst->getTablename('menu').' as cat ' .
 				'JOIN '.$confInst->getTablename('modentries').' as modentries '.
-				' ON cat.type = modentries.me_id '.
+				' ON cat.fk_type_id = modentries.me_id '.
 				'JOIN '.$confInst->getTablename('plugins').' as plugins '.
 				' ON modentries.fk_module = plugins.module_id '.
-				'WHERE plugins.classname = \'ObjectManager\'';
+				'WHERE plugins.classname = \'FileManager\'';
 		 	$result = $GLOBALS['db']->query($sql);
-			if ($result instanceof PEAR_ERROR)
+		 	if ($result instanceof PEAR_ERROR)
 				return BcmsSystem::raiseError($result, BcmsSystem::LOGTYPE_SELECT,
-					BcmsSystem::SEVERITY_ERROR, 'getPluginsCatName()',__FILE__, __LINE__);
+				BcmsSystem::SEVERITY_ERROR, 'getPluginsCatName()',__FILE__, __LINE__);
 
 		 	$numrows = $result->numRows();
 		 	if($numrows<1) return '';
 
-			$record = $result->fetchRow(DB_FETCHMODE_ASSOC);
-			$result->free();
-			$this->categoryTechname = $record['techname'];
+		 	$record = $result->fetchRow(DB_FETCHMODE_ASSOC);
+		 	$result->free();
+		 	$this->categoryTechname = $record['techname'];
 		}
 		return $this->categoryTechname;
 	}
+
 }
 ?>

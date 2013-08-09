@@ -1,0 +1,21 @@
+/* This CSS file holds the settings of default (small) font-size
+ *
+ */
+body {
+	font-size: 16px;
+}
+h1 {
+  font-size: 24px;
+}
+h2 {
+  font-size: 20px;
+}
+h3 {
+  font-size: 18px;
+}
+h4 {
+  font-size: 16px;
+}
+h5, h6 {
+  font-size: 16px;
+}

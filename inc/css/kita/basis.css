@@ -1,0 +1,77 @@
+/** This style sheet is only for css definitions for STANDARD HTML TAGS */
+
+body {	font-family:tahoma,geneva,arial,helvetica,sans-serif; }
+* {	margin:0px;	padding:0px; line-height:1.4em; }
+
+/* some standard tags */
+img { behavior: url(../iepngfix.htc); }
+p { margin: 1.5em 0px; }
+abbr, acronym, address { font-style:normal; }
+code	{
+	font-family: Courier, monospace;
+	font-size:1em;
+	font-weight:bold;
+}
+dt	{	font-weight:bold;}
+dl  {	font-size:1em; font-weight:normal; }
+q	{
+	quotes: '\0000BB' '\0000AB' '\00203A' '\002039';
+	font-style: normal;
+	color:#525b6e;
+}
+a,strong, p, i, em { font-size:1em; }
+.italic, i, em { font-style: italic; }
+code {
+	color:#00c;
+	font-family:"courier new",courier;
+	font-size:1em;
+	background-color:#d0d0d0;
+	padding:1em;
+	border:1px solid #666;
+	margin:1em 0em;
+	display:block;
+}
+blockquote, q {
+	border-left:3px solid #666;
+	background-color:#e0e0e0;
+	padding:1em;
+	font-size:1em;
+	font-style: italic;
+	display:block;
+}
+cite {
+	background:transparent url(quote_wh.gif) no-repeat;
+	padding:5px 2em;
+	font-size:1em;
+	font-style: italic;
+	display:block;
+}
+cite span.cite_end{
+	background:transparent url(quote_wh.gif) no-repeat top right;
+	padding:0px 10px;
+	padding-top:5px;
+}
+h1 { font-size:2.0em; }
+h2 { font-size:1.9em; }
+h3 { font-size:1.8em; }
+h4 { font-size: 1.2em; }
+h5, h6 { font-size: 1.1em; }
+h1, h2 {
+ font-family:Georgia,"Times New Roman",serif;
+ font-weight: normal;
+}
+h3, h4, h5, h6 {
+ font-family:Tahoma,geneva,arial,helvetica,sans serif;
+ font-weight:bold;
+ letter-spacing:0em;
+ margin-top:2em;
+ margin-bottom:0.8em;
+}
+h3 { font-weight:normal; }
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+ text-decoration:none;
+}
+
+a { color:#bd0000; }
+a:hover { color:#ed6000; text-decoration:underline; }
+a img, a:hover img, a:focus img	{ border:none; }

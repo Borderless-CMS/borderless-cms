@@ -1,0 +1,20 @@
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*  CSS-Layout for register-section of borderLeSS CMS
+*                 ----------------
+*  This CSS-File is copyright by goldstift. Feel free to take this as lecture
+*  though I don't think that anyone can use it. I think I was kind of too much
+*  in perfection-mode when I created the DOM of my cms. *hehe*
+*  But, well, what I gained is very near to FULL FLEXIBILITY... ;-)
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+div#user_agreement {
+}
+
+div#user_agreement ul, 
+div#user_agreement ul li {
+  margin:15px 10px;
+}
+div#user_agreement span {
+  display:block;
+  margin:15px 0px;
+}

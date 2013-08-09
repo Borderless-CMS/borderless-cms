@@ -1,0 +1,21 @@
+/* This CSS file holds the settings of default (small) font-size
+ * for ALL ELEMENTS!!!
+ */
+body, p, table, th, td, input, select, textarea, button, label {
+	font-size: 11px;
+}
+h1 {
+  font-size: 16px;
+}
+h2 {
+  font-size: 14px;
+}
+h3 {
+  font-size: 12px;
+}
+h4 {
+  font-size: 11px;
+}
+h5, h6 {
+  font-size: 10px;
+}

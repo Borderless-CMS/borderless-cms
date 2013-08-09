@@ -1,0 +1,176 @@
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*  CSS-Default-Layout for www.goldstift.de
+*
+*  This CSS-File is copyright by goldstift. Feel free to take this as lecture
+*  though I don't think that anyone can use it. I think I was kind of too much
+*  in perfection-mode when I created the DOM of my cms. *hehe*
+*  But, well, what I gained is very near to FULL FLEXIBILITY... ;-)
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+/* ----------------------------------------------------------------------
+*  general element-definitions - in no order
+* ----------------------------------------------------------------------*/
+/* Allgemeine Definition und eigene, allgemeine Klassen */
+/*  __BEGIN__          H E A D E R                */
+* { margin:0px; padding:0px;}
+
+html {	font-size:0.6em;}
+div#footer dl,
+div#skipLink,
+.unsichtbar { position:absolute;left:-3000px;}
+
+body {
+  font-size:1em;
+  font-family: Tahoma,"MS Trebuchet",arial,helvetica,san-serif;
+  color:#000;
+	padding:0px;
+	background:#b8d3ff;
+}
+
+h1,h2,h3,h4,h5 {
+	margin:0px;
+	font-size:1.1em !important;
+  font-family: Tahoma,arial,helvetica,san-serif !important;
+	background-color:#446eb3;
+	border-bottom:5px solid #619eff;
+	color:#ffffff;
+}
+h1 *,h2 *,h3 *,h4 *,h5 * {
+	padding:0.2em 0.4em;
+	border-top:1px solid #446eb3;
+	border-right:1px solid #446eb3;
+	border-bottom:0px;
+	background-color:#619eff;
+	color:#ffffff;
+}
+h3.table_list_heading { margin:0em; }
+table{ width:100%}
+div#horizon {
+	margin:0px;
+	background:transparent;
+}
+div#container {
+	background:transparent;
+}
+div#allcontent div#articles,
+div#allcontent div#articles.logged_in {
+	padding:0px;
+	border:0px;
+	margin:0px;
+	background-color:#b8d3ff;
+	/* small 3D effect */
+	border-top:2px solid #333366;
+	border-left:2px solid #666;
+	border-right:2px solid #fff;
+	border-bottom:2px solid #fff;
+}
+div#welcome_div {
+  background: #446eb3;
+  height:100px;
+  margin:0px;
+}
+div#welcome_div *{ display:none;}
+/*  __END__            H E A D E R                */
+
+/*  __BEGIN__          P O S I T I O N I N G                */
+/* ----------------------------- Inhaltsspalten ---------------------------- */
+
+div#horizon {
+  margin:0;
+  background-color:#fff;
+  border: 1px solid #dfdfdf
+}
+div#container {
+	float:left;
+	width:100%;
+	margin-bottom:2em;
+}
+div#leftside {
+	float:left;
+	width:100%;
+	margin:0px;
+	padding:0px;
+	padding-top:20px;
+}
+div#menusection	{
+	float:left;
+	width:25%;margin-top:3em;font-size:1em;
+}
+#allcontent	{
+	float:right;
+	width:73%;
+}
+
+div#opt_components	{
+	display:none;
+}
+div#footer	{
+clear:both;
+}
+h2#pathway {	position:absolute;	top:20px;	left:0px; 	font-size:2em !important; 	border:0px;	background-color:transparent; }
+h2#pathway * {	border:0px;	background-color:transparent;	color:#e4e4e4; text-decoration:none;}
+/*  __END__            P O S I T I O N I N G                */
+
+/*  __BEGIN__          F O R M S                */
+div#allcontent div#articles form {padding-left:1em;}
+div#allcontent div#articles form.table_action {padding:0px;}
+input, select, textarea {
+	font-family:Tahoma,arial,helvetica,sans-serif;
+	background-color:#fff;
+	border:1px solid #90a0d0;
+	position:relative;
+	left:-3px;
+}
+input:focus { 	background-color:#fffb8d;}
+fieldset {
+	font-weight:normal;
+	margin:2em 0em;
+	border:1px solid #446eb3;
+	padding:0.5em;
+}
+fieldset legend {
+	font-weight:bold;
+	font-size:1.2em;
+	padding:0.1em 0.3em;
+	border:1px solid #446eb3;
+	background-color:#619eff;
+	color:#fff;
+}
+/*  __END__            F O R M S                */
+
+/*  __BEGIN__          M E N U                */
+div#systemmenu {display:none;}
+div#menusection div {
+		border:1px solid #d0d0d0;
+	background-color:#fff;
+}
+div#menusection div h2{
+	margin:0px;
+	padding:0px;
+	background-color:#619eff;
+	border:1px solid #446eb3;
+	color:#ffffff;
+	font-family:inherit;
+}
+div#menusection div ul li{
+	border:0px;
+	padding-top:0px;
+	padding-bottom:0px;
+}
+div#menusection div ul li a {
+	font-weight:normal;
+	color:#333;
+}
+
+div#logged_in_as {
+	position:absolute;
+	top:110px;
+	width:500px;
+	margin-left:0.5em;
+	background:transparent !important;
+	border:0px !important;
+}
+div#logged_in_as a#showHideMenu {display:none;}
+/*  __END__          M E N U                */
+

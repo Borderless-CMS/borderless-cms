@@ -1,0 +1,567 @@
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*  CSS-Default-Layout for www.goldstift.de
+*
+*  This CSS-File is copyright by goldstift. Feel free to take this as lecture
+*  though I don't think that anyone can use it. I think I was kind of too much
+*  in perfection-mode when I created the DOM of my cms. *hehe*
+*  But, well, what I gained is very near to FULL FLEXIBILITY... ;-)
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+/* ----------------------------------------------------------------------
+*  general element-definitions - in no order
+* ----------------------------------------------------------------------*/
+html, body, div, span, ul, li, p, a, h1, h2, h3, h4, h5, h6,
+form, input, select, textarea
+{
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+  margin:0px;
+  padding:0px;
+  text-align:left;
+}
+
+body {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+  background-color: #9E1B2C;
+  color:#000;
+  text-align:center;
+}
+body, p, table, th, td, input, select, textarea, button, label {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	color:#000;
+}
+p {
+}
+form {
+}
+input, select, textarea {
+  width:auto;
+}
+h1, h2, h3, h4, h5, h6 {
+}
+h1 {
+}
+h2 {
+}
+h3 {
+}
+h4 {
+}
+h5, h6 {
+}
+a:link,
+a:visited {
+	color:#fff;
+	text-decoration:none;
+}
+a:hover {
+}
+a:visited {
+}
+
+/* ----------------------------------------------------------------------*/
+/*  general class-definitions - in order of appearance                   */
+/* ----------------------------------------------------------------------*/
+
+/* a general class making element invisible but readable for screenreaders */
+.unsichtbar {
+	display:none;
+}
+
+/* a general class important for dialogs */
+.dialog {
+  position:absolute;
+  top:0px;
+  left:0px;
+  width:2048px;
+  height:1600px;
+  z-index:99999999999;
+  background-image:url('/inc/gfx/blank.gif');
+}
+/* a general class important for dialogs */
+.dialogbox {
+  position:absolute;
+  top:50px;
+  left:50px;
+  width:400px;
+  z-index:9999999999999;
+  border:1px solid #666;
+  background-color:#ccc;
+  padding:2px;
+}
+.dialogbox form
+{
+  padding:5px;
+  background-color:#eee;
+}
+
+.dialogbox form textarea
+{
+	width:250px;
+	height:80px;
+}
+
+.dialogbox form input,
+.dialogbox form select
+{
+	width:auto;
+	height:auto;
+}
+
+span.sr_desc {
+  /* displays additional information for screenreaders */
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    I N T R O P A G E
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+body#introbody {
+
+}
+div#intromessage {
+}
+div#intromessage a {
+}
+div#intromessage a span {
+}
+
+
+/* ----------------------------------------------------------------------
+*
+*              main-divs - in order of appearance
+*
+* ----------------------------------------------------------------------*/
+
+/* ganz aeusserer Rahmen */
+div#horizon {
+	margin:0px auto;
+	width:550px;
+	text-align:left;
+	background-color:#A9555A;
+}
+
+ul#valid_xhtml {
+list-style:none;
+clear:both;
+}
+ul#valid_xhtml li {
+  display:inline;
+}
+ul#valid_xhtml a {
+  margin-right:10px;
+}
+div#valid_xhtml a:before {
+  content:"[";
+}
+div#valid_xhtml a:after {
+  content:"]";
+}
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    C O N T A I N E R - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* innerhalb von horizon, enthaelt fast alle anderen divs */
+div#container {
+}
+h1#welcome {
+	display:none;
+}
+h1#welcome span {
+}
+
+div#skipContent {
+	display:none;
+}
+
+div#site_usage {
+  /* displays usage information on the site for visually handicapped people
+     who are using screenreaders
+     Normal: Contains a link
+     When clicked: Contains info text
+  */
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    M E N U - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+div#menusection {
+}
+html > body div#menusection {
+/* correct positioning for DOM compatible Browser like Firefox */
+}
+
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    S Y S T E M M E N U - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+div#menusection div#systemmenu {
+	display:none;
+}
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    M A I N M E N U - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+div#menusection div#mainmenu {
+margin-bottom:20px;
+}
+div#mainmenu h3 {
+	background:#A9555A url('logo.gif') no-repeat left;
+	margin: 1px 0px;
+	height:97px;
+	color:#fff;
+	padding: 1px 5px;
+	letter-spacing:0.2em;
+}
+div#mainmenu h3 span {
+	display:none;
+}
+div#mainmenu span#mm_no_elements {
+	display:block;
+	background-color:#993439;
+	margin: 1px 0px;
+}
+div#mainmenu ul {
+	margin: 1px 0px;
+	list-style:none;
+}
+div#mainmenu ul li {
+	background-color:#993439;
+	margin: 1px 0px;
+	padding: 1px 5px;
+	text-transform:lowercase;
+}
+div#mainmenu ul li:hover {
+	background-color:#5E000D;
+}
+div#mainmenu ul li a {
+	color:#fff;
+	text-decoration:none;
+}
+div#mainmenu ul li a:hover {
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    S U B M E N U - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+
+div#menusection div#submenu {
+	position:absolute;
+	top:200px;
+}
+div#submenu h3 {
+}
+div#submenu h3 span {
+	display:none;
+}
+div#submenu span#sm_no_elements {
+	display:none;
+}
+div#submenu ul {
+	list-style:none;
+}
+div#submenu ul li {
+	margin: 1px 0px;
+	padding: 1px 0px 0px 15px;
+	text-transform:lowercase;
+}
+div#submenu ul li a {
+	color:#fff;
+	text-decoration:none;
+}
+div#submenu ul li a:hover {
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    E R R O R - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+div#systemmsg {
+}
+
+div#systemmsg h2#systemmsgheading {
+}
+div#systemmsg h2#systemmsgheading span {
+}
+div#systemmsg div#systemmessage {
+}
+div#systemmsg div#systemmessage span {
+}
+div#systemmsg div#systemmsg_weiter {
+}
+div#systemmsg div#systemmsg_weiter span {
+}
+div#systemmsg div#systemmsg_weiter span a {
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                  A L L C O N T E N T - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+div#allcontent {
+	float:right;
+	width:50%;
+	height:auto;
+	background-color:#fff;
+	padding:5px;
+	padding-top:120px;
+	background:#fff url('kornfeld.jpg') no-repeat left top;
+}
+div#allcontent a {
+	color:#993439;
+}
+div#allcontent div#articles {
+clear:both;
+}
+
+h2#pathway {
+	margin:10px 0px;
+}
+h2#pathway span.sr_desc {
+  /* displays the additional screenreader info.
+     The class in general is described above.
+  */
+}
+h2#pathway span#pathway_links {
+}
+h2#pathway span#pathway_links a {
+}
+
+div#menu_description {
+	margin:20px 0px 20px 20px;
+}
+div#menu_description span#desc img {
+  border:0px;
+}
+div#menu_description span.sr_desc {
+	display:none;
+}
+div#menu_description a img {
+}
+div#menu_description span.sr_desc {
+  /* displays the word "Menuebeschreibung: ".
+     This was implemented for Screenreaders only
+  */
+}
+div#menu_description span#desc {
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    L A T E S T - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+div#latest {
+}
+html > body div#latest {
+}
+div#latest h2 {
+}
+div#latest h2 span {
+}
+
+div#userarea {
+margin-bottom:20px;
+		background-color:#993439;
+	padding:5px;
+}
+div#userarea div#usermenu {
+}
+div#userarea div#usermenu h3.menuheader {
+}
+div#userarea div#usermenu h3.menuheader span {
+}
+
+div#userarea div#usermenu form#loginForm {
+	display:inline;
+}
+div#userarea div#usermenu form#loginForm div#login_username {
+	display:inline;
+}
+div#userarea div#usermenu form#loginForm div#login_username input {
+	width:60px;
+}
+div#userarea div#usermenu form#loginForm div#login_password {
+	display:inline;
+}
+div#userarea div#usermenu form#loginForm div#login_password input{
+	width:60px;
+}
+div#userarea div#usermenu form#loginForm div#login_buttons {
+	display:inline;
+}
+div#userarea div#usermenu form#loginForm div#login_buttons input {
+}
+
+div#userarea div#usermenu div#password {
+	display:inline;
+}
+div#userarea div#usermenu div#password a {
+}
+
+div#userarea div#usermenu div#register {
+}
+div#userarea div#usermenu div#register a {
+}
+
+/* Logout-link-style - Looks like a button */
+div#userarea div#usermenu ul {
+	list-style:none;
+}
+div#userarea div#usermenu ul li {
+}
+div#userarea div#usermenu ul li a {
+}
+div#userarea div#usermenu ul li a#logout_link {
+}
+div#userarea div#usermenu ul li a#logout_link:hover {
+  /* the mouseover-effect */
+}
+div.writearticle_link {
+}
+div.writearticle_link a {
+}
+
+
+div#userarea div#userinfo {
+	display:none;
+}
+div#userarea div#userinfo h3.menuheader {
+}
+div#userarea div#userinfo h3.menuheader span {
+}
+div#userarea div#userinfo div#details {
+}
+div#userarea div#userinfo div#details span#curr_user {
+}
+div#userarea div#userinfo div#details span#curr_user span {
+}
+div#userarea div#userinfo div#details div#all_hits {
+}
+div#userarea div#userinfo div#details div#all_hits span {
+}
+div#userarea div#userinfo div#details div#monthhits {
+}
+div#userarea div#userinfo div#details div#monthhits span {
+}
+div#userarea div#userinfo div#details div#users_on {
+}
+div#userarea div#userinfo div#details div#users_on span {
+}
+div#userarea div#userinfo div#details div#users_reg {
+}
+div#userarea div#userinfo div#details div#users_reg span {
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    S H O U T I N G - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+div#opt_components {
+}
+html > body div#opt_components {
+/* correct positioning for DOM compatible Browser like Firefox */
+}
+div#opt_components div#styleswitcher {
+}
+div#opt_components  div#styleswitcher form {
+}
+div#opt_components  div#styleswitcher form h3 {
+}
+div#opt_components  div#styleswitcher form h3 span {
+}
+div#opt_components  div#styleswitcher form div {
+}
+div#opt_components  div#styleswitcher form div select {
+}
+div#opt_components  div#styleswitcher form div input {
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    D E B U G G I N G - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* ganzer debugging-bereich */
+#debugging {
+  position:absolute;
+  top: 0px;
+  right:0px;
+  z-index:2000;
+  background-color:#efefef;
+  color:#000;
+  border:2px solid #333;
+  width:18%;
+  padding:5px;
+  text-align:left;
+}
+/* enthaelt jeweils die debugging-infos */
+#debugging pre {
+}
+#debugging input {
+	width:auto;
+	margin:2px 5px;
+}
+
+h2#debugheader {
+}
+h2#debugheader span {
+}
+#debugging h3 {
+margin-top:20px;
+}
+
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    C O P Y R I G H T - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+#copyright {
+	clear:both;
+	float:right;
+	width:50%;
+	margin-top:-1px;
+	background-color:#fff;
+	padding:10px 5px;
+	text-align:right;
+}
+#copyright span {
+}
+#copyright span a {
+}
+#rendertime {
+}
+div#fontsize_menu {
+}
+div#fontsize_menu h4#fs_info {
+  display:inline;
+}
+div#fontsize_menu ul {
+  list-style:none;
+  display:inline;
+}
+div#fontsize_menu ul li {
+  display:inline;
+}
+div#fontsize_menu ul li a {
+	background-color:#aa0000;
+	padding:0px 10px;
+	margin: 0px;
+	font-weight:bold;
+}

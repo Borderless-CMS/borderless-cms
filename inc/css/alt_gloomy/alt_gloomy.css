@@ -1,0 +1,971 @@
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*  CSS-Default-Layout for www.goldstift.de
+*
+*  This CSS-File is copyright by goldstift. Feel free to take this as lecture
+*  though I don't think that anyone can use it. I think I was kind of too much
+*  in perfection-mode when I named the elements of my site.
+*  But well, I think what I gained is more than FULL FLEXIBILITY...
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+/* ----------------------------------------------------------------------
+*  general element-definitions - in no order                    
+* ----------------------------------------------------------------------*/
+
+body { 
+  font:normal 11px arial,helvetica,san-serif; 
+  background-color: #111;
+  margin:0px;
+  padding:0px;
+} 
+
+p {
+  margin: 0px 0px 0.5em 0px;
+}
+form {
+  margin: 0px;
+  padding:0px;  
+}
+input, select, textarea {
+  font:normal 11px arial,helvetica,san-serif; 
+  width:80px;
+  border: 1px solid #111;
+}
+
+h1 {
+  font-size: 16px;
+}
+h2 {
+  font-size: 14px;
+}
+h3 {
+  font-size: 12px;
+}
+h4 {
+  font-size: 11px;
+}
+a:link,
+a:visited { 
+  margin:0px; 	
+  padding:0px;  
+  font-weight:normal; 
+  color:#A5E7A5;	
+  text-decoration:none;  
+  text-transform: lowercase;
+  border-bottom: 1px dashed #999;
+}
+a:hover { 
+  color:#333;	
+  background-color:#75E175;  
+}
+a:visited { 
+  border-bottom: 3px solid #333;
+}
+
+/* ----------------------------------------------------------------------*/
+/*  general class-definitions - in order of appearance                   */
+/* ----------------------------------------------------------------------*/
+
+/* a general class making element invisible but readable for screenreaders */
+.unsichtbar {
+  position: absolute;
+  left: -2000px;
+}
+
+span.sr_desc {
+  /* displays additional information for screenreaders */
+  display:none;
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    I N T R O P A G E
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+body#introbody {
+  text-align: center;
+  vertical-align: middle;
+  
+}
+div#introimage {
+  width:780px;
+  height:150px;
+  margin: 200px auto;
+  border: 3px solid #102810;
+}
+div#introimage a {
+  width:780px;
+  height:150px;
+  border: 0px;
+}
+div#introimage a span {
+  background: url(h_nutzbar.jpg) no-repeat right;
+  width:100%;
+  height:100%;
+  padding:0px;
+}
+
+
+/* ----------------------------------------------------------------------
+*
+*              main-divs - in order of appearance                                    
+*
+* ----------------------------------------------------------------------*/
+
+/* ganz aeusserer Rahmen */
+#horizon {  
+  position: absolute;
+  top : 0px;
+  right : 0;
+  width:100%;
+}
+
+div#valid_xhtml {
+  position: absolute;
+  bottom : 0px;
+  right : 0;
+}
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    C O N T A I N E R - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* innerhalb von horizon, enthaelt fast alle anderen divs */
+#container {
+  margin:15px;
+  width:780px;
+}
+
+h1#welcome {
+  background: url(h_nutzbar.jpg) no-repeat right;
+  width:780px;
+  height:150px;
+  border: 1px solid #999;
+  padding:0px;
+}
+h1#welcome span {
+  display:none;
+}
+
+div#site_usage {
+  /* displays usage information on the site for visually handicapped people 
+     who are using screenreaders
+     Normal: Contains a link
+     When clicked: Contains info text
+  */
+  display:none;
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    M E N U - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+div#menusection {
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    M A I N M E N U - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+div#menusection div#mainmenu {
+  clear:both;
+  margin:10px 0px;
+}
+div#mainmenu h3 {
+	margin: 0px;
+  padding:0px;
+  font:bold 12px arial,helvetica,san-serif; 
+  color:  #ccc;
+}
+div#mainmenu h3 span {
+  display:none;
+}
+div#mainmenu ul {
+  /* verhindert, dass das Menue nicht als Liste erscheint */
+	list-style: none;
+	margin: 0px;
+	margin-bottom: 20px;
+  padding:0px;
+  text-indent: 0px;  
+}
+div#mainmenu ul li {
+  border-bottom: 1px solid #999;
+	padding: 3px 0px;
+  float:left;
+}
+div#mainmenu ul li a:link,
+div#mainmenu ul li a:visited {
+  text-transform: none;
+	padding: 3px 0px;
+  border-bottom: 1px solid #999;
+  margin: 0px 10px;
+}
+div#mainmenu ul li a:hover {
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    S U B M E N U - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+
+div#menusection div#submenu {
+  position:absolute;
+  top:220px;
+  left:15px;
+  width:150px;
+  padding:5px;
+  border: 1px dotted #555;
+  background-color: #000;
+}
+div#submenu h3 {
+	margin: 0px;
+  padding:0px;
+  color: #fff;
+}
+div#submenu h3 span {
+}
+div#submenu span#no_elements {
+  color: #fff;
+  display: block;
+  margin: 5px;
+}
+div#submenu ul {
+	list-style: none;
+	margin: 0px;
+  padding:0px;
+  text-indent: 0px;  
+}
+div#submenu ul li {
+	padding: 2px 0px;
+}
+div#submenu ul li a:link,
+div#submenu ul li a:visited {
+  text-transform: none;
+  border: 0px;
+	padding: 1px 2px;
+  margin: 0px 10px;
+}
+div#submenu ul li a:hover {
+  border: 1px dotted #000;
+  background: #ccc;
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    E R R O R - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+div#systemmsg {
+  position: absolute;
+  top: 25px;
+  right:1px;
+  color:#f00;
+  width:250px;
+  background-color:#75E175;  
+  padding:5px;
+  border:1px solid #999;
+}
+
+/* enthaelt die eigentlichen Fehlermeldungen */
+div#systemmsg span#symsg {
+}
+
+div#systemmsg h2#systemmsgheading {
+  margin:5px 0px;
+}
+div#systemmsg h2#systemmsgheading span {
+}
+div#systemmsg span#systemmessage {
+}
+div#systemmsg span#errormessage {
+}
+
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    C O N T E N T L I S T - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+h3.storyheader {
+}
+h3.storyheader span {
+}
+
+div.contentlist {
+  border: 1px solid #666;
+  margin:2px 0px 2px 0px;
+  padding: 5px;
+  color: #ccc;
+  background-color: #102810;
+}
+div.contentlist:hover {
+  background-color: #203820;
+}
+
+div#contentlist1 {
+}
+
+div#contentlist2 {
+}
+
+div#contentlist3 {
+}
+
+div#contentlist4 {
+}
+
+div#contentlist5 {
+}
+/* and so on ... for every content-div on page */
+
+div.contentist span#storynumber {
+  font: bold 14px Arial;
+}
+
+div.contentist span#heading {
+}
+
+div.contentlist_info {
+  margin-left: 20px;
+  display:block
+}
+div.contentlist_info span.author {
+}
+div.contentlist_info span.author a {
+}
+div.contentlist_info span.date {
+  margin-left: 8px;
+}
+div.contentlist_info span.hits {
+  margin-left: 8px;
+}
+div.contentlist_info span.no_of_comments {
+  margin-left: 8px;
+}
+div.contentlist_info span.no_of_comments a {
+}
+
+div.writeArticleLink {
+  padding:15px 0px;
+}
+div.writeArticleLink a {
+  margin:15px 0px;
+}
+
+div#prevNextArticle {
+}
+div#prevNextArticle span {
+}
+div#prevNextArticle span a {
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    C O N T E N T - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+div#allcontent {
+  position: absolute;
+  top:220px;
+  left:225px; /* this is actually the wrong setting; see below */
+  border: 0px solid #000;
+  margin:0px 1px 0px 0px;
+  padding: 0px;
+  color: #ccc;
+  width:380px; 
+}
+
+/* this is for all DOM-Browser which DO interpret CSS correctly       */
+/* it is set to correct the given value which is especially for the IE */
+html > body div#allcontent {
+  left:215px;
+}
+h2#allcontent_header {
+  color:#666;
+}
+h2#allcontent_header span.desc {
+  /* displays the additional screenreader info.
+     The class in general is described above.
+  */
+}
+h2#allcontent_header span {
+}
+h2#allcontent_header span a {
+  text-transform: none;
+}
+
+div#allcontent_description { 
+  color: #ccc;
+  margin: 10px 0px;
+}
+div#allcontent_description span#desc { 
+  /* displays the word "Menuebeschreibung: ". 
+     This was implemented for Screenreaders only 
+  */
+  display:none;
+}
+h3.storyheader {
+}
+h3.storyheader span {
+}
+
+div.content {
+  border: 1px solid #666;
+  margin:0px 2px 2px 0px;
+  padding: 5px;
+  color: #ccc;
+  background-color: #102810;
+}
+div.content:hover {
+  background-color: #203820;
+}
+
+div#content1 {
+}
+
+div#content2 {
+}
+
+div#content3 {
+}
+
+div#content4 {
+}
+
+div#content5 {
+}
+/* and so on ... for every content-div on page */
+
+p.story_info {
+  margin: 5px 0px;
+}
+p.story_info span.author {
+  padding-left: 15px;
+  background: url(square_empty.png) left no-repeat;
+}
+p.story_info span.author:hover {
+  padding-left: 15px;
+  background: url(square_filled.png) left no-repeat;
+}
+p.story_info span.author a {
+}
+p.story_info span.edate {
+  display:block;
+  margin-left: 15px;
+}
+p.story_info span.edate span.sr_desc {
+  margin-right: 5px;
+}
+p.story_info span.vdate {
+  display:block;
+  margin-left: 15px;
+}
+p.story_info span.vdate span.sr_desc {
+  margin-right: 5px;
+}
+p.story_info span.comments {
+  padding-left: 10px;
+}
+p.story_info span.comments span.sr_desc {
+}
+p.story_info span.comments a {
+}
+
+p.storycontent {
+  clear:both;
+}
+p.storycontent span.content {
+}
+p.storycontent span.content span.sr_desc {
+}
+
+/* images inside of the articles */
+p.storycontent span #Image1 {
+}
+p.storycontent span #Image2 {
+}
+p.storycontent span #Image3 {
+}
+p.storycontent span #Image4 {
+}
+p.storycontent span #Image5 {
+}
+/* and so on */
+
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    C O N T E N T F O R M - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+div#contentForm {
+  border: 1px solid #666;
+  margin:2px 0px 2px 0px;
+  padding: 5px;
+  color: #ccc;
+  background-color: #102810;
+}
+div#contentForm h3 { 
+  margin-top: 25px;
+  margin-bottom: 5px;
+}
+div#contentForm h3 span { 
+}
+div#contentForm span {
+}
+div#contentForm span form {
+}
+
+div#contentForm span form div {
+/* allgemeine Definition aller Divs */
+}
+div#contentForm span form div input {
+/* allgemeine Definition aller inputtagss innerhalb divtagss */
+}
+div#contentForm span form div#cont_heading {
+}
+div#contentForm span form div#cont_heading input {
+}
+div#contentForm span form div#cont_text {
+}
+div#contentForm span form div#cont_text textarea {
+  width:250px;
+  height: 80px;
+}
+div#contentForm span form div#cont_desconly {
+}
+div#contentForm span form div#cont_desconly input {
+}
+div#contentForm span form div#cont_desc {
+}
+div#contentForm span form div#cont_desc input {
+}
+div#contentForm span form div#cont_publishstart {
+}
+div#contentForm span form div#cont_publishstart input {
+  width:120px;
+}
+div#contentForm span form div#cont_publishend {
+}
+div#contentForm span form div#cont_publishend input {
+  width:120px;
+}
+
+cont_publishend
+div#contentForm span form input {
+/* Definition der Formularbuttons */
+}
+
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    C O M M E N T - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+div#allcomments {
+}
+div#allcomments h3 {
+  margin-top: 25px;
+  margin-bottom: 5px;
+}
+div#comments h3 span {
+}
+
+h4.commentheader {
+  margin: 5px 0px;
+}
+h4.commentheader span {
+}
+
+div.comment {
+  border: 1px solid #666;
+  margin:0px 0px 5px 0px;
+  padding: 5px;
+  color: #ccc;
+  background-color: #102810;
+}
+div.comment:hover {
+  background-color: #203820;
+}
+
+div#comment1 {
+}
+
+div#comment2 {
+}
+
+div#comment3 {
+}
+
+div#comment4 {
+}
+
+div#comment5 {
+}
+/* and so on ... for every content-div on page */
+
+p.comment_info {
+  margin: 5px 0px;
+  padding-left: 15px;
+  background: url(square_empty.png) left no-repeat;
+}
+p.comment_info span.author {
+}
+p.comment_info span.author a {
+}
+p.comment_info span.date {
+  margin-left: 10px;
+}
+
+p.commentcontent {
+  clear:both;
+}
+p.commentcontent span {
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    C O M M E N T F O R M - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+div#commentForm {
+  border: 1px solid #666;
+  margin:2px 0px 2px 0px;
+  padding: 5px;
+  color: #ccc;
+  background-color: #102810;
+  margin-top: 25px;
+}
+div#commentForm h3 { 
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+div#commentForm span {
+}
+div#commentForm span div {
+}
+div#commentForm span div span {
+}
+div#commentForm span div input {
+  width:120px
+}
+div#commentForm span div textarea {
+  width:250px;
+  height: 80px;
+}
+div#commentForm span input {
+/* formbuttons */
+}
+
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    L A T E S T - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+div#latest {
+  position:absolute;
+  top:350px;
+  left:15px;
+  width:180px;
+  background-color: #666;
+  margin:0px 1px 0px 0px;
+  padding:5px;
+  border: 1px solid #999;
+}
+div#latest h2 {
+}
+div#latest h2 span {
+}
+div#login {
+}
+
+div#login h3.menuheader {
+  border-bottom:1px solid #102810; 
+  font-size:14px;
+  width:90%;
+}
+div#login h3.menuheader span {
+  border-bottom:3px solid #102810; 
+  color: #fff;
+}
+
+div#login form#loginForm {
+}
+div#login form#loginForm div#login_username {
+}
+div#login form#loginForm div#login_username input {
+}
+div#login form#loginForm div#login_password {
+}
+div#login form#loginForm div#login_password input{
+}
+div#login form#loginForm div#login_buttons {
+}
+div#login form#loginForm div#login_buttons input {
+}
+
+/* Logout-link-style - Looks like a button */
+div#login a#logout:link,
+div#login a#logout:visited {    
+  color:#86633B; 
+  font-weight:bold; 
+  padding:1px 20px;   /* a link's padding is also clickable, margin not */
+  border:1px #000000 solid; 
+  background-color:#E1D2C1; 
+}
+div#login a#logout:hover {     
+  /* the mouseover-effect */
+  color:#ccc; 
+  background-color:#666; 
+}
+
+div#userinfos {
+  color: #000;
+}
+
+div#userinfos h3.menuheader {
+  border-bottom:1px solid #102810; 
+  font-size:14px;
+  width:90%;
+}
+div#userinfos h3.menuheader span {
+  border-bottom:3px solid #102810; 
+  color: #fff;
+}
+
+              
+
+div#latestContent {
+}
+
+div#latestContent h3.menuheader {
+  border-bottom:1px solid #102810; 
+  font-size:14px;
+  width:90%;
+}
+div#latestContent h3.menuheader span {
+  color: #fff;
+  border-bottom:3px solid #102810; 
+}
+
+div#latestContent .latestcont {
+  font-size:10px;
+  background-color:#94aE73;
+  margin:2px 0px;
+  padding:2px;
+  border:1px #000000 solid; 
+  color:#111;
+}
+
+div#latestContent .latestcont h4.latestheader {
+  border-bottom:1px #000000 solid; 
+  font-size:11px;
+  width:90%;
+  padding:0px;
+  margin:0px;
+}
+div#latestContent .latestcont h4.latestheader span {
+}
+
+div#latestContent .latestcont p.latestcontent {
+}
+div#latestContent .latestcont p.latestcontent span {
+}
+div#latestContent .latestcont p.latestcontent span a {
+/* Link [mehr] bringt den User zum Artikel */
+}
+
+div#latestContent .latestcont p.latestinfo  {
+  padding-top:2px;
+}
+div#latestContent .latestcont p.latestinfo  span.author {
+  padding-left:14px;
+  background: url(square_empty.png) left no-repeat;
+}
+div#latestContent .latestcont p.latestinfo  span.date {
+}
+
+div#latestContent #latestcont1 {
+}
+div#latestContent #latestcont2 {
+}
+div#latestContent #latestcont3 {
+}
+div#latestContent #latestcont4 {
+}
+div#latestContent #latestcont5 {
+}
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    S H O U T I N G - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+div#opt_components {
+  float:right;
+  width:180px;
+  background-color: #444;
+  margin:10px 1px 0px 0px;
+  padding:5px;
+  border: 1px solid #999;
+}
+html > body div#opt_components {
+/* correct positioning for DOM compatible Browser like Firefox */
+}
+div#opt_components div#styleswitcher {
+  margin-bottom: 20px;
+  text-align:left;
+}
+div#opt_components  div#styleswitcher form {
+  margin: 0px;
+  padding: 0px;
+}
+div#opt_components  div#styleswitcher form h3 {
+  color:#e4e4e4;
+  border-bottom: 1px solid #000;
+  margin: 0px;
+  padding: 0px;
+  margin-bottom: 10px;
+}
+div#opt_components  div#styleswitcher form h3 span {
+  border-bottom: 3px solid #000;
+}
+div#opt_components  div#styleswitcher form div {
+  padding: 5px;
+}
+div#opt_components  div#styleswitcher form div select {
+  width:100px;
+}
+div#opt_components  div#styleswitcher form div input {
+  width:100px;
+}
+div#shouting {
+}
+
+div#shouting form#form_shouter {
+}
+div#shouting form#form_shouter h2 {
+  color:#e4e4e4;
+  border-bottom: 1px solid #000;
+  margin: 0px;
+  padding: 0px;
+  margin-bottom: 10px;
+}
+div#shouting form#form_shouter h2 span {
+  border-bottom: 3px solid #000;
+}
+div#shouting form#form_shouter div#shouting_name {
+}
+div#shouting form#form_shouter div#shouting_name span {
+  color:#ccc;
+}
+div#shouting form#form_shouter div#shouting_name input#shouter_name {
+}
+div#shouting form#form_shouter div#shouting_email {
+}
+div#shouting form#form_shouter div#shouting_email span {
+  color:#ccc;
+}
+div#shouting form#form_shouter div#shouting_email input#shouter_email {
+}
+div#shouting form#form_shouter div#shouting_inhalt {
+}
+div#shouting form#form_shouter div#shouting_inhalt span {
+  color:#ccc;
+}
+div#shouting form#form_shouter div#shouting_inhalt input#shouter_inhalt {
+}
+
+div#shouting div.shouter_comment {
+  color: #ccc;
+  margin: 5px 0px;
+  padding: 5px;
+  border: 0px;
+  border: 1px solid #666;
+  background-color: #102810;
+}
+div#shouting div.shouter_comment div.gb_info {
+}
+div#shouting div.shouter_comment div.gb_info span {
+  padding: 3px 0px;
+  font-weight: normal;
+  color:#75a775;	
+}
+div#shouting div.shouter_comment div.gb_info span.gb_author {
+}
+div#shouting div.shouter_comment div.gb_info span.gb_author a {
+  font-weight: bold;
+  color:#A5E7A5;	
+}                                                        
+div#shouting div.shouter_comment div.gb_info span.gb_prefix {
+}                                                        
+div#shouting div.shouter_comment div.gb_info span.gb_date {
+}                                                        
+div#shouting div.shouter_comment div.gb_info span.gb_time {
+}                                                        
+div#shouting div.shouter_comment div.gb_text {
+}                                                        
+div#shouting div.shouter_comment div.gb_adm_comment {
+}                                                        
+div#shouting div.shouter_comment div.gb_adm_comment span {
+}                                                        
+
+/* Seitenblaettern im GB */
+div#shouting div#gb_pageselector {
+  
+}                                                        
+div#shouting div#gb_pageselector a {
+}                                                        
+div#shouting div#gb_pageselector span {
+  color: #fff;
+}                                                        
+
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    D E B U G G I N G - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* ganzer debugging-bereich */
+#debugging {
+  position:absolute;
+  top: 0px;
+  left:0px;
+  background-color:#666;
+  color:#fff;
+}
+/* enthaelt jeweils die debugging-infos */
+#debugging pre {
+}
+
+h2#debugheader {
+}
+h2#debugheader span {
+}
+
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    C O P Y R I G H T - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+#copyright {
+  position: absolute;
+  top: 1px;
+  right:1px;
+  color:#999;
+  height:20px;
+}
+#copyright span{
+}

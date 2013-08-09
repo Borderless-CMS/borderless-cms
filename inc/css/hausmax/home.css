@@ -1,0 +1,177 @@
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*  CSS-Layout for home-section of borderLeSS CMS
+*                 ------------
+*  This CSS-File is copyright by goldstift. Feel free to take this as lecture
+*  though I don't think that anyone can use it. I think I was kind of too much
+*  in perfection-mode when I created the DOM of my cms. *hehe*
+*  But, well, what I gained is very near to FULL FLEXIBILITY... ;-)
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+
+div#homecontent {
+	margin:20px;
+}
+
+div.content {
+}
+
+h3.storyheader {
+	margin:5px 0px;
+}
+h3.storyheader span {
+}
+h3.storyheader .sr_desc {
+	display:none;
+}
+div#edit_article_icon {
+}
+
+div#edit_article_icon img,
+div#edit_article_icon a {
+	border:0px;
+}
+
+div.storycontent {
+}
+div.storycontent span {
+}
+div.storycontent .innercontent {
+}
+div.storycontent .innercontent span.sr_desc {
+	display:none;
+}
+div.storycontent .innercontent span.sr_desc strong {
+	display:none;
+}
+div.storycontent .innercontent a {
+}
+div.storycontent span.content img {
+}
+div.storycontent span.description {
+}
+div.storycontent span.description sr_desc {
+}
+div.storycontent span.description sr_desc strong {
+}
+
+/* images inside of the articles */
+div.storycontent span #Image1 {
+}
+div.storycontent span #Image2 {
+}
+div.storycontent span #Image3 {
+}
+div.storycontent span #Image4 {
+}
+div.storycontent span #Image5 {
+}
+/* and so on */
+
+div.story_info {
+	margin:20px 0px;
+	padding:2px 4px;
+	background-color:#DEE3EF;
+}
+div.story_info div.author {
+	display:inline;
+}
+div.story_info div.author span.sr_desc {
+	padding-right:5px;
+}
+div.story_info div.author a {
+}
+
+div.story_info div.edate {
+	display:none;
+}
+div.story_info div.edate span.sr_desc {
+	display:none;
+}
+div.story_info div.vdate {
+	display:inline;
+	padding-left:10px;
+}
+div.story_info div.vdate span.sr_desc {
+	display:none;
+}
+
+div.story_info div.editor {
+	display:inline;
+}
+div.story_info div.editor span.sr_desc {
+	display:none;
+}
+div.story_info div.editor a {
+}
+div.story_info div.editdate {
+	display:inline;
+}
+div.story_info div.editdate span.sr_desc {
+	display:none;
+}
+
+
+div#site_usage {
+	margin:25px 0px;
+}
+
+/* LATEST SECTION */
+
+div#homecontent div#latestContent h3.menuheader {
+}
+div#homecontent div#latestContent h3.menuheader span {
+}
+
+div#latestContent  form#latestForm {
+	margin:10px 0px 10px 0px;
+}
+div#latestContent  form#latestForm div#latest_type {
+}
+div#latestContent  form#latestForm div#latest_type select {
+}
+div#latestContent  form#latestForm div#latest_type select option {
+}
+
+div#latestContent  .latestcont {
+}
+
+div#latestContent  .latestcont h4.latestheader {
+}
+div#latestContent  .latestcont h4.latestheader span {
+}
+
+div#latestContent  .latestcont div.latestcontent {
+}
+div#latestContent  .latestcont div.latestcontent span {
+}
+div#latestContent  .latestcont div.latestcontent a {
+/* Link [mehr] bringt den User zum Artikel */
+}
+
+div#latestContent  .latestcont div.latestinfo  {
+	margin:10px 0px 20px 0px;
+	padding:2px;
+	background-color:#DEE3EF;
+}
+div#latestContent  .latestcont div.latestinfo  div {
+display:inline;	
+}
+div#latestContent  .latestcont div.latestinfo  div.date {
+}
+
+div#latestContent  #latestcont1 {
+}
+div#latestContent  #latestcont2 {
+}
+div#latestContent  #latestcont3 {
+}
+div#latestContent  #latestcont4 {
+}
+div#latestContent  #latestcont5 {
+}
+
+div#use_text_version {  
+}
+div#use_text_version p {
+}

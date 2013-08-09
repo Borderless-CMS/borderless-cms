@@ -1,0 +1,97 @@
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*  CSS-Layout for imprint-section of borderLeSS CMS
+*                 ------------
+*  This CSS-File is copyright by goldstift. Feel free to take this as lecture
+*  though I don't think that anyone can use it. I think I was kind of too much
+*  in perfection-mode when I created the DOM of my cms. *hehe*
+*  But, well, what I gained is very near to FULL FLEXIBILITY... ;-)
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+
+div#homecontent {
+  padding: 0px;
+}
+
+div.content {
+  margin-bottom: 15px;
+}
+div.content:hover {
+}
+
+h3.storyheader {
+  padding:2px 4px;
+}
+h3.storyheader span {
+}
+h3.storyheader span.sr_desc {
+	display:none;
+}
+p.storycontent {
+  padding: 5px;
+  padding-left: 45px;
+}
+p.storycontent span {
+}
+p.storycontent span.content {
+}
+p.storycontent span.content span.sr_desc {
+  display:none;
+}
+p.storycontent span.content span.sr_desc strong {
+}
+p.storycontent span.content a {
+}
+p.storycontent span.content img {
+  margin: 15px;
+  border:1px solid #000;
+}
+p.storycontent span.description {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  display:block;
+}
+p.storycontent span.description span.sr_desc {
+  display:block;
+}
+p.storycontent span.description span.sr_desc strong {
+}
+
+p.story_info {
+  padding-left: 45px;
+  clear:both;
+}
+p.story_info span.author {
+}
+p.story_info span.author span.sr_desc {
+}
+p.story_info span.author a {
+}
+
+p.story_info span.edate {
+  display:block;
+  margin-left: 15px;
+}
+p.story_info span.edate span.sr_desc {
+  margin-right: 5px;
+}
+p.story_info span.vdate {
+  display:block;
+  margin-left: 15px;
+}
+p.story_info span.vdate span.sr_desc {
+  margin-right: 5px;
+}
+
+p.story_info span.editor {
+  display:none;
+}
+p.story_info span.editor span.sr_desc {
+}
+p.story_info span.editor a {
+}
+p.story_info span.editdate {
+  display:none;
+}
+p.story_info span.editdate span.sr_desc {
+}

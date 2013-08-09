@@ -1,5 +1,6 @@
 # upload und pear fuer Robots sperren
 User-agent: *
-Disallow: /upload/
-Disallow: /pear/
-Disallow: /xajax/
+Disallow: upload/
+Disallow: pear/
+Disallow: xajax/
+Disallow: config/

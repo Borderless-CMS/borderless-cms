@@ -1,0 +1,104 @@
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    C O N T E N T - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+div.content {
+	margin:20px;
+}
+
+h3.storyheader {
+	margin:5px 0px;
+}
+h3.storyheader span.sr_desc {
+  display:none;
+}
+
+div.storycontent {
+  margin: 0px;
+  padding: 5px;
+}
+div.storycontent div {
+}
+div.storycontent div.innercontent {
+}
+div.storycontent div.innercontent span.sr_desc {
+  display:none;
+}
+div.storycontent div.innercontent span.sr_desc strong {
+}
+div.storycontent div.innercontent strong {
+  font-size:1.2em;
+}
+div.storycontent div.innercontent a {
+}
+div.storycontent div.innercontent img {
+  margin: 10px;
+  float:right;
+  border:1px solid #000;
+}
+div.storycontent div.description {
+  clear:both;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  display:block;
+}
+div.storycontent div.description span.sr_desc {
+  display:block;
+}
+div.storycontent div.description span.sr_desc strong {
+}
+
+/* images inside of the articles */
+div.storycontent div #Image1 {
+}
+div.storycontent div #Image2 {
+}
+div.storycontent div #Image3 {
+}
+div.storycontent div #Image4 {
+}
+div.storycontent div #Image5 {
+}
+/* and so on */
+
+div.story_info {
+  background-color:#DEE2EA;
+  margin: 0px 0px 0.5em 0px;
+  padding:2px 5px;
+  clear:both;
+}
+div.story_info div.author {
+  display:inline;
+}
+div.story_info div.author span.sr_desc {
+  margin-right: 5px;  
+}
+div.story_info div.author a {
+}
+
+div.story_info div.edate {
+  display:none;
+}
+div.story_info div.edate span.sr_desc {
+}
+div.story_info div.vdate {
+  display:inline;
+  margin-left: 10px;
+}
+div.story_info div.vdate span.sr_desc {
+    display:none;
+}
+
+div.story_info div.editor {
+  display:none;
+}
+div.story_info div.editor span.sr_desc {
+}
+div.story_info div.editor a {
+}
+div.story_info div.editdate {
+  display:none;
+}
+div.story_info div.editdate span.sr_desc {
+}

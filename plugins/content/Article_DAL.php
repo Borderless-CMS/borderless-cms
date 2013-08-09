@@ -1,7 +1,21 @@
-<?php
+<?php if(!defined('BORDERLESS')) { header('Location: / ',true,403); exit(); }
+/* Borderless CMS - the easiest and most flexible way to a valid website
+ *   (c) 2004-2007 Alexander Heusingfeld <aheusingfeld@borderlesscms.de>
+ *   Distributed under the terms and conditions of the GPL as stated in /license.txt
+ * EXCLUSION:
+ *   The files in the folder /pear/* are part of the PHP PEAR Project and are therefore
+ *   distributed under the terms and conditions of the PHP License as stated in /pear/LICENSE
+ */
 
-// basic classes
-
+/**
+ * @todo document this
+ * 
+ * @since 0.9
+ * @author ahe <aheusingfeld@borderlessscms.de>
+ * @class Article_DAL
+ * @ingroup content
+ * @package content
+ */
 class Article_DAL extends DataAbstractionLayer {
 
 	public $col = array(
@@ -30,18 +44,19 @@ class Article_DAL extends DataAbstractionLayer {
 		),
 		'techname' => array(
 			'type'    => 'varchar',
-			'size'    => 30,
+			'size'    => 80,
 			'qf_label' => 'Artikeltitel (ohne Sonder- und Leerzeichen)',
 			'qf_rules' => array(
 				'maxlength' => array(
-					'Der Inhalt darf maximal 30 Zeichen lang sein!',
-					30
+					'Der Inhalt darf maximal 80 Zeichen lang sein!',
+					80
 				),
 				'regex' => array(
 					'Techname must only consist of chars in a-z, A-Z, 0-9, \'-\' and \'_\'!',
-					'/^[\w|-|_]+$/' // TODO use dictionary here
+					'/^[\w|-|_]{3,}$/' // @todo use dictionary here
 				)
 			),
+      'require' => true,
 			'qf_client' => true
 		),
 		'contenttext' => array(
@@ -84,7 +99,7 @@ class Article_DAL extends DataAbstractionLayer {
 			'type'    => 'float',
 			'qf_label' => 'Versionsnummer'
 		),
-		'language' => array(
+		'lang' => array(
 			'type'    => 'varchar',
 			'size' => 5,
 			'require' => true,
@@ -116,7 +131,7 @@ class Article_DAL extends DataAbstractionLayer {
 			'require' => true,
 			'qf_type'    => 'select'
 		),
-		'status' => array(
+		'status_id' => array(
 			'type'    => 'integer',
 			'require' => true,
 			'qf_label' => 'Status'
@@ -146,7 +161,7 @@ class Article_DAL extends DataAbstractionLayer {
 
 	public $idx = array(
 		'content_id' => array(
-			'type' => 'unique',
+			'type' => 'primary',
 			'cols' => 'content_id'
 		),
 		'fk_cat' => array(
@@ -180,6 +195,8 @@ class Article_DAL extends DataAbstractionLayer {
 		'content_id'
 	);
 
+	protected $primaryKeyColumnName = 'content_id';
+
 	private $configInstance = null;
 
 
@@ -194,7 +211,7 @@ class Article_DAL extends DataAbstractionLayer {
 		$this->setLatestCommentsSQL();
 		$this->setMostCommentedArticlesSQL();
 		$this->setAllArticlesListSQL();
-	    $this->col['status']['qf_vals'] = BcmsConfig::getInstance()->getTranslatedStatusList();
+	    $this->col['status_id']['qf_vals'] = BcmsConfig::getInstance()->getTranslatedStatusList();
 	}
 
 	protected function getSearchableFieldsArray()
@@ -205,7 +222,7 @@ class Article_DAL extends DataAbstractionLayer {
 			'user.vorname' => 'LIKE',
 			'menu.techname' => 'LIKE',
 			'menu.categoryname' => 'LIKE',
-			'class.name' => 'LIKE',
+			'class.classify_name' => 'LIKE',
 			'c.techname' => 'LIKE',
 			'c.heading' => 'LIKE',
 			'c.contenttext' => 'LIKE',
@@ -220,16 +237,13 @@ class Article_DAL extends DataAbstractionLayer {
 			'select' =>
              'cont.content_id, cont.heading, cont.description,
              cont.created, author.username as auth_name,
-             menu.techname as category, cont.hits, history.history_id ',
+             menu.techname as category, cont.hits ',
            'from' => $this->table.' as cont, '
 				.$this->configInstance->getTablename('user').' as author, '
-				.$this->configInstance->getTablename('history').' as history, '
 				.$this->configInstance->getTablename('menu').' as menu ',
            'where' => 'cont.fk_creator=author.user_id AND
-			  cont.content_id = history.content_id AND
-			  cont.created = history.editdate AND
               cont.fk_cat=menu.cat_id AND
-             (cont.status>='.$GLOBALS['ARTICLE_STATUS']['published'] // TODO use classifications for status!
+             (cont.status_id>='.$GLOBALS['ARTICLE_STATUS']['published'] // @todo use classifications for status!
              .') AND (menu.viewable4all=\'1\') AND
              (cont.publish_begin <= '.date('YmdHis',time()).') AND
              (cont.publish_end >= '.date('YmdHis',time()).') AND
@@ -252,7 +266,7 @@ class Article_DAL extends DataAbstractionLayer {
            'where' => 'comm.fk_author=author.user_id AND
 				comm.fk_content=cont.content_id AND
 				cont.fk_cat=menu.cat_id AND
-				(comm.status>='.$GLOBALS['ARTICLE_STATUS']['published'] // TODO use classifications for status!
+				(comm.status_id>='.$GLOBALS['ARTICLE_STATUS']['published'] // @todo use classifications for status!
              .') AND (menu.viewable4all=\'1\') AND
              (cont.publish_begin <= '.date('YmdHis',time()).') AND
              (cont.publish_end >= '.date('YmdHis',time()).') AND
@@ -276,7 +290,7 @@ class Article_DAL extends DataAbstractionLayer {
            'where' => 'cont.fk_creator=author.user_id AND
 				comm.fk_content=cont.content_id AND
 				cont.fk_cat=menu.cat_id AND
-				(cont.status>='.$GLOBALS['ARTICLE_STATUS']['published'] // TODO use classifications for status!
+				(cont.status_id>='.$GLOBALS['ARTICLE_STATUS']['published'] // @todo use classifications for status!
              .') AND (menu.viewable4all=\'1\') AND
              (cont.publish_begin <= '.date('YmdHis',time()).') AND
              (cont.publish_end >= '.date('YmdHis',time()).') AND
@@ -292,7 +306,7 @@ class Article_DAL extends DataAbstractionLayer {
 	private function setListeCategorySQL() {
 		$this->sql['listcat'] = array(
 				'select' => 'c.content_id, c.heading, c.description, c.created' .
-					', c. prev_img_id, c.prev_img_float, c.hits, c.status' .
+					', c. prev_img_id, c.prev_img_float, c.hits, c.status_id' .
 					', c.version,  c.publish_begin, c.publish_end, user.username' .
 					', user.email, menu.techname as categoryname',
 				'from' => $this->table.' as c, ',
@@ -307,7 +321,7 @@ class Article_DAL extends DataAbstractionLayer {
 	private function setAllArticlesListSQL() {
 		$this->sql['listall'] = array(
 				'select' => 'c.content_id, menu.categoryname, c.heading, ' .
-						'user.username, c.created, class.name as status' .
+						'user.username, c.created, class.classify_name as status_id' .
 						', c.publish_end',
 				'from' => $this->table.' as c, '
 					.$this->configInstance->getTablename('user').' as user, '
@@ -316,7 +330,7 @@ class Article_DAL extends DataAbstractionLayer {
 					.$this->configInstance->getTablename('systemschluessel').' as syskey ',
 				'where' => ' c.fk_creator = user.user_id ' .
 						'AND c.fk_cat = menu.cat_id '.
-						'AND c.status = class.number '.
+						'AND c.status_id = class.number '.
 						'AND class.fk_syskey = syskey.id_schluessel '.
 						'AND syskey.schluesseltyp = \'status\' ',
 				'fetchmode' => DB_FETCHMODE_ASSOC
@@ -330,22 +344,26 @@ class Article_DAL extends DataAbstractionLayer {
 	public function checkSpecialFields(&$p_aCols,$func,$p_iContentID=0) {
 
 		if($func=='insert') $p_aCols['content_id'] = ($p_iContentID==0) ? $this->nextID() : $p_iContentID;
-		$p_aCols['fk_creator'] = PluginManager::getPlgInstance('UserManager')->getLogic()->getUserID();
-		$p_aCols['status'] = $GLOBALS['ARTICLE_STATUS']['published'];// TODO use classifications for status!
+		$p_aCols['fk_creator'] = BcmsSystem::getUserManager()->getUserId();
+		$p_aCols['status_id'] = $GLOBALS['ARTICLE_STATUS']['published'];// @todo use classifications for status!
 		$p_aCols['created'] = date('YmdHis');
 	}
 
 	public function getObject($id) {
 		$this->sql['listallcolumns']['fetchmode'] = DB_FETCHMODE_ASSOC;
 		$array = $this->select('listallcolumns','content_id = '.$id);
-		return $array[0];
+		if(!empty($array)){
+			return $array[0];
+		} else 	{
+			return null;
+		}
 	}
 
 	public function getArticleListByCategory($id,$status=null, $pubFilter=false,$order_by=null, $order_dir=null,$limit=null, $offset=null) {
 
 		$where = '';
 		if($id>0) $where .= 'fk_cat = '.$id;
-		if($status>0) $where .= ' AND c.status >= '.$status;
+		if($status>0) $where .= ' AND c.status_id >= '.$status;
 
 		if($pubFilter) {
 			$where .= ' AND (\''.date('Y-m-d H:i:s')
@@ -388,8 +406,9 @@ class Article_DAL extends DataAbstractionLayer {
 	public function getLatestArticles() {
 		$this->sql['latestArticles']['order'] = 'cont.created desc'; // for backwards compatibility
 		$this->sql['latestArticles']['fetchmode'] = DB_FETCHMODE_ORDERED; // for backwards compatibility
-		return $this->select('latestArticles',null,'cont.created desc',0
+		$return = $this->select('latestArticles',null,'cont.created desc',0
 			,BcmsConfig::getInstance()->no_of_latestentries);
+		return $return;
 	}
 
 	/**
@@ -423,12 +442,11 @@ class Article_DAL extends DataAbstractionLayer {
 	 * @return array the articles
 	 * @author ahe
 	 * @date 29.10.2006 01:07:00
-	 * @package htdocs/plugins/content
 	 */
 	public function getRssArticles($categoryName=null) {
 		$where=null;
 		if($categoryName!=null){
-			$where = PluginManager::getPlgInstance('CategoryManager')->getModel()->getWhereForTreelist($categoryName,null,0);
+			$where = BcmsSystem::getCategoryManager()->getModel()->getWhereForTreelist($categoryName,null,0);
 		}
 		return $this->select('latestArticles',$where,'cont.created desc',0
 			,BcmsConfig::getInstance()->rss_no_of_entries);

@@ -1,0 +1,96 @@
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    C O N T E N T L I S T - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+h3.storyheader {
+  display:none;
+
+}
+h3.storyheader span {
+}
+
+div.contentlist {
+  margin-bottom:25px;
+}
+div.contentlist:hover {
+}
+
+div#contentlist1 {
+}
+
+div#contentlist2 {
+}
+
+div#contentlist3 {
+}
+
+div#contentlist4 {
+}
+
+div#contentlist5 {
+}
+/* and so on ... for every content-div on page */
+
+div.contentlist h4.heading {
+}
+div.contentlist h4.heading span.storynumber {
+}
+
+div.contentlist h4.heading span.sr_desc{
+  /* Erlaeuterung zu "sr_desc" siehe oben */
+}
+div.contentlist h4.heading span {
+}
+div.contentlist_preview {
+}
+
+div.contentlist_info { 
+  background-color:#efefef;
+  margin:5px 0px;
+  padding:2px;
+}
+div.contentlist_info div.author {
+  display:inline;
+}
+div.contentlist_info div.author a {
+}
+div.contentlist_info div.author .sr_desc {
+  /* Erlaeuterung zu "sr_desc" siehe oben */  
+  display:none;
+}
+div.contentlist_info div.date {
+  display:inline;
+  margin:0px 5px;
+}
+div.contentlist_info div.date .sr_desc {
+  /* Erlaeuterung zu "sr_desc" siehe oben */
+  display:none;
+}
+div.contentlist_info div.hits {
+  display:inline;
+  margin:0px 5px;
+}
+div.contentlist_info div.hits .sr_desc {
+  /* Erlaeuterung zu "sr_desc" siehe oben */
+  display:none;
+}
+div.contentlist_info div.no_of_comments {
+  display:inline;
+  margin:0px 5px;
+}
+div.contentlist_info div.no_of_comments .sr_desc {
+  /* Erlaeuterung zu "sr_desc" siehe oben */
+  display:none;
+}
+div.contentlist_info div.no_of_comments a {
+}
+
+div#prevNextArticle {
+}
+div#prevNextArticle span {
+}
+div#prevNextArticle span a {
+}
+

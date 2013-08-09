@@ -1,7 +1,23 @@
-<?php
+<?php if(!defined('BORDERLESS')) { header('Location: / ',true,403); exit(); }
+/* Borderless CMS - the easiest and most flexible way to a valid website
+ *   (c) 2004-2007 Alexander Heusingfeld <aheusingfeld@borderlesscms.de>
+ *   Distributed under the terms and conditions of the GPL as stated in /license.txt
+ * EXCLUSION:
+ *   The files in the folder /pear/* are part of the PHP PEAR Project and are therefore
+ *   distributed under the terms and conditions of the PHP License as stated in /pear/LICENSE
+ */
+
 /**
- * Created on 22.09.2005
- * @author ahe
+ * DataAbstraction class for handling article layout data
+ *  
+ * @todo document this properly
+ *
+ * @since 0.9
+ * @author ahe <aheusingfeld@borderlessscms.de>
+ * @date22.09.2005
+ * @class Layout_DAL
+ * @ingroup content
+ * @package content
  */
  class Layout_DAL extends DataAbstractionLayer {
 
@@ -51,25 +67,44 @@
 	public $sql = array(
 		'listall' => array(
 			'select' => 'layout_id, layoutname, filename, description',
-			'order'  => 'layoutname ASC'
-		),
-		'list_all_fields' => array(),
+			'order'  => 'layoutname ASC',
+			'fetchmode' => DB_FETCHMODE_ASSOC
+			),
+			'list_all_fields' => array(),
 		'availLayouts' => array()
-	);
+		);
 	public $uneditableElements = array ();
+	protected $primaryKeyColumnName = 'layout_id';
+
+	// needed for use of Singleton
+	protected static $uniqueInstance = null;
 
 
-/* METHOD DEFINITION */
+	/* METHOD DEFINITION */
 
-	public function __construct() {
-		parent::__construct($GLOBALS['db'],
-			BcmsConfig::getInstance()->getTablename('layoutpresets'));
+	/**
+	 * Get the instance of this class.
+	 *
+	 * @author ahe <aheusingfeld@borderlesscms.de>
+	 * @date 14.10.2006 23:12:41
+	 * @since 0.12
+	 * @return Layout_DAL
+	 */
+	public static function getInstance(){
+		if(self::$uniqueInstance==null)
+			self::$uniqueInstance = new Layout_DAL();
+		return self::$uniqueInstance;
+	}
+
+	protected function __construct() {
+		parent::__construct($GLOBALS['db'],	BcmsConfig::getInstance()->getTablename('layoutpresets'));
 		$this->sql['availLayouts'] = array(
 				'select' => "lo.layout_id, lo.layoutname, lo.filename",
 				'from' => BcmsConfig::getInstance()->getTablename('menu_layout_zo').' as lm_zo, '.
 						$this->table.' as lo ',
 				'where' => ' lo.layout_id = lm_zo.fk_layout',
-				'order' => ' lo.layoutname ASC'
+				'order' => ' lo.layoutname ASC',
+				'fetchmode' => DB_FETCHMODE_ASSOC
 		);
 
 		$from_laf = BcmsConfig::getInstance()->getTablename('layout_fieldtype_zo').' as lf_zo,';
@@ -85,6 +120,7 @@
 				'order' => ' lf_zo.ordering_num ASC'
 		);
 	}
+
 	public function checkSpecialFields(&$p_aCols, $func) {
 	}
 
@@ -93,26 +129,25 @@
 	 */
 	public function getAvailableLayouts($cat_id=0)
 	{
-		$where = null;
 		if(empty($cat_id)){
-			$where = 'lm_zo.fk_cat = '.$_SESSION['m_id'];
+			$cat_id = $_SESSION['m_id'];
 		}
-		foreach ($this->select('availLayouts',$where) as $value) {
-			$new_array[$value[0]] = $value[1];
-
+		foreach ($this->select('availLayouts','lm_zo.fk_cat = '.$cat_id) as $value) {
+			$new_array[$value['layout_id']] = $value['layoutname'];
 		}
 		return $new_array;
 	}
 
 	/**
-	 * fetches the IDs of the available layouts for the current menu
+	 * reads the data of the specified layout from the according file in the filesystem
+	 *
+	 * @return array - array(layout_string with placeholders, layout_css)
 	 */
 	public function getLayoutDataFromFS($p_iLayoutID)
 	{
 		if(is_numeric($p_iLayoutID)) {
 			$layoutData = $this->select('listall','layout_id = '.$p_iLayoutID);
-				$layoutfile = 'includes/layouts/'.$layoutData[0][2].'.slt.php';
-			require $layoutfile;
+			require 'layouts/'.$layoutData[0]['filename'].'.slt.php';
 			return (array($layout_string, $layout_css));
 		} else
 			return null;
@@ -125,7 +160,6 @@
 	}
 
 	public function getObject($id) {
-		$this->sql['listall']['fetchmode'] = DB_FETCHMODE_ASSOC;
 		return $this->select('listall','layout_id = '.$id);
 	}
 }

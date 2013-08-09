@@ -1,0 +1,22 @@
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*  CSS-Layout for desc_only-section of BordeRleSS CMS
+*                 -----------------
+*  This CSS-File is copyright by goldstift. Feel free to take this as lecture
+*  though I don't think that anyone can use it. I think I was kind of too much
+*  in perfection-mode when I created the DOM of my cms. *hehe*
+*  But, well, what I gained is very near to FULL FLEXIBILITY... ;-)
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+div#menu_description {
+}
+
+div#menu_description div#edit_menu_icon {
+}
+div#menu_description div#edit_menu_icon a {
+}
+div#menu_description div#edit_menu_icon a img {
+  border:0px;
+}
+div#menu_description span#desc {
+}

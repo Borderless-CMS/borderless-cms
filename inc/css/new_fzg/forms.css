@@ -1,0 +1,68 @@
+/** Definition for form elements */
+fieldset {
+  margin:1em 0px;
+  padding:0.3em;
+  width:auto;
+}
+fieldset legend {
+  border-right: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
+  padding:0.02em 0.5em;
+  margin:0.5em 0px;
+  font-family:tahoma,arial,helvetica,sans-serif;
+	font-weight:normal;
+	font-size:1.4em;
+	background-color:#036;
+	color:#e4e4e4;
+}
+input, select, textarea {
+  border: 1px solid #bbb;
+  background-color:#e4e4e4;
+  padding:1px;
+	font-size:1.0em;
+	font-family:inherit;
+font-family:tahoma,arial,helvetica,sans-serif;
+}
+label, input {
+	cursor:pointer;
+}
+/** END of form elements */
+
+/** Definition of HTML_QuickForm relevant CSS-Tags **/
+.qfElement {
+	margin:1.5em 0em;
+}
+
+.qfElement input,
+.qfElement textarea,
+.qfElement button,
+.qfElement span+select {
+	padding:1px;
+}
+.qfElement input,
+.qfElement textarea,
+.qfElement button {
+	background-color: #e4e4e4;
+}
+.qfElement input[type="button"],
+.qfElement input[type="submit"],
+.qfElement input[type="reset"] { width:auto; display:inline; }
+
+.qfElement select option {
+margin-right:5px;
+}
+.qfLabel { display:block; font-size: inherit;}
+.qfLabel span.qfLabelText {
+	color:#000;
+	 clear:left;
+	display:block;
+	width:30%;
+	float:left;
+	border-top:1px solid #bbb;
+    padding:0px 3px;
+}
+
+div.qfElement textarea {
+height:8em;
+font-family:tahoma,arial,helvetica,sans-serif;
+}

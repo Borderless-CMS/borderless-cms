@@ -1,0 +1,85 @@
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    C O N T E N T L I S T - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+h3.storyheader {
+}
+h3.storyheader span {
+}
+
+div.contentlist {
+  text-align:left;
+  margin: 0px;
+  padding:10px;
+}
+div.contentlist:hover {
+}
+
+div.contentlist h4.heading {
+	background: url(faded_line.gif) no-repeat;
+  padding: 2px 4px;
+}
+div.contentlist h4.heading span.storynumber {
+  background: url("heading_article.gif") no-repeat;
+  padding-left:18px;
+}
+
+div.contentlist h4.heading span.sr_desc{
+  /* Erlaeuterung zu "sr_desc" siehe oben */
+  display: none;
+}
+div.contentlist h4.heading span {
+}
+div.contentlist_preview {
+  margin:10px 10px 10px 35px;
+}
+
+div.contentlist_info {
+  display: block;
+  margin:3px 10px 10px 35px;
+}
+div.contentlist_info span.author {
+}
+div.contentlist_info span.author a {
+}
+div.contentlist_info span.author .sr_desc{
+  /* Erlaeuterung zu "sr_desc" siehe oben */
+  display: none;
+}
+div.contentlist_info span.date {
+  padding-left: 10px; 
+
+}
+div.contentlist_info span.date .sr_desc{
+  /* Erlaeuterung zu "sr_desc" siehe oben */
+  display: none;
+}
+div.contentlist_info span.hits {
+  padding-left: 10px; 
+}
+div.contentlist_info span.hits .sr_desc{
+  /* Erlaeuterung zu "sr_desc" siehe oben */
+  display: none;
+}
+div.contentlist_info span.no_of_comments {
+  padding-left: 10px; 
+}
+div.contentlist_info span.no_of_comments .sr_desc{
+  /* Erlaeuterung zu "sr_desc" siehe oben */
+  display: none;
+}
+div.contentlist_info span.no_of_comments a {
+}
+
+div#prevNextArticle {
+  text-align:center;
+  padding:5px;
+}
+div#prevNextArticle span {
+  font-weight: bold;  
+}
+div#prevNextArticle span a {
+}
+

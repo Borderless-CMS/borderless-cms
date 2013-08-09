@@ -1,0 +1,72 @@
+/* ----------------------------------------------------------------------
+*  general element-definitions - in no order
+* ----------------------------------------------------------------------*/
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    M E N U - S E C T I O N
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+.selected_text{ position:absolute; left:-3000px; }
+div#menusection {
+	text-align:left;
+	border-right: 1px solid #e4e4e4;
+}
+div#menusection div { margin-top:1.2em; }
+
+div#menusection div h2			{	background-color:#921C02; margin:0px; padding:0px;}
+div#menusection div h2 span		{	color:#fff; font-size:0.9em; padding-left:0.5em; }
+div#menusection div ul 			{	list-style: none;  font-size:1.2em;}
+div#menusection ul li 			{	padding:0.2em 0em 0.2em 2.2em;
+									border-top: 1px solid #e4e4e4;
+								}
+div#menusection ul li dfn 		{	position:absolute; left:-3000px; }
+div#menusection ul li a			{	text-decoration:none; font-weight:normal; }
+div#menusection ul li.odd a 		{}
+div#menusection ul li.even a 		{}
+div#menusection li ul	{	background-color:#f0f0f0; font-size:1em;}
+div#menusection ul li a:hover	{	padding-bottom:0em; border-bottom:2px solid #941c00; }
+div#menusection li.selected a 	{	padding-bottom:0em; border-bottom:3px solid #D05F0E; }
+div#menusection li.selected li a {	border:0px; }
+
+div#logged_in_as {
+	position:absolute;
+	top:225px;
+	width:500px;
+	margin-left:0.5em;
+}
+/* IE 6 hack */
+* html div#logged_in_as { top:200px; }
+a#showHideMenu { display:none;}
+/*
+div#logged_in_as a#showHideMenu {
+	text-decoration:none;
+	margin-right:5px;
+}
+*/
+/****        M A I N M E N U - S E C T I O N  *******/
+div#mainmenu { margin:0px; }
+div#mainmenu h2 { margin-top:0.5em; }
+div#mainmenu ul li a { padding:0.2em; }
+
+/*          U S E R M E N U - S E C T I O N     */
+
+/*          S Y S T E M M E N U - S E C T I O N     */
+div#menusection div#systemmenu {
+	text-align:right;
+	position:absolute;
+	top:35px;
+	right:6%;
+	margin:0px;
+	padding:0px;
+	width:500px;
+	font-size:1em;
+	color:#666;
+}
+/* IE 6 hack */
+* html div#menusection div#systemmenu {	top:10px; right:0px; }
+
+div#systemmenu h2 { position:absolute; left:-3000px;
+}
+div#systemmenu ul 		{ display:inline; list-style: none; text-indent: 0px; }
+div#systemmenu ul li 	{ display:inline; padding:2px; padding-left:3em; border:0px; text-indent:0px; }
+div#systemmenu ul li a	{ display:inline; text-decoration:none; border:0px; color:#fff;	font-weight:normal;}
+

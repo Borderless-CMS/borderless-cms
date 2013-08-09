@@ -1,0 +1,887 @@
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*  CSS-Default-Layout for www.goldstift.de
+*
+*  This CSS-File is copyright by goldstift. Feel free to take this as lecture
+*  though I don't think that anyone can use it. I think I was kind of too much
+*  in perfection-mode when I created the DOM of my cms. *hehe*
+*  But, well, what I gained is very near to FULL FLEXIBILITY... ;-)
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+/* ----------------------------------------------------------------------
+*  general element-definitions - in no order
+* ----------------------------------------------------------------------*/
+html, body, div, span, ul, li, p, a, h1, h2, h3, h4, h5, h6,
+form, input, select, textarea
+{
+  font-family:arial,helvetica,san-serif;
+  margin:0px;
+  padding:0px;
+}
+
+body {
+  font:normal 13px arial,helvetica,san-serif;
+  color:#000;
+}
+
+p {
+  margin: 0px 0px 0.5em 0px;
+}
+form {
+}
+input, select, textarea {
+  width:80px;
+  border: 1px solid #111;
+  padding:1px;
+	font-size:11px;
+}
+h1, h2, h3, h4, h5, h6 {
+  border-top: 1px dotted #999;
+  border-bottom: 1px solid #999;
+}
+h1 {
+  font-size: 18px;
+}
+h2 {
+  font-size: 16px;
+}
+h3 {
+  font-size: 14px;
+}
+h4 {
+  font-size: 12px;
+  font-family: arial,helvetica,sans-serif;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+h5, h6 {
+  background-color:#f0f0f0;
+  color:#4A6184;
+  font: normal 10px arial,helvetica,sans-serif;
+  letter-spacing: 0px;
+  border-top: 1px solid #4A6184;
+  border-bottom: 1px solid #4A6184;
+}
+a:link,
+a:visited {
+  border-bottom: 1px dashed #000;
+  text-decoration:none;
+  color:#036;
+}
+a:hover {
+  border: 0px;
+  color:#fff;
+  background-color:#036;
+}
+a:visited {
+}
+
+/* ----------------------------------------------------------------------*/
+/*  general class-definitions - in order of appearance                   */
+/* ----------------------------------------------------------------------*/
+
+/* a general class important for dialogs */
+.dialog {
+  position:absolute;
+  top:0px;
+  left:0px;
+  width:2048px;
+  height:1600px;
+  z-index:9999;
+  background-image:url('inc/gfx/blank.gif');
+}
+/* a general class important for dialogs */
+.dialogbox {
+  position:absolute;
+  top:20px;
+  left:50px;
+  width:400px;
+  z-index:99999;
+  border:1px solid #333;
+  background-color:#ccc;
+  padding:2px;
+}
+.dialogbox h3 {
+	background-color:#036;
+	color:#fff;
+	border:0px;
+	padding:3px;
+}
+.dialogbox form
+{
+  padding:5px;
+  background-color:#fff;
+}
+.dialogbox form textarea {
+	width:280px;
+	height:120px;
+}
+.dialogbox form select,
+.dialogbox form input {
+	width:auto;
+    height:auto;
+}
+
+
+span.sr_desc {
+  /* displays additional information for screenreaders */
+  display:none;
+}
+.dialog span.sr_desc {
+  /* displays additional information for screenreaders */
+  display:inline;
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    I N T R O P A G E
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+body#introbody {
+  text-align: center;
+  vertical-align: middle;
+
+}
+div#intromessage {
+  width:600px;
+  margin: 140px auto;
+}
+div#intromessage div#introimage {
+}
+div#intromessage a:link,
+div#intromessage a:active,
+div#intromessage a:hover,
+div#intromessage a:visited {
+  display:block;
+  background:#fff url(fzg_header.jpg) no-repeat;
+  width:600px;
+  height:160px;
+  border: 3px solid #102810;
+}
+div#intromessage a span {
+  font: normal bold 16px tahoma,helvetica,sans-serif;
+  color:#fff;
+  display:none;
+}
+div#intromessage div#introdetails {
+  margin:10px 0px 0px 0px;
+}
+
+
+/* ----------------------------------------------------------------------
+*
+*              main-divs - in order of appearance
+*
+* ----------------------------------------------------------------------*/
+
+/* ganz aeusserer Rahmen */
+div#horizon {
+  position:absolute;
+  top:0px;
+  left:0px;
+  margin:0px;
+  padding:0px;
+  width:99.8%;
+  padding-bottom:30px;
+}
+
+div#valid_xhtml {
+  margin:20px;
+}
+div#valid_xhtml a img {
+  border:0px;
+}
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    C O N T A I N E R - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* innerhalb von horizon, enthaelt fast alle anderen divs */
+#container {
+  width:100%;
+  margin:0px;
+  padding:0px;
+  background:#fff url('logotext.jpg') no-repeat;
+  padding-top:100px;
+}
+div#welcome_div {
+  background:#fff url("bglines.gif");
+}
+h1#welcome {
+  border:0px;
+  border-top: 3px solid #666;
+  border-bottom: 1px solid #666;
+  width:100%;
+  height:160px;
+  padding:0px;
+  margin:0px;
+  margin-bottom: 70px;
+  background-image: url("fzg_header.jpg");
+  background-repeat: no-repeat;
+}
+h1#welcome span {
+  display:block;
+  background-image: url("logo-kl.gif");
+  background-repeat: no-repeat;
+  background-position: right;
+  font-size:0px;
+  width:100%;
+  height:160px;
+}
+
+div#site_usage {
+  /* displays usage information on the site for visually handicapped people
+     who are using screenreaders
+     Normal: Contains a link
+     When clicked: Contains info text
+  */
+  display: none;
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    M E N U - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+div#menusection {
+  margin: 0px;
+  padding:0px;
+}
+html > body div#menusection {
+/* correct positioning for DOM compatible Browser like Firefox */
+}
+
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    S Y S T E M M E N U - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+div#menusection #systemmenu {
+  position: absolute;
+  top: 1px;
+  right:1px;
+  margin:0px;
+  color:#666;
+  font-size:13px;
+  text-transform: lowercase;
+}
+#systemmenu h3 {
+  display:none;
+}
+div#systemmenu ul {
+	list-style: none;
+  text-indent: 0px;
+  padding:0px;
+  margin:0px;
+}
+div#systemmenu ul li {
+  float:left;
+  margin:0px;
+  text-indent: 0px;
+  padding:5px 5px;
+}
+div#systemmenu ul li a:link,
+div#systemmenu ul li a:visited,
+div#systemmenu ul li a:hover {
+  color:#036;
+  padding:3px 5px;
+  border:0px;
+  border-left: 1px dotted #999;
+}
+div#systemmenu ul li a:hover {
+  background-color:#036;
+  color:#fff;
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    M A I N M E N U - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+div#menusection div#mainmenu {
+  position:absolute;
+  top: 260px;
+  left:0px;
+  margin:0px;
+  padding:0px;
+  background:#999 url('menuback.gif');
+  width:100%;
+  border:0px;
+  border-top: 1px solid #666;
+  border-bottom: 1px solid #666;
+}
+div#mainmenu h3 {
+  display: none;
+}
+div#mainmenu h3 span {
+}
+div#mainmenu ul {
+  /* verhindert, dass das Menue als Liste erscheint */
+  list-style: none;
+  margin:0px;
+  text-indent: 0px;
+  padding:0px;
+}
+div#mainmenu ul#menu1 {
+  border-left: 1px solid #ccc;
+}
+div#mainmenu ul#menu1 li {
+  display:inline;
+  margin:0px;
+  text-indent: 0px;
+  padding:0px 0px;
+}
+div#mainmenu ul#menu1 li a:link,
+div#mainmenu ul#menu1 li a:visited {
+  color:#f0f0f0;
+  font-weight:bold;
+  border: 0px solid #333;
+  border-left: 0px;
+  font-size:1.10em;
+  padding:3px 15px;
+}
+div#mainmenu ul li a:hover {
+  background-color:#036;
+  color:#fff;
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    S U B M E N U - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+
+div#menusection ul#menu2 {
+  position:absolute;
+  top: 75px;
+  left:10px;
+  padding:5px;
+  width:200px;
+  padding:0px;
+  margin:0px;
+}
+ul#menu1 ul li {
+  display:block;
+  margin:0px;
+  text-indent: 0px;
+  margin-left:20px;
+  padding:5px 0px;
+}
+ul#menu1 ul li a {
+  display:block;
+  border:0px;
+  background:#fff url('pfeil_red.gif') left no-repeat;
+  padding-left:14px;
+  color:#000;
+}
+ul#menu1 ul li a:hover {
+  background-color:#036;
+  color:#fff;
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    E R R O R - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+div#systemmsg {
+  position: absolute;
+  top: 25px;
+  right:1px;
+  z-index:3000;
+  color:#000;
+  width:250px;
+  background-color:#F3DEDA;
+  border: 2px solid #f00;
+  padding:0px;
+  margin:0px;
+}
+
+div#systemmsg h2#systemmsgheading {
+  margin:0px 0px 5px 0px;
+}
+div#systemmsg h2#systemmsgheading span {
+  padding:5px;
+}
+div#systemmsg div#systemmessage {
+  padding:5px;
+}
+div#systemmsg div#systemmessage span {
+}
+div#systemmsg div#systemmsg_weiter {
+  margin:5px 0px;
+}
+div#systemmsg div#systemmsg_weiter span {
+  margin:5px;
+}
+div#systemmsg div#systemmsg_weiter span a {
+  padding:2px 5px;
+  border:1px solid #000;
+  background-color:#ccc;
+  color:#333;
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                  A L L C O N T E N T - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+div#allcontent {
+  padding: 0px;
+  margin-top:25px;
+  margin-left:300px;
+  margin-bottom:25px;
+}
+div#allcontent div#use_text_version {
+	width:600px;
+	margin:15px 0px;
+}
+
+div#allcontent div#articles {
+	clear:both;
+	width:600px;
+}
+div#allcontent div#articles img {
+}
+
+h2#pathway {
+  position:absolute;
+  top: 300px;
+  left:0px;
+  margin: 5px 0px 5px 0px;
+  padding:2px 5px;
+  width:880px;
+  border:0px;
+  border-bottom:1px solid #ccc;
+/*  background-color:#ddd; */
+}
+h2#pathway span.sr_desc {
+  /* displays the additional screenreader info.
+     The class in general is described above.
+  */
+}
+h2#pathway span#pathway_links a {
+  color: #666;
+  border:0px;
+}
+
+div#menu_description {
+	width:580px;
+  padding: 10px;
+}
+div#menu_description div#edit_menu_icon {
+	float:right;
+}
+div#menu_description div#edit_menu_icon img,
+div#menu_description div#edit_menu_icon a {
+	border:0px;
+}
+div#menu_description span#menu_image img {
+	border:1px solid #000;
+  margin:5px;
+  margin-bottom:15px;
+}
+div#menu_description span#desc {
+  display: block;
+}
+
+div#articles {
+  margin-top: 0px;
+}
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    C O M M E N T - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+div#allcomments {
+  padding: 5px 0px;
+}
+div#allcomments h3 {
+  background-color:#036;
+  color: #fff;
+  padding:2px 4px;
+}
+div.comment {
+  padding: 5px;
+}
+p.comment_info {
+  padding: 5px;
+}
+p.commentcontent {
+  padding: 5px;
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    C O M M E N T F O R M - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+div#commentForm {
+  padding: 5px 0px;
+}
+div#commentForm h3 {
+  background-color:#036;
+  color: #fff;
+  padding:2px 4px;
+}
+div#commentForm span {
+}
+div#commentForm span div {
+  padding: 5px;
+}
+div#commentForm span div textarea {
+width:300px;
+height:80px;
+}
+div#commentForm span input {
+/* formbuttons */
+  margin: 5px;
+}
+
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    L A T E S T - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+div#userarea {
+  width:100%;
+  text-align:left;
+  padding: 0px;
+  margin: 0px;
+}
+div#userarea div#usermenu {
+  position:fixed;
+  left: 0px;
+  bottom:0px;
+  margin:0px;
+  width:100%;
+  background:#999 url('menuback.gif');
+  border-top: 1px solid #666;
+  border-bottom: 1px solid #666;
+}
+div#userarea div#usermenu h3.menuheader {
+  border:0px;
+  margin:0px;
+  margin-top:1px;
+  margin-left:2px;
+  float:left;
+  font-size: 11px;
+  padding-right:10px;
+}
+div#userarea div#usermenu h3.menuheader span {
+  padding-left: 3px;
+  border-left: 1px solid #000;
+}
+
+div#userarea div#usermenu form#loginForm {
+  padding:2px 0px;
+  padding-left: 3px;
+}
+div#userarea div#usermenu form#loginForm div#login_username {
+  margin:0px;
+  padding:0px;
+  float:left;
+}
+div#userarea div#usermenu form#loginForm div#login_username input {
+  margin-right:10px;
+}
+div#userarea div#usermenu form#loginForm div#login_password {
+  margin:0px;
+  padding:0px;
+  float:left;
+}
+div#userarea div#usermenu form#loginForm div#login_password input{
+  margin-right:10px;
+}
+div#userarea div#usermenu form#loginForm div#login_buttons {
+  padding:0px;
+  margin:0px;
+  float:left;
+}
+div#userarea div#usermenu form#loginForm div#login_buttons input {
+  margin:0px 0px 2px 0px;
+  padding:0px;
+  float:left;
+  width:50px;
+}
+
+div#userarea div#usermenu div#password {
+  float:left;
+  margin:0px;
+  margin-left:10px;
+  padding:0px;
+}
+div#userarea div#usermenu div#password a {
+  padding:0px;
+  padding-left: 3px;
+  margin: 0px;
+  border:0px;
+  font-weight:bold;
+  border-left: 1px solid #000;
+}
+
+div#userarea div#usermenu div#register {
+  float:left;
+  margin:0px;
+  padding:0px;
+  margin-left:10px;
+}
+div#userarea div#usermenu div#register a {
+  padding:0px;
+  padding-left: 3px;
+  margin: 0px;
+  border:0px;
+  font-weight:bold;
+  border-left: 1px solid #000;
+}
+div#userarea div#usermenu div#redlogin {
+  float:left;
+  margin:0px;
+  padding:0px;
+  margin-left:10px;
+}
+div#userarea div#usermenu div#redlogin a {
+  padding:0px;
+  padding-left: 3px;
+  margin: 0px;
+  border:0px;
+  font-weight:bold;
+  border-left: 1px solid #000;
+}
+div#userarea div#usermenu div#admlogin {
+  float:left;
+  margin:0px;
+  padding:0px;
+  margin-left:10px;
+}
+div#userarea div#usermenu div#admlogin a {
+  padding:0px;
+  padding-left: 5px;
+  margin: 0px;
+  border:0px;
+  font-weight:bold;
+  border-left: 1px solid #000;
+}
+
+/* Logout-link-style - Looks like a button */
+div#userarea div#usermenu ul {
+  margin:0px;
+  list-style: none;
+  padding: 0px;
+}
+div#userarea div#usermenu ul li {
+  float:left;
+  margin:0px;
+  padding: 0px 5px;
+  padding-right: 15px;
+  border: 0px;
+}
+div#userarea div#usermenu ul li a {
+  padding: 1px 5px;
+  font-weight: bold;
+  border: 0px;
+  border-left: 1px solid #000;
+}
+
+div#userarea div#userinfo {
+  position: fixed;
+  bottom:25px;
+  left: 1px;
+  width:150px;
+  background-color:#fff;
+  border-right: 1px dotted #999;
+}
+div#userarea div#userinfo h3.menuheader {
+  margin-left:2px;
+}
+div#userarea div#userinfo h3.menuheader span {
+}
+div#userarea div#userinfo div#details {
+  padding: 5px;
+}
+div#userarea div#userinfo div#details span#curr_user {
+  display: block;
+  padding-top: 5px;
+}
+div#userarea div#userinfo div#details span#curr_user span {
+  font-weight: bold;
+}
+div#userarea div#userinfo div#details span#all_hits {
+  display: block;
+  padding-top: 5px;
+}
+div#userarea div#userinfo div#details span#all_hits span {
+  font-weight: bold;
+}
+div#userarea div#userinfo div#details span#monthhits {
+  display: block;
+  padding-top: 5px;
+}
+div#userarea div#userinfo div#details span#monthhits span {
+  font-weight: bold;
+}
+div#userarea div#userinfo div#details span#users_on {
+  display: block;
+  padding-top: 5px;
+}
+div#userarea div#userinfo div#details span#users_on span {
+  font-weight: bold;
+}
+div#userarea div#userinfo div#details span#users_reg {
+  display: block;
+  padding-top: 5px;
+}
+div#userarea div#userinfo div#details span#users_reg span {
+  font-weight: bold;
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    S H O U T I N G - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+div#opt_components {
+  margin:0px;
+  padding:15px 0px;
+  text-align: right;
+}
+div#opt_components div#styleswitcher {
+  margin-bottom: 5px;
+  text-align:left;
+}
+div#opt_components  div#styleswitcher form {
+}
+div#opt_components  div#styleswitcher form h3 {
+  border-top:0px;
+}
+div#opt_components  div#styleswitcher form div {
+  padding: 5px;
+}
+div#opt_components  div#styleswitcher form div select {
+  width:100px;
+}
+div#opt_components  div#styleswitcher form div input {
+  width:100px;
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    D E B U G G I N G - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* ganzer debugging-bereich */
+#debugging {
+  position:absolute;
+  top: 0px;
+  right:0px;
+  z-index:2000;
+  background-color:#666;
+  color:#fff;
+}
+/* enthaelt jeweils die debugging-infos */
+#debugging pre {
+}
+
+h2#debugheader {
+}
+h2#debugheader span {
+}
+
+
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    P R O F I L E - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+h2#profile_header {
+}
+
+form#profile_frm {
+padding:0px;
+margin:0px;
+}
+
+div#login_daten {
+margin:5px 0px;
+}
+div#login_daten h4 {
+}
+div#login_daten span {
+  padding:3px 5px;
+}
+div#login_daten span input {
+  padding:2px;
+}
+
+div#perso_daten {
+margin:5px 0px;
+}
+div#perso_daten h4 {
+}
+div#perso_daten span {
+  padding:2px 5px;
+  display:block;
+}
+div#perso_daten span input {
+  padding:2px;
+  width:150px;
+}
+
+div#system_daten {
+margin:5px 0px;
+}
+div#system_daten h4 {
+}
+div#system_daten div.sysdata {
+  padding:2px 5px;
+}
+div#system_daten div.sysdata span {
+  font-weight:bold;
+  padding-right: 5px;
+}
+
+div#profile_buttons {
+}
+div#profile_buttons input{
+  margin:10px;
+  width:120px;
+}
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    C O P Y R I G H T - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+#copyright {
+  text-align:right;
+  padding:2px;
+}
+#copyright span {
+}
+#copyright span a {
+  border:0px;
+}
+
+div#rendertime {
+  font-size:10px;
+}
+div#fontsize_menu {
+	position:absolute;
+	top:70px;
+	right:-5px;
+	margin: 10px;
+}
+div#fontsize_menu span a {
+	background-color:#c6cbde;
+	padding:0px 10px;
+	margin: 0px;
+	border:0px;
+}

@@ -1,0 +1,185 @@
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*  CSS-Layout for home-section of borderLeSS CMS
+*                 ------------
+*  This CSS-File is copyright by goldstift. Feel free to take this as lecture
+*  though I don't think that anyone can use it. I think I was kind of too much
+*  in perfection-mode when I created the DOM of my cms. *hehe*
+*  But, well, what I gained is very near to FULL FLEXIBILITY... ;-)
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+
+div#homecontent {
+  padding: 0px;
+}
+
+div.content {
+  margin-bottom: 15px;
+}
+div.content:hover {
+}
+
+h3.storyheader {
+  padding:2px 4px;
+}
+h3.storyheader span {
+}
+h3.storyheader span.sr_desc {
+	display:none;
+}
+p.storycontent {
+  padding: 5px;
+  padding-left: 45px;
+}
+p.storycontent span {
+}
+p.storycontent span.content {
+}
+p.storycontent span.content span.sr_desc {
+  display:none;
+}
+p.storycontent span.content span.sr_desc strong {
+}
+p.storycontent span.content a {
+}
+p.storycontent span.content img {
+  margin: 15px;
+  border:1px solid #000;
+}
+p.storycontent span.description {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  display:block;
+}
+p.storycontent span.description span.sr_desc {
+  display:block;
+}
+p.storycontent span.description span.sr_desc strong {
+}
+
+p.story_info {
+  padding-left: 45px;
+  clear:both;
+}
+p.story_info span.author {
+}
+p.story_info span.author span.sr_desc {
+}
+p.story_info span.author a {
+}
+
+p.story_info span.edate {
+  display:block;
+  margin-left: 15px;
+}
+p.story_info span.edate span.sr_desc {
+  margin-right: 5px;
+}
+p.story_info span.vdate {
+  display:block;
+  margin-left: 15px;
+}
+p.story_info span.vdate span.sr_desc {
+  margin-right: 5px;
+}
+
+p.story_info span.editor {
+  display:none;
+}
+p.story_info span.editor span.sr_desc {
+}
+p.story_info span.editor a {
+}
+p.story_info span.editdate {
+  display:none;
+}
+p.story_info span.editdate span.sr_desc {
+}
+
+
+/* LATEST SECTION */
+
+div#homecontent div#latestContent h3.menuheader {
+  border-top:0px;
+  margin: 0px 2px 0px 0px;
+  text-align: left;}
+div#homecontent div#latestContent h3.menuheader span {
+}
+
+div#latestContent  form#latestForm {
+  text-align:left;
+}
+div#latestContent  form#latestForm div#latest_type {
+margin:2px 2px;
+}
+div#latestContent  form#latestForm div#latest_type select {
+  width:130px;
+}
+div#latestContent  form#latestForm div#latest_type select option {
+}
+
+div#latestContent  .latestcont {
+}
+
+div#latestContent  .latestcont h4.latestheader {
+	background: url(faded_line.gif) no-repeat;
+  margin: 15px 0px 5px 0px;
+  padding:1px;
+}
+div#latestContent  .latestcont h4.latestheader span {
+  background: url(heading_article.gif) no-repeat;
+  padding-left:22px;
+}
+
+div#latestContent  .latestcont p.latestcontent {
+  margin-left:10px;
+}
+div#latestContent  .latestcont p.latestcontent span {
+}
+div#latestContent  .latestcont p.latestcontent a {
+/* Link [mehr] bringt den User zum Artikel */
+}
+
+div#latestContent  .latestcont p.latestinfo  {
+  margin:10px;
+  margin-bottom:20px;
+  background-color: #fff;
+  padding:2px;
+  background-color: #e4e4e4;
+  border:2px solid #ccc
+}
+div#latestContent  .latestcont p.latestinfo  span.author {
+  padding-left: 12px;
+  background-image: url("bullet_double.gif");
+  background-repeat:  no-repeat;
+}
+div#latestContent  .latestcont p.latestinfo  span.date {
+  padding-left: 5px;
+}
+
+div#latestContent  #latestcont1 {
+}
+div#latestContent  #latestcont2 {
+}
+div#latestContent  #latestcont3 {
+}
+div#latestContent  #latestcont4 {
+}
+div#latestContent  #latestcont5 {
+}
+
+div#use_text_version {
+  position:absolute;
+  top:40px;
+  left:20px;
+  width:240px;
+  z-index:999;
+  border: 0px;
+  padding: 2px;
+  z-index:999;
+  margin: 0px 0px 5px 0px;
+  
+}
+div#use_text_version p {
+  text-align:justify;
+}

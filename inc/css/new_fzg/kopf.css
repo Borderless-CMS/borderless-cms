@@ -1,0 +1,72 @@
+/*    KOPF.CSS */
+
+/* welcome_div */
+div#welcome_div {
+background:#E26815 url('welcome_back.gif') repeat-x top left;
+height:200px;
+  border-bottom: 1px solid #666;
+  margin-bottom:5px;
+}
+h1#welcome {
+height:200px;
+background:transparent url('logo_redback.gif') no-repeat top right;
+  border-bottom: 2px solid #dfdfdf
+}
+h1#welcome span {
+  display:block;
+	background:transparent url('fzgtext_redback.gif') no-repeat top left;
+	height:200px;
+	/*folgendes laesst den Begruessungstext "verschwinden" */
+	font-size:0em;
+	color:#EBA33A;
+}
+
+/*       A L L C O N T E N T - S E C T I O N     */
+
+div#allcontent div#articles {
+	clear:both;
+	padding:0px 10px;
+}
+
+h2#pathway {
+	position:absolute;
+	top:170px;
+	left:7%;
+	width:640px;
+  border:0px;
+	font-size:2.2em;
+}
+/* IE 6 hack */
+* html h2#pathway { top:155px; left:1%; }
+
+h2#pathway span#pathway_links {
+  color:#fff;
+}
+h2#pathway span#pathway_links a {
+	color:#fff;
+	  text-decoration:none;
+}
+
+div#allcontent div.logged_in {
+	margin-top:0.6em;
+}
+div#menu_description {
+  padding: 15px;
+font-size:1.1em;
+line-height:1.7em;
+}
+div#menu_description span.sr_desc {
+	position:absolute;
+	left:-3000px;
+}
+div#menu_description {
+}
+div#menu_description span#menu_image img {
+	border:1px solid #000;
+  margin:5px;
+  margin-bottom:15px;
+}
+div#menu_description span#desc {
+  display: block;
+}
+

@@ -1,0 +1,207 @@
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    C O N T E N T - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+div.content {
+  margin-bottom: 15px;
+  background-color: #efefef;
+}
+div.content:hover {
+}
+
+h3.storyheader {
+  margin-top: 15px;
+  background-color:#7396ad;
+  color: #fff;
+  padding:2px 4px;
+}
+h3.storyheader span {
+}
+h3.storyheader span.sr_desc {
+	display:none;
+}
+
+div#edit_article_icon {
+}
+
+div#edit_article_icon img,
+div#edit_article_icon a {
+	border: 0px;
+}
+
+
+div.storycontent {
+  padding: 5px;
+}
+div.storycontent span {
+}
+div.storycontent span.sr_desc {
+	display:none;
+}
+
+div.storycontent span.content {
+}
+div.storycontent span.content span.sr_desc {
+  display:none;
+}
+div.storycontent span.content span.sr_desc strong {
+}
+div.storycontent span.content a {
+}
+div.storycontent span.content img {
+  margin: 15px;
+  border:1px solid #000;
+}
+div.storycontent span.description {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  display:block;
+}
+div.storycontent span.description span.sr_desc {
+  display:block;
+}
+div.storycontent span.description span.sr_desc strong {
+}
+
+/* images inside of the articles */
+div.storycontent span #Image1 {
+}
+div.storycontent span #Image2 {
+}
+div.storycontent span #Image3 {
+}
+div.storycontent span #Image4 {
+}
+div.storycontent span #Image5 {
+}
+/* and so on */
+
+div.story_info {
+  clear:both;
+}
+div.story_info div.author {
+  display:inline;
+  margin-left: 5px;  
+}
+div.story_info div.author span.sr_desc {
+}
+div.story_info div.author a {
+}
+
+div.story_info div.edate {
+  display:inline;
+  margin-left: 15px;
+}
+div.story_info div.edate span.sr_desc {
+  margin-right: 5px;
+}
+div.story_info div.vdate {
+  display:inline;
+  margin-left: 15px;
+}
+div.story_info div.vdate span.sr_desc {
+  margin-right: 5px;
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    C O M M E N T - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+div#allcomments {
+  padding: 5px 0px;
+}
+div#allcomments h3 {
+  background-color:#5A82a5;
+  color: #fff;
+  padding:2px 4px;
+}
+div#comments h3 span {
+}
+
+h4.commentheader {
+  background-color:#F9D9A9;
+	padding: 1px 5px;
+}
+h4.commentheader span {
+}
+
+div.comment {
+  padding: 5px;
+  margin:5px;
+}
+div.comment:hover {
+}
+
+div#comment1 {
+}
+
+div#comment2 {
+}
+
+div#comment3 {
+}
+
+div#comment4 {
+}
+
+div#comment5 {
+}
+/* and so on ... for every content-div on page */
+
+div.comment_info {
+	padding: 5px 15px;
+}
+div.comment_info div.author {
+	display:inline;
+}
+div.comment_info div.author a {
+}
+div.comment_info div.date {
+	display:inline;
+	padding: 0px 15px;
+}
+
+div.comment_text {
+	padding: 5px 15px;
+
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    C O M M E N T F O R M - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+div#commentForm {
+  padding: 5px 0px;
+}
+div#commentForm fieldset {
+  background-color: #efefef;
+}
+div#commentForm fieldset legend { 
+  background-color:#7396ad;
+  color: #fff;
+  padding:1px 4px;
+	border:1px solid #333;
+}
+div#commentForm form {
+}
+div#commentForm form div {
+  padding: 5px;
+}
+div#commentForm form div span {
+}
+div#commentForm form div input {
+	width:auto;
+}
+div#commentForm form div textarea {
+width:300px;
+height:80px;
+}
+div#commentForm span input {
+/* formbuttons */
+  margin: 5px;
+}

@@ -1,0 +1,107 @@
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    C O N T E N T - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+div.content {
+  margin-bottom: 15px;
+}
+
+h3.storyheader {
+  margin-top: 15px;
+  background-color: #003366;
+  color: #fff;
+  padding:2px 4px;
+}
+h3.storyheader span {
+}
+
+div.storycontent {
+  background-color:#DEE2EA;
+  margin: 0px;
+  padding: 5px;
+}
+div.storycontent div {
+}
+div.storycontent div.innercontent {
+}
+div.storycontent div.innercontent span.sr_desc {
+  display:none;
+}
+div.storycontent div.innercontent span.sr_desc strong {
+}
+div.storycontent div.innercontent a {
+}
+div.storycontent div.innercontent img {
+  margin: 15px;
+  border:1px solid #000;
+}
+div.storycontent div.description {
+  clear:both;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  display:block;
+}
+div.storycontent div.description span.sr_desc {
+  display:block;
+}
+div.storycontent div.description span.sr_desc strong {
+}
+
+/* images inside of the articles */
+div.storycontent div #Image1 {
+}
+div.storycontent div #Image2 {
+}
+div.storycontent div #Image3 {
+}
+div.storycontent div #Image4 {
+}
+div.storycontent div #Image5 {
+}
+/* and so on */
+
+div.story_info {
+  background-color:#DEE2EA;
+  margin: 0px 0px 0.5em 0px;
+  clear:both;
+}
+div.story_info div.author {
+  margin-left: 5px;  
+}
+div.story_info div.author span.sr_desc {
+}
+div.story_info div.author a {
+}
+
+div.story_info div.edate {
+  display:block;
+  margin-left: 15px;
+}
+div.story_info div.edate span.sr_desc {
+  margin-right: 5px;
+}
+div.story_info div.vdate {
+  display:block;
+  margin-left: 15px;
+}
+div.story_info div.vdate span.sr_desc {
+  margin-right: 5px;
+}
+
+div.story_info div.editor {
+  display:block;
+  margin-top: 10px;  
+  margin-left: 5px;  
+}
+div.story_info div.editor span.sr_desc {
+}
+div.story_info div.editor a {
+}
+div.story_info div.editdate {
+  display:block;
+  margin-left: 15px;
+}
+div.story_info div.editdate span.sr_desc {
+  margin-right: 5px;
+}

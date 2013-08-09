@@ -1,0 +1,28 @@
+div {
+	margin:1px;
+	border:0px solid #000;
+}
+div.el1 { background-color:#fa0; }
+div.el2 { background-color:#af0; }
+div.el3 { background-color:#a0f; }
+
+div.block {
+	width:99%;
+	clear:both;
+	float:left;
+}
+div.element {
+	height:auto;
+	float:left;
+}
+/* elm_count_* gives the number of elements in the block
+*   That´s how the varying width of the elements is handled
+*/
+div.elm_count_1 { width:100%; }
+div.elm_count_2 { width:49.5%; }
+div.elm_count_3 { width:33%; }
+div.elm_count_4 { width:24.5%; }
+
+/* el1, el2, etc. defines the ordernumber of the element */
+div.el1, div.el2, div.el3 {
+}

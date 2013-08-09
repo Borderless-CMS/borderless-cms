@@ -1,0 +1,115 @@
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    C O N T E N T L I S T - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+h3.storyheader {
+}
+h3.storyheader span {
+}
+
+div.contentlist {
+  text-align:left;
+  margin: 0px;
+  padding:10px;
+  border-bottom: 1px solid #999;
+}
+div.contentlist:hover {
+}
+
+div#contentlist1 {
+  background-color: #C4CBD9;
+}
+
+div#contentlist2 {
+  background-color: #DEE2EA;
+}
+
+div#contentlist3 {
+  background-color: #C4CBD9;
+}
+
+div#contentlist4 {
+  background-color: #DEE2EA;
+}
+
+div#contentlist5 {
+  background-color: #C4CBD9;
+}
+/* and so on ... for every content-div on page */
+
+div.contentlist h4.heading {
+  background-color:#036;
+  color: #fff;
+  padding: 2px 4px;
+}
+div.contentlist h4.heading span {
+  background:#036 url("news.gif") no-repeat;
+  padding-left:16px;
+}
+
+div.contentlist h4.heading span.sr_desc{
+  /* Erlaeuterung zu "sr_desc" siehe oben */
+  display: none;
+}
+div.contentlist h4.heading span {
+}
+div.contentlist_preview {
+  margin:10px 20px;
+}
+
+div.contentlist_info {
+  display: block;
+  margin-top:3px;
+  padding-left: 15px; 
+  background:#fff url('pfeil_red.gif') no-repeat;
+}
+div.contentlist_info div.author {
+  display: inline;
+  padding-left: 5px; 
+}
+div.contentlist_info div.author a {
+}
+div.contentlist_info div.author .sr_desc{
+  /* Erlaeuterung zu "sr_desc" siehe oben */
+  display: none;
+}
+div.contentlist_info div.date {
+  display: inline;
+  padding-left: 10px; 
+
+}
+div.contentlist_info div.date .sr_desc{
+  /* Erlaeuterung zu "sr_desc" siehe oben */
+  display: none;
+}
+div.contentlist_info div.hits {
+  display: inline;
+  padding-left: 10px; 
+}
+div.contentlist_info div.hits .sr_desc{
+  /* Erlaeuterung zu "sr_desc" siehe oben */
+  display: none;
+}
+div.contentlist_info div.no_of_comments {
+  display: inline;
+  padding-left: 10px; 
+}
+div.contentlist_info div.no_of_comments .sr_desc{
+  /* Erlaeuterung zu "sr_desc" siehe oben */
+  display: none;
+}
+div.contentlist_info div.no_of_comments a {
+}
+
+div#prevNextArticle {
+  text-align:center;
+  padding:5px;
+}
+div#prevNextArticle span {
+  font-weight: bold;  
+}
+div#prevNextArticle span a {
+}
+

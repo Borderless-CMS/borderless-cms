@@ -1,0 +1,1221 @@
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*  CSS-Default-Layout for www.goldstift.de
+*
+*  This CSS-File is copyright by goldstift. Feel free to take this as lecture
+*  though I don't think that anyone can use it. I think I was kind of too much
+*  in perfection-mode when I created the DOM of my cms. *hehe*
+*  But, well, what I gained is very near to FULL FLEXIBILITY... ;-)
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+/* ----------------------------------------------------------------------
+*  general element-definitions - in no order                    
+* ----------------------------------------------------------------------*/
+
+body { 
+  font:normal 11px Tahoma,arial,helvetica,san-serif; 
+  background-color: #8c9ebd;
+  color:#000;
+  margin:0px;
+  padding:0px;
+} 
+
+p {
+  margin: 0px 0px 0.8em 0px;
+}
+form {
+  margin: 0px;
+  padding:0px;  
+}
+input, select, textarea {
+  font:normal 11px Tahoma,arial,helvetica,san-serif; 
+  width:80px;
+  border: 1px solid #111;
+}
+h1, h2, h3, h4, h5, h6 {
+  background-color:#4A6184;
+  color:#fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-top: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+  padding: 3px;
+  margin: 0px 0px 5px 0px;
+  font-family: garamond,helvetica,sans-serif;
+  font-weight: normal; 
+}
+h1 {
+  font-size: 16px;
+}
+h2 {
+  font-size: 13px;
+}
+h3 {
+  font-size: 12px;
+}
+h4 {
+  font-size: 11px;
+  font-family: arial,helvetica,sans-serif;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+h5, h6 {
+  background-color:#f0f0f0;
+  color:#4A6184;
+  font: normal 10px arial,helvetica,sans-serif;
+  letter-spacing: 0px;
+  border-top: 1px solid #4A6184;
+  border-bottom: 1px solid #4A6184;
+}
+a:link,
+a:visited { 
+  border-bottom: 1px dashed #000; 
+  text-decoration:none;
+  color:#036;
+}
+a:hover { 
+  border: 0px; 
+  color:#fff;
+  background-color:#4A6184;
+}
+a:visited { 
+}
+
+/* ----------------------------------------------------------------------*/
+/*  general class-definitions - in order of appearance                   */
+/* ----------------------------------------------------------------------*/
+
+/* a general class making element invisible but readable for screenreaders */
+.unsichtbar {
+}
+
+span.sr_desc {
+  /* displays additional information for screenreaders */
+}
+.bold {
+  font-weight: bold;
+}
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    I N T R O P A G E
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+body#introbody {
+  text-align: center;
+  vertical-align: middle;
+  
+}
+div#intromessage {
+  background: url(rose.jpg) no-repeat right;
+  width:700px;
+  height:200px;
+  margin: 200px auto;
+  border: 3px solid #102810;
+}
+div#intromessage a {
+  margin: 0px;
+  padding:0px;
+  margin-top: 150px;
+  font: normal 16px garamond,helvetica,sans-serif;
+}
+div#intromessage a span {
+}
+
+
+/* ----------------------------------------------------------------------
+*
+*              main-divs - in order of appearance                                    
+*
+* ----------------------------------------------------------------------*/
+
+/* ganz aeusserer Rahmen */
+#horizon {  
+  position:absolute;
+  top:0px;
+  left:0px;
+}
+
+div#valid_xhtml {
+  margin:20px;
+  height: 600px;
+  vertical-align: bottom;
+}
+div#valid_xhtml a img {
+  border:0px;
+}
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    C O N T A I N E R - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* innerhalb von horizon, enthaelt fast alle anderen divs */
+#container {
+  position:absolute;
+  top:0px;
+  left:150px;
+  width:600px;
+  margin:15px;
+  padding:0px;
+  background:#E5EAF3;
+  border: 3px solid #fff;
+}
+h1#welcome {
+  border: 0px;
+  height:200px;
+  text-align:right;
+  margin-top:20px;
+  padding:20px;
+  margin:0px;
+  background:#fec url("rose.jpg") no-repeat left;
+  text-transform: none;
+  font-weight: bold;
+
+}
+h1#welcome span {
+  vertical-align: bottom;
+  font: normal 24px "Garamond";
+}
+
+div#site_usage {
+  /* displays usage information on the site for visually handicapped people 
+     who are using screenreaders
+     Normal: Contains a link
+     When clicked: Contains info text
+  */
+  display: none;
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    M E N U - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+div#menusection {
+  position:absolute;
+  top: -3px;
+  right:-150px;
+  width:150px;
+  margin: 0px;
+  padding:0px;
+  text-align: right;
+  border: 3px solid #fff;
+  background-color:#fff;
+}
+html > body div#menusection {
+/* correct positioning for DOM compatible Browser like Firefox */
+  position:absolute;
+  top: -3px;
+  right:-156px;
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    M A I N M E N U - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+div#menusection div#mainmenu {
+}
+div#mainmenu h3 {
+  margin:0px;
+  padding:5px;
+  border: 1px solid #4A6184;
+}
+div#mainmenu h3 span {
+}
+div#mainmenu ul {
+  /* verhindert, dass das Menue nicht als Liste erscheint */
+	list-style: none;
+  margin:0px;
+  padding:0px;
+  text-indent: 0px;  
+}
+div#mainmenu ul li {
+  margin:0px;
+  text-indent: 0px;  
+  padding:5px;
+  background-color:#fff;
+  border: 1px solid #4A6184;
+  border-top: 0px;
+}
+div#mainmenu ul li a:link,
+div#mainmenu ul li a:visited,
+div#mainmenu ul li a:hover {
+  color:#036;
+  background:none;
+}
+div#mainmenu ul li:hover {
+  background-color:#fec;
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    S U B M E N U - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+
+div#menusection div#submenu {
+}
+div#submenu h3 {
+  margin:0px;
+  margin-top:8px;
+  padding:5px;
+  border: 1px solid #4A6184;
+}
+div#submenu h3 span {
+}
+div#submenu span#no_elements {
+}
+div#submenu ul {
+	list-style: none;
+  text-indent: 0px;  
+  padding:0px;
+  margin:0px;
+}
+div#submenu ul li {
+  margin:0px;
+  text-indent: 0px;  
+  padding:5px;
+  border: 1px solid #4A6184;
+  border-top: 0px;
+}
+div#submenu ul li a:link,
+div#submenu ul li a:visited,
+div#submenu ul li a:hover {
+  color:#036;
+  background:none;
+ 
+}
+div#submenu ul li:hover {
+  background-color:#fec;
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    E R R O R - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+div#systemmsg {
+  position: absolute;
+  top: 25px;
+  right:1px;
+  z-index:3000;
+  color:#000;
+  width:250px;
+  background-color:#F3DEDA;  
+  border: 2px solid #f00;
+  padding:0px;
+  margin:0px;
+}
+
+div#systemmsg h2#systemmsgheading {
+  margin:0px 0px 5px 0px;
+}
+div#systemmsg h2#systemmsgheading span {
+  padding:5px;
+}
+div#systemmsg div#systemmessage {
+  padding:5px;
+}
+div#systemmsg div#systemmessage span {
+}
+div#systemmsg div#systemmsg_weiter {
+  margin:5px 0px;
+}
+div#systemmsg div#systemmsg_weiter span {
+  margin:5px;
+}
+div#systemmsg div#systemmsg_weiter span a {
+  padding:2px 5px;
+  border:1px solid #000;
+  background-color:#ccc;
+  color:#333;
+}  
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    C O N T E N T L I S T - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+h3.storyheader {
+}
+h3.storyheader span {
+}
+
+div.contentlist {
+  text-align:left;
+  margin: 0px;
+  padding:10px;
+}
+div.contentlist:hover {
+}
+
+div#contentlist1 {
+  background-color: #C4CBD9;
+}
+
+div#contentlist2 {
+  background-color: #DEE2EA;
+}
+
+div#contentlist3 {
+  background-color: #C4CBD9;
+}
+
+div#contentlist4 {
+  background-color: #DEE2EA;
+}
+
+div#contentlist5 {
+  background-color: #C4CBD9;
+}
+/* and so on ... for every content-div on page */
+
+div.contentist span#storynumber {
+}
+
+div.contentist span.heading {
+}
+div.contentlist span.heading .sr_desc{
+  /* Erlaeuterung zu "sr_desc" siehe oben */
+  display: none;
+}
+div.contentlist span.heading a {
+  font-weight: bold;
+}
+
+div.contentlist_info {
+  display: block;
+  margin-top:3px;
+  padding-left: 10px; 
+}
+div.contentlist_info span.author {
+  padding-left: 10px; 
+}
+div.contentlist_info span.author a {
+}
+div.contentlist_info span.author .sr_desc{
+  /* Erlaeuterung zu "sr_desc" siehe oben */
+  display: none;
+}
+div.contentlist_info span.date {
+  padding-left: 10px; 
+
+}
+div.contentlist_info span.date .sr_desc{
+  /* Erlaeuterung zu "sr_desc" siehe oben */
+  display: none;
+}
+div.contentlist_info span.hits {
+  padding-left: 10px; 
+}
+div.contentlist_info span.hits .sr_desc{
+  /* Erlaeuterung zu "sr_desc" siehe oben */
+  display: none;
+}
+div.contentlist_info span.no_of_comments {
+  padding-left: 10px; 
+}
+div.contentlist_info span.no_of_comments .sr_desc{
+  /* Erlaeuterung zu "sr_desc" siehe oben */
+  display: none;
+}
+div.contentlist_info span.no_of_comments a {
+}
+
+div.writeArticleLink {
+  text-align:center;
+  padding:5px;
+}
+div.writeArticleLink a {
+  font-weight: bold;  
+  padding-left: 18px;
+  background-image: url("writenewarticle.png");
+  background-repeat: no-repeat;
+}
+
+div#prevNextArticle {
+  text-align:center;
+  padding:5px;
+}
+div#prevNextArticle span {
+  font-weight: bold;  
+}
+div#prevNextArticle span a {
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    C O N T E N T - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+div#allcontent {
+  background-color:#FAF2C8;
+  padding: 0px;
+}
+
+/* this is for all DOM-Browser which DO interpret CSS correctly       */
+/* it is set to correct the given value which is especially for the IE */
+html > body div#allcontent {
+}
+h2#pathway {
+  border-bottom: 3px solid #fff;
+  padding: 2px;
+  margin: 0px 0px 5px 0px;
+}
+h2#pathway span.sr_desc {
+  /* displays the additional screenreader info.
+     The class in general is described above.
+  */
+}
+h2#pathway span#pathway_links {
+}
+h2#pathway span#pathway_links a {
+  color: #E9D18D;
+}
+
+div#menu_description { 
+  padding: 10px;
+}
+div#menu_description span#menu_image { 
+}
+div#menu_description span#menu_image img { 
+	border:1px solid #000;
+}
+div#menu_description span.sr_desc { 
+  /* displays the word "Menuebeschreibung: ". 
+     This was implemented for Screenreaders only 
+  */
+}
+div#menu_description span#desc { 
+  display: block;
+}
+
+h3.storyheader {
+  margin-top: 15px;
+}
+h3.storyheader span {
+}
+
+div.content {
+  margin-bottom: 15px;
+}
+div.content:hover {
+}
+
+div#content1 {
+}
+
+div#content2 {
+}
+
+div#content3 {
+}
+
+div#content4 {
+}
+
+div#content5 {
+}
+/* and so on ... for every content-div on page */
+
+div.story_info {
+  clear:both;
+}
+div.story_info span.author {
+  margin-left: 5px;  
+}
+div.story_info span.author span.sr_desc {
+}
+div.story_info span.author a {
+}
+
+div.story_info span.edate {
+  display:block;
+  margin-left: 15px;
+}
+div.story_info span.edate span.sr_desc {
+  margin-right: 5px;
+}
+div.story_info span.vdate {
+  display:block;
+  margin-left: 15px;
+}
+div.story_info span.vdate span.sr_desc {
+  margin-right: 5px;
+}
+
+div.story_info span.editor {
+  display:block;
+  margin-top: 10px;  
+  margin-left: 5px;  
+}
+div.story_info span.editor span.sr_desc {
+}
+div.story_info span.editor a {
+}
+div.story_info span.editdate {
+  display:block;
+  margin-left: 15px;
+}
+div.story_info span.editdate span.sr_desc {
+  margin-right: 5px;
+}
+
+div.storycontent {
+  padding: 5px;
+}
+div.storycontent span {
+}
+div.storycontent span.content {
+}
+div.storycontent span.content a {
+}
+div.storycontent span.content img {
+  margin: 15px;
+}
+div.storycontent span.content span.sr_desc {
+}
+div.storycontent span.description {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  display:block;
+}
+div.storycontent span.description span.sr_desc {
+  display:block;
+}
+
+/* images inside of the articles */
+div.storycontent span #Image1 {
+}
+div.storycontent span #Image2 {
+}
+div.storycontent span #Image3 {
+}
+div.storycontent span #Image4 {
+}
+div.storycontent span #Image5 {
+}
+/* and so on */
+
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    C O N T E N T F O R M - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+div#contentForm {
+}
+div#contentForm span {
+}
+div#contentForm span form#frm_pic_upload {
+}
+div#contentForm span form#frm_pic_upload span {
+}
+div#contentForm span form#frm_pic_upload span input {
+  width:200px;
+}
+
+div#contentForm span form div#contentInfo {
+width: 200px;
+float:right;
+}
+div#contentForm span form div#contentInfo h4 {
+}
+div#contentForm span form div#contentInfo h4 span {
+}
+div#contentForm span form div#contentInfo span {
+}
+
+div#contentForm h3 { 
+}
+div#contentForm h3 span { 
+}
+div#contentForm span {
+}
+div#contentForm span form {
+  margin: 15px 5px;
+}
+
+div#contentForm span form div {
+/* allgemeine Definition aller Divs */
+  margin: 5px;
+}
+div#contentForm span form div input {
+/* allgemeine Definition aller inputtags innerhalb divtags */
+}
+div#contentForm span form div h5 {
+/* allgemeine Definition aller h5-tags innerhalb divtags */
+  width:300px;
+}
+
+div#contentForm span form div#cont_heading {
+}
+div#contentForm span form div#cont_heading h5 {
+}
+div#contentForm span form div#cont_heading input {
+  width:200px;
+}
+div#contentForm span form div#cont_type {
+}
+div#contentForm span form div#cont_type select {
+  width:auto;
+}
+div#contentForm span form div#cont_type select option {
+}
+div#contentForm span form div#cont_text {
+}
+div#contentForm span form div#cont_text span {
+  display:block;
+}
+div#contentForm span form div#cont_text textarea {
+  width:280px;
+  height: 100px;
+}
+div#contentForm span form div#cont_desc {
+}
+div#contentForm span form div#cont_desc span {
+  display:block;
+}
+div#contentForm span form div#cont_desc textarea {
+  width: 250px;
+  height: 40px;
+}
+div#contentForm span form div#cont_publishstart {
+}
+div#contentForm span form div#cont_publishstart input {
+  width:130px;
+}
+div#contentForm span form div#cont_publishend {
+}
+div#contentForm span form div#cont_publishend {
+}
+div#contentForm span form div#cont_publishend input {
+  width:130px;
+}
+div#contentForm span form div#cont_images {
+}
+div#contentForm span form div#cont_images h5 {
+}
+div#contentForm span form div#cont_images input {
+  width:auto;
+  border:1px solid #999;
+  background-color: #e4e4e4;
+}
+
+div#contentForm span form div#buttons input {
+/* Definition der Formularbuttons */
+  margin: 15px 0px;
+}
+
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    C O M M E N T - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+div#allcomments {
+  padding: 5px 0px;
+}
+div#allcomments h3 {
+}
+div#comments h3 span {
+}
+
+h4.commentheader {
+}
+h4.commentheader span {
+}
+
+div.comment {
+  padding: 5px;
+}
+div.comment:hover {
+}
+
+div#comment1 {
+}
+
+div#comment2 {
+}
+
+div#comment3 {
+}
+
+div#comment4 {
+}
+
+div#comment5 {
+}
+/* and so on ... for every content-div on page */
+
+p.comment_info {
+  padding: 5px;
+}
+p.comment_info span.author {
+}
+p.comment_info span.author a {
+}
+p.comment_info span.date {
+}
+
+p.commentcontent {
+  padding: 5px;
+}
+p.commentcontent span {
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    C O M M E N T F O R M - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+div#commentForm {
+  padding: 5px 0px;
+}
+div#commentForm h3 { 
+}
+div#commentForm span {
+}
+div#commentForm span div {
+  padding: 5px;
+}
+div#commentForm span div span {
+}
+div#commentForm span div input {
+}
+div#commentForm span div textarea {
+width:300px;
+height:80px;
+}
+div#commentForm span input {
+/* formbuttons */
+  margin: 5px;
+}
+
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    L A T E S T - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+div#userarea { 
+  position:absolute;
+  top: -3px;
+  left:-150px;
+  margin: 0px;
+  margin-right:20px;
+  padding:0px;
+  border: 3px solid #fff;
+  width:150px;
+  background-color:#E9D18D;
+  text-align:left;
+}
+html > body div#userarea {
+  left:-156px;
+}
+div#userarea div#usermenu {
+}
+div#userarea div#usermenu h3.menuheader {
+  border-top:0px;
+}
+div#userarea div#usermenu h3.menuheader span {
+}
+
+div#userarea div#usermenu form#loginForm {
+  margin:5px;
+}
+div#userarea div#usermenu form#loginForm div#login_username {
+}
+div#userarea div#usermenu form#loginForm div#login_username input {
+  display:block;
+}
+div#userarea div#usermenu form#loginForm div#login_password {
+}
+div#userarea div#usermenu form#loginForm div#login_password input{
+  display:block;
+}
+div#userarea div#usermenu form#loginForm div#login_buttons {
+  margin:5px 0px;
+}
+div#userarea div#usermenu form#loginForm div#login_buttons input {
+  width:50px;
+}
+
+div#userarea div#usermenu div#register {
+  margin:10px 5px;
+  display:block;
+}
+div#userarea div#usermenu div#register a {
+  padding:3px;
+  border:1px solid #333;
+  font-weight:bold;
+}
+
+div#userarea div#usermenu div#password {
+  margin:10px 5px;
+  display:block;
+}
+div#userarea div#usermenu div#password a {
+  padding:3px;
+  border:1px solid #333;
+  font-weight:bold;
+}
+
+/* Logout-link-style - Looks like a button */
+div#userarea div#usermenu ul {
+  margin:0px;
+  list-style: none;
+  padding: 0px;
+}
+div#userarea div#usermenu ul li {
+  margin:0px;
+  padding: 5px;
+  border-top: 1px solid #000;
+}
+div#userarea div#usermenu ul li a {
+  padding: 5px;
+  border:0px;
+  font-weight: bold;
+}
+div#userarea div#usermenu ul li a#logout {
+}
+div#userarea div#usermenu ul li a#logout:hover {     
+  /* the mouseover-effect */
+}
+
+div#userarea div#userinfo {
+}
+div#userarea div#userinfo h3.menuheader {
+}
+div#userarea div#userinfo h3.menuheader span {
+}
+div#userarea div#userinfo div#details {
+  padding: 5px;
+}
+div#userarea div#userinfo div#details span#curr_user {
+  display: block;
+  padding-top: 5px;
+}
+div#userarea div#userinfo div#details span#curr_user span {
+  font-weight: bold;
+}
+div#userarea div#userinfo div#details span#all_hits {
+  display: block;
+  padding-top: 5px;
+}
+div#userarea div#userinfo div#details span#all_hits span {
+  font-weight: bold;
+}
+div#userarea div#userinfo div#details span#monthhits {
+  display: block;
+  padding-top: 5px;
+}
+div#userarea div#userinfo div#details span#monthhits span {
+  font-weight: bold;
+}
+div#userarea div#userinfo div#details span#users_on {
+  display: block;
+  padding-top: 5px;
+}
+div#userarea div#userinfo div#details span#users_on span {
+  font-weight: bold;
+}
+div#userarea div#userinfo div#details span#users_reg {
+  display: block;
+  padding-top: 5px;
+}
+div#userarea div#userinfo div#details span#users_reg span {
+  font-weight: bold;
+}
+              
+
+div#latestContent {
+  width: 100%;
+  background-color:#DCDEE7;
+  padding: 0px;
+  border-top: 3px solid #fff; 
+}
+
+div#latestContent h3.menuheader {
+  border-top:0px;
+  margin: 0px 2px 0px 0px;
+  text-align: left;
+}
+div#latestContent h3.menuheader span {
+}
+
+div#latestContent form#latestForm {
+  text-align:left;
+}
+div#latestContent form#latestForm div#latest_type {
+margin:2px 2px;
+}
+div#latestContent form#latestForm div#latest_type select {
+  width:130px;
+}
+div#latestContent form#latestForm div#latest_type select option {
+}
+
+div#latestContent .latestcont {
+}
+
+div#latestContent .latestcont h4.latestheader {
+  margin: 3px 0px 3px 0px;
+}
+div#latestContent .latestcont h4.latestheader span {
+}
+
+div#latestContent .latestcont p.latestcontent {
+}
+div#latestContent .latestcont p.latestcontent span {
+}
+div#latestContent .latestcont p.latestcontent span a {
+/* Link [mehr] bringt den User zum Artikel */
+}
+
+div#latestContent .latestcont p.latestinfo  {
+  background-color: #fff;
+  padding-left: 12px;
+  background-image: url("star.png");
+  background-repeat: no-repeat;
+}
+div#latestContent .latestcont p.latestinfo  span.author {
+}
+div#latestContent .latestcont p.latestinfo  span.date {
+}
+
+div#latestContent #latestcont1 {
+}
+div#latestContent #latestcont2 {
+}
+div#latestContent #latestcont3 {
+}
+div#latestContent #latestcont4 {
+}
+div#latestContent #latestcont5 {
+}
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    S H O U T I N G - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+div#opt_components {
+  position:absolute;
+  top: 305px;
+  right:-150px;
+  margin:0px;
+  padding:0px;
+  text-align: right;
+  border: 3px solid #fff;
+  width:150px;
+  background-color:#FAF7C2;
+}
+html > body div#opt_components {
+/* correct positioning for DOM compatible Browser like Firefox */
+  right:-156px;
+}
+div#opt_components div#styleswitcher {
+  margin-bottom: 5px;
+  text-align:left;
+}
+div#opt_components  div#styleswitcher form {
+}
+div#opt_components  div#styleswitcher form h3 {
+  border-top:0px;
+}
+div#opt_components  div#styleswitcher form h3 span {
+}
+div#opt_components  div#styleswitcher form div {
+  padding: 5px;
+}
+div#opt_components  div#styleswitcher form div select {
+  width:100px;
+}
+div#opt_components  div#styleswitcher form div input {
+  width:100px;
+}
+
+div#opt_components div#shouting {
+  text-align:left;
+}
+div#opt_components div#shouting form#form_shouter {
+}
+div#opt_components div#shouting form#form_shouter h2 {
+}
+
+div#opt_components div#shouting form#form_shouter div#shouter_inputs {
+  padding: 5px;
+}
+div#shouting_name {
+}
+div#shouting_name span {
+}
+div#shouting_name input#shouter_name {
+}
+div#shouting_email {
+}
+div#shouting_email span {
+}
+div#shouting_email input#shouter_email {
+}
+div#shouting_inhalt {
+}
+div#shouting_inhalt span {
+}
+div#shouting_inhalt input#shouter_inhalt {
+}
+
+div#shouting div#all_shouts {
+  padding: 5px;
+}
+div#shouting div#all_shouts div.shouter_comment {
+  background-color:#E9D18D;
+  margin-top: 10px; 
+  padding: 5px;
+  border: 1px dotted #999;
+}
+div#shouting div#all_shouts div.shouter_comment div.gb_info {
+  margin:0px;
+  margin-bottom: 5px;
+}
+div#shouting div#all_shouts div.shouter_comment div.gb_info span {
+}
+div#shouting div#all_shouts div.shouter_comment div.gb_info span.gb_author {
+  font-weight: bold;
+  display:block;
+}
+div#shouting div#all_shouts div.shouter_comment div.gb_info span.gb_author a {
+}                                                        
+div#shouting div#all_shouts div.shouter_comment div.gb_info span.gb_prefix {
+}                                                        
+div#shouting div#all_shouts div.shouter_comment div.gb_info span.gb_date {
+}                                                        
+div#shouting div#all_shouts div.shouter_comment div.gb_info span.gb_time {
+}                                                        
+div#shouting div#all_shouts div.shouter_comment div.gb_text {
+}                                                        
+div#shouting div#all_shouts div.shouter_comment div.gb_adm_comment {
+}                                                        
+div#shouting div#all_shouts div.shouter_comment div.gb_adm_comment span {
+}                                                        
+
+/* Seitenblaettern im GB */
+div#shouting div#gb_pageselector {
+  padding: 5px;
+}                                                        
+div#shouting div#gb_pageselector a {
+}                                                        
+div#shouting div#gb_pageselector span {
+}                                                        
+
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    D E B U G G I N G - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* ganzer debugging-bereich */
+#debugging {
+  position:absolute;
+  top: 0px;
+  left:0px;
+  z-index:2000;
+  background-color:#666;
+  color:#fff;
+}
+/* enthaelt jeweils die debugging-infos */
+#debugging pre {
+}
+
+h2#debugheader {
+}
+h2#debugheader span {
+}
+
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    C O P Y R I G H T - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+#copyright {
+  position: absolute;
+  top: 1px;
+  right:1px;
+  color:#666;
+  height:20px;
+}
+#copyright span {
+}
+#copyright span a {
+  border: 0px;
+}
+
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    P R O F I L E - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+h2#profile_header {
+}
+
+form#profile_frm {
+padding:0px;
+margin:0px;
+}
+
+div#login_daten {
+margin:5px 0px;
+}
+div#login_daten h4 {
+}
+div#login_daten span {
+  padding:3px 5px;
+}
+div#login_daten span input {
+  padding:2px;
+}
+
+div#perso_daten {
+margin:5px 0px;
+}
+div#perso_daten h4 {
+}
+div#perso_daten span {
+  padding:2px 5px;
+  display:block;
+}
+div#perso_daten span input {
+  padding:2px;
+  width:150px;
+}
+
+div#system_daten {
+margin:5px 0px;
+}
+div#system_daten h4 {
+}
+div#system_daten div.sysdata {
+  padding:2px 5px;
+}
+div#system_daten div.sysdata span {
+  font-weight:bold;
+  padding-right: 5px;
+}
+
+div#profile_buttons {
+}
+div#profile_buttons input{
+  margin:10px;
+  width:120px;
+}

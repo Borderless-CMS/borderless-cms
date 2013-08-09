@@ -1,0 +1,201 @@
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    C O N T E N T - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+div.content {
+  margin-bottom: 15px;
+  background-color: #F6E4BC;
+}
+div.content:hover {
+}
+
+h3.storyheader {
+  margin-top: 15px;
+  background-color:#633C29;
+  color: #fff;
+  padding:2px 4px;
+}
+h3.storyheader span {
+}
+
+p.storycontent {
+  padding: 5px;
+}
+p.storycontent span {
+}
+p.storycontent span.content {
+}
+p.storycontent span.content span.sr_desc {
+  display:none;
+}
+p.storycontent span.content span.sr_desc strong {
+}
+p.storycontent span.content a {
+}
+p.storycontent span.content img {
+  margin: 15px;
+  border:1px solid #000;
+}
+p.storycontent span.description {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  display:block;
+}
+p.storycontent span.description span.sr_desc {
+  display:block;
+}
+p.storycontent span.description span.sr_desc strong {
+}
+
+/* images inside of the articles */
+p.storycontent span #Image1 {
+}
+p.storycontent span #Image2 {
+}
+p.storycontent span #Image3 {
+}
+p.storycontent span #Image4 {
+}
+p.storycontent span #Image5 {
+}
+/* and so on */
+
+p.story_info {
+  clear:both;
+}
+p.story_info span.author {
+  margin-left: 5px;  
+}
+p.story_info span.author span.sr_desc {
+}
+p.story_info span.author a {
+}
+
+p.story_info span.edate {
+  display:block;
+  margin-left: 15px;
+}
+p.story_info span.edate span.sr_desc {
+  margin-right: 5px;
+}
+p.story_info span.vdate {
+  display:block;
+  margin-left: 15px;
+}
+p.story_info span.vdate span.sr_desc {
+  margin-right: 5px;
+}
+
+p.story_info span.editor {
+  display:block;
+  margin-top: 10px;  
+  margin-left: 5px;  
+}
+p.story_info span.editor span.sr_desc {
+}
+p.story_info span.editor a {
+}
+p.story_info span.editdate {
+  display:block;
+  margin-left: 15px;
+}
+p.story_info span.editdate span.sr_desc {
+  margin-right: 5px;
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    C O M M E N T - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+div#allcomments {
+  padding: 5px 0px;
+}
+div#allcomments h3 {
+  background-color:#633C29;
+  color: #fff;
+  padding:2px 4px;
+}
+div#comments h3 span {
+}
+
+h4.commentheader {
+  background-color:#C6A27B;
+}
+h4.commentheader span {
+}
+
+div.comment {
+  padding: 5px;
+  margin:5px;
+}
+div.comment:hover {
+}
+
+div#comment1 {
+}
+
+div#comment2 {
+}
+
+div#comment3 {
+}
+
+div#comment4 {
+}
+
+div#comment5 {
+}
+/* and so on ... for every content-div on page */
+
+p.comment_info {
+  padding: 5px;
+}
+p.comment_info span.author {
+}
+p.comment_info span.author a {
+}
+p.comment_info span.date {
+}
+
+p.commentcontent {
+  padding: 5px;
+}
+p.commentcontent span {
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    C O M M E N T F O R M - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+div#commentForm {
+  padding: 5px 0px;
+}
+div#commentForm h3 { 
+  background-color:#633C29;
+  color: #fff;
+  padding:2px 4px;
+}
+div#commentForm span {
+}
+div#commentForm span div {
+  padding: 5px;
+}
+div#commentForm span div span {
+}
+div#commentForm span div input {
+}
+div#commentForm span div textarea {
+width:300px;
+height:80px;
+}
+div#commentForm span input {
+/* formbuttons */
+  margin: 5px;
+}
+
+

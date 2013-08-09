@@ -1,0 +1,153 @@
+
+
+div#articles ul.action_menu {
+	margin:0px;
+	list-style:none;
+	margin-top:3em;
+	margin-bottom:-2em;
+}
+div#articles ul.action_menu li {
+	margin:0px;
+	display:inline;
+	padding:3px;
+	background-color: #bd0000;
+	border:1px solid #333;
+	margin-right:5px;
+}
+div#articles ul.action_menu li a {
+	color:#fff;
+	padding:2px 0px;
+	padding-left:18px;
+	text-decoration:none;
+}
+div#articles ul.action_menu li a#edit_article_link,
+div#articles ul.action_menu li a#write_article_link { behavior: url(iepngfix.htc); }
+div#articles ul.action_menu li a#write_article_link {
+	background:transparent url('../../gfx/silk/page_add.png') no-repeat 0px 1px;
+}
+div#articles ul.action_menu li a#edit_article_link {
+	background:transparent url('../../gfx/silk/page_edit.png') no-repeat 0px 1px;
+}
+div#articles h3 {margin-top:2em; margin-bottom:1em;
+ font-family:Georgia,"Times New Roman",serif;
+ font-size:2em;
+}
+div#articles h4, div#articles h5, div#articles h6 {
+	margin:0px;
+	padding:0px;
+	margin-top:0.4em;
+	margin-bottom:0.1em;
+}
+
+div#articles br {margin:0em;}
+div#articles ol,
+div#articles ul {font-size:1em; margin:0px 0px 1.5em 1.5em;padding:0px;}
+div#articles li {font-size:1em; margin:0px;padding:0px;margin-left:1.5em;}
+div#articles div.prevNextArticle {
+	text-align:center;
+	font-size:1em;
+	font-weight:normal;
+	text-decoration:none;
+}
+div#articles div.prevNextArticle a
+{ color:#ffcc66; font-size:1.4em; margin:0em 0.3em; font-weight:bold;}
+
+
+div.contentlist {margin:4em 0em; clear:both;}
+div.contentlist_preview img { margin:0.5em; }
+div.story_info,
+div.contentlist_info {
+	clear:both;
+	text-align:right;
+	font-size:0.8em;
+	margin-top:1em;
+	border-top:1px dotted #ccc;
+}
+div.contentlist_info div.pubbegin,
+div.contentlist_info div.pubend { display:none; }
+div.latestinfo {
+	text-align:right;
+	font-size:0.8em;
+	margin-top:1em;
+	padding:0.2em;
+}
+div.story_info div,
+div.contentlist_info div,
+div.latestinfo div {
+	padding:0px;
+	padding-left:0.5em;
+}
+div.story_info *,
+div.contentlist_info *,
+div.latestinfo * {
+	display:inline;
+	padding:0px;
+	margin:0px;
+	text-decoration:none;
+}
+div.story_info span,
+div.contentlist_info span,
+div.latestinfo span { color:#333; }
+div.contentlist_info span.sr_desc { /* screen reader info ausblenden */
+	position:absolute;
+	left:-4000px;
+}
+div.latestinfo div.hits_or_comments,
+div div.sec_row { display:inline; }
+div.story_info { margin-top:1em; }
+
+div.comment {
+	margin:2em 0em;
+	border: 1px solid #bbb;
+	padding:0px;
+}
+div.comment h4 {
+	display:block;
+	margin:0em;
+	padding:0.2em 0.5em;
+	color:#fff;
+	background-color:#7eaa23;
+}
+div.comment div.comment_text {
+	padding:0.2em 0.5em;
+}
+div.comment div.comment_info {
+	padding:0.2em 0.5em;
+	background-color:#efa;
+}
+div.comment div.comment_info div {
+	display:inline;
+	margin-right:0.5em;
+}
+
+div#article_navi {margin:2em 0px; clear:both; }
+div#article_navi div.toTopLink {
+	border:0px;
+	float:right;
+	margin:0em 0em;
+}
+div#article_navi ul#article_navi_list {list-style:none; margin:0px; padding:0px; font-weight:bold;}
+div#article_navi ul#article_navi_list a { font-weight:normal; margin-left:0.5em}
+
+
+
+/* CSS additions for article form */
+div#articles h3.previewtext_heading {
+	margin:0em -10px;
+	margin-top:2em;
+	border-top: 1px solid #666;
+	border-bottom: 1px solid #666;
+	background-color: #e4e4e4;
+	padding-left:0.2em;
+}
+textarea { width: 100%; height: 150px;}
+div.element a {  margin:1px;  border:0px solid #333;}
+div.element div { text-align:justify; }
+div.element textarea,
+div.element input,
+div.element select {
+    border:1px solid #ccc;
+}
+
+
+

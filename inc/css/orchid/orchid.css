@@ -1,0 +1,642 @@
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*  CSS-Default-Layout for www.goldstift.de
+*
+*  This CSS-File is copyright by goldstift. Feel free to take this as lecture
+*  though I don't think that anyone can use it. I think I was kind of too much
+*  in perfection-mode when I created the DOM of my cms. *hehe*
+*  But, well, what I gained is very near to FULL FLEXIBILITY... ;-)
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+/* ----------------------------------------------------------------------
+*  general element-definitions - in no order
+* ----------------------------------------------------------------------*/
+html, body, div, span, ul, li, p, a, h1, h2, h3, h4, h5, h6,
+form, input, select, textarea
+{
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	letter-spacing: 0.01em;
+	margin:0px;
+  	padding:0px;
+    color:#999;
+}
+
+body {
+	font: 9px/1.4em Tahoma, Arial, Helvetica, sans-serif;
+	letter-spacing: 0.01em;
+    background-color: #fff;
+}
+
+p {
+  margin: 0px 0px 0.5em 0px;
+}
+form {
+}
+input, select, textarea {
+  width:80px;
+  border: 1px solid #333;
+  padding:1px;
+	font-size:10px;
+    color:#666;
+	background-color:#e4e4e4;
+}
+h1, h2, h3, h4, h5, h6 {
+}
+h1 {
+  font-size: 12px;
+}
+h2 {
+  font-size: 12px;
+}
+h3 {
+  font-size: 10px;
+}
+h4 {
+  font-size: 10px;
+}
+h5, h6 {
+  background-color:#f0f0f0;
+  color:#4A6184;
+  font-weight: normal;
+  font-size: 9px;
+  letter-spacing: 0px;
+  border-top: 1px solid #4A6184;
+  border-bottom: 1px solid #4A6184;
+}
+a:link,
+a:visited {
+  border: 0px;
+  text-decoration:none;
+  color:#666;
+}
+a:hover {
+  border: 0px;
+  color:#ccc;
+  background-color:#666;
+}
+a:visited {
+}
+
+/* ----------------------------------------------------------------------*/
+/*  general class-definitions - in order of appearance                   */
+/* ----------------------------------------------------------------------*/
+
+/* a general class making element invisible but readable for screenreaders */
+.unsichtbar {
+}
+
+/* a general class important for dialogs */
+.dialog {
+  position:absolute;
+  top:0px;
+  left:0px;
+  width:2048px;
+  height:1600px;
+  z-index:99999999999;
+  background-image:url('/inc/gfx/blank.gif');
+}
+/* a general class important for dialogs */
+.dialogbox {
+  position:absolute;
+  top:50px;
+  left:50px;
+  width:400px;
+  z-index:9999999999999;
+  border:1px solid #666;
+  background-color:#e4e4e4;
+  padding:2px;
+}
+.dialogbox form
+{
+  padding:5px;
+  background-color:#eee;
+}
+.dialogbox form textarea
+{
+	width:250px;
+	height:80px;
+}
+
+.dialogbox form input,
+.dialogbox form select
+{
+	width:auto;
+	height:auto;
+}
+
+span.sr_desc {
+  /* displays additional information for screenreaders */
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    I N T R O P A G E
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+body#introbody {
+  text-align: center;
+  background: url(orchid.jpg) no-repeat center;
+
+}
+div#intromessage {
+  width:421px;
+  height:125px;
+  margin: 200px auto;
+  padding:0px;
+  border: 1px solid #102810;
+  text-align: left;
+}
+div#intromessage a {
+  background: url(heading.gif) no-repeat right;
+  width:421px;
+  height:125px;
+  margin: 0px;
+  padding:0px;
+}
+div#intromessage a span {
+	display:none;
+}
+
+
+/* ----------------------------------------------------------------------
+*
+*              main-divs - in order of appearance
+*
+* ----------------------------------------------------------------------*/
+
+/* ganz aeusserer Rahmen */
+div#horizon {
+  background: url(orchid.jpg) no-repeat;
+  position:absolute;
+  top:0px;
+  left:0px;
+  margin:0px;
+  padding:0px;
+  width:750px;
+}
+
+div#valid_xhtml {
+  margin:20px;
+}
+div#valid_xhtml a img {
+  border:0px;
+}
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    C O N T A I N E R - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* innerhalb von horizon, enthaelt fast alle anderen divs */
+#container {
+  width:740px;
+  margin:0px;
+  padding:0px;
+}
+h1#welcome {
+  border:0px;
+  padding:0px;
+  margin:50px 0px 0px 350px;
+  width:421px;
+  height:125px;
+  background:url(heading.gif) no-repeat;
+}
+h1#welcome span {
+	display:none;
+}
+
+div#skipContent {
+	display:none;
+}
+
+div#site_usage {
+  /* displays usage information on the site for visually handicapped people
+     who are using screenreaders
+     Normal: Contains a link
+     When clicked: Contains info text
+  */
+  display: none;
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    M E N U - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+div#menusection {
+  position:absolute;
+  top:200px;
+  left:700px;
+  z-index:999;
+  margin: 0px;
+  padding:0px;
+}
+html > body div#menusection {
+/* correct positioning for DOM compatible Browser like Firefox */
+}
+
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    S Y S T E M M E N U - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+div#menusection div#systemmenu {
+  position:absolute;
+  top:-200px;
+  left:-700px;
+  background: url(faded_line.gif) no-repeat right;
+  z-index:999;
+  margin:0px;
+  padding:0px 50px 0px 10px;
+  height:20px;
+}
+div#systemmenu h3 {
+  display:none;
+}
+div#systemmenu h3 span {
+}
+div#systemmenu span#sy_no_elements {
+}
+
+div#systemmenu ul {
+	list-style: none;
+  text-indent: 0px;
+  padding:0px;
+  margin:0px;
+}
+div#systemmenu ul li {
+  float:left;
+  margin:0px;
+  text-indent: 0px;
+  padding:2px 0px;
+}
+div#systemmenu ul li a {
+  padding:0px 5px;
+  border:0px;
+  border-left: 1px dotted #999;
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    M A I N M E N U - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+div#menusection div#mainmenu {
+  border:0px;
+  margin:15px 0px;
+  padding:0px 100px 0px 30px;
+  background: url(faded_line.gif) no-repeat;
+}
+div#mainmenu h3 {
+  border: 0px;
+  font-size:10px;
+  font-weight:normal;
+  padding-left: 2px;
+  margin-bottom: 5px;
+}
+div#mainmenu h3 span {
+  letter-spacing: 0.08em;
+}
+div#mainmenu span#mm_no_elements {
+}
+div#mainmenu ul {
+  /* verhindert, dass das Menue nicht als Liste erscheint */
+	list-style: none;
+  margin:0px;
+  text-indent: 0px;
+  padding:0px;
+  padding-left: 3px;
+  line-height:1.5em;
+}
+div#mainmenu ul li {
+}
+div#mainmenu ul li a {
+}
+div#mainmenu ul li a:hover {
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    S U B M E N U - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+
+div#menusection div#submenu {
+  width:200px;
+  border:0px;
+  padding:0px 100px 0px 30px;
+  background: url(faded_line.gif) no-repeat;
+}
+div#submenu h3 {
+  width:200px;
+  border: 0px;
+  font-size:10px;
+  font-weight:normal;
+  padding-left: 2px;
+  margin-bottom: 5px;
+}
+div#submenu h3 span {
+  letter-spacing: 0.08em;
+}
+div#submenu span#sm_no_elements {
+}
+div#submenu ul {
+	list-style: none;
+  text-indent: 0px;
+  padding-left: 3px;
+  line-height:1.5em;
+}
+div#submenu ul li {
+}
+div#submenu ul li a {
+  padding:0px;
+  border:0px;
+}
+div#submenu ul li a:hover {
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    E R R O R - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+div#systemmsg {
+  position: absolute;
+  top: 25px;
+  right:1px;
+  z-index:3000;
+  color:#000;
+  width:250px;
+  background-color:#F3DEDA;
+  border: 2px solid #f00;
+  padding:0px;
+  margin:0px;
+}
+
+div#systemmsg h2#systemmsgheading {
+  margin:0px 0px 5px 0px;
+}
+div#systemmsg h2#systemmsgheading span {
+  padding:5px;
+}
+div#systemmsg div#systemmessage {
+  padding:5px;
+}
+div#systemmsg div#systemmessage span {
+}
+div#systemmsg div#systemmsg_weiter {
+  margin:5px 0px;
+}
+div#systemmsg div#systemmsg_weiter span {
+  margin:5px;
+}
+div#systemmsg div#systemmsg_weiter span a {
+  padding:2px 5px;
+  border:1px solid #000;
+  background-color:#ccc;
+  color:#333;
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                  A L L C O N T E N T - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+div#allcontent {
+  padding: 0px;
+  margin:0px;
+}
+div#allcontent div#articles {
+  width:340px;
+  height:220px;
+  padding: 0px 5px;
+  margin-top:0px;
+  margin-left:350px;
+  margin-bottom:25px;
+}
+div#allcontent div#articles img {
+/*	display:none;*/
+}
+h2#pathway {
+  position:absolute;
+  top:40px;
+  left:10px;
+  z-index:999;
+  font-size:11px;
+  border: 0px;
+  padding: 2px;
+  margin: 0px 0px 5px 0px;
+}
+h2#pathway span.sr_desc {
+  /* displays the additional screenreader info.
+     The class in general is described above.
+  */
+  display:none;
+}
+h2#pathway span#pathway_links {
+}
+h2#pathway span#pathway_links a {
+}
+
+div#menu_description {
+  position:absolute;
+  top:60px;
+  left:40px;
+  width:240px;
+  padding: 0px;
+  line-height:1.6em;
+  letter-spacing: 0.15em;
+  text-align:justify;
+}
+div#menu_description span#desc img {
+  display:none;
+}
+div#menu_description a img {
+	border:0px solid #000;
+  margin:5px;
+}
+div#menu_description span.sr_desc {
+  /* displays the word "Menuebeschreibung: ".
+     This was implemented for Screenreaders only
+  */
+  display:none;
+}
+div#menu_description span#desc {
+  display: block;
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    L A T E S T - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+div#userarea {
+  width:100%;
+  text-align:left;
+  padding: 0px;
+  margin: 0px;
+}
+div#userarea div#usermenu {
+  width:320px;
+  background: url(faded_line.gif) no-repeat;
+  padding:0px 50px 0px 10px;
+}
+div#userarea div#usermenu h3.menuheader {
+  border:0px;
+  font-size:10px;
+  font-weight:normal;
+  padding-left: 2px;
+  margin-bottom: 5px;
+}
+div#userarea div#usermenu h3.menuheader span {
+  letter-spacing: 0.08em;
+}
+
+div#userarea div#usermenu form#loginForm {
+  padding-left: 3px;
+}
+div#userarea div#usermenu div {
+  margin-left: 3px;
+}
+div#userarea div#usermenu form#loginForm div#login_username {
+	float:left;
+}
+div#userarea div#usermenu form#loginForm div#login_username input {
+	display:block;
+}
+div#userarea div#usermenu form#loginForm div#login_password {
+	float:left;
+}
+div#userarea div#usermenu form#loginForm div#login_password input{
+	display:block;
+}
+div#userarea div#usermenu form#loginForm div#login_buttons {
+  padding-top: 12px;
+}
+div#userarea div#usermenu form#loginForm div#login_buttons input {
+  width:50px;
+  padding:0px;
+}
+
+div#userarea div#usermenu div#password {
+  clear:both;
+  padding-left: 3px;
+  line-height:1.5em;
+}
+div#userarea div#usermenu div#password a {
+}
+
+div#userarea div#usermenu div#register {
+  padding-left: 3px;
+  line-height:1.5em;
+}
+div#userarea div#usermenu div#register a {
+}
+
+/* Logout-link-style - Looks like a button */
+div#userarea div#usermenu ul {
+  margin:0px;
+  list-style: none;
+  padding: 0px;
+}
+div#userarea div#usermenu ul li {
+  margin:0px;
+  padding-left: 3px;
+  border: 0px;
+}
+div#userarea div#usermenu ul li a {
+  border: 0px;
+}
+div#userarea div#usermenu ul li a#logout_link {
+}
+div#userarea div#usermenu ul li a#logout_link:hover {
+  /* the mouseover-effect */
+}
+div.writearticle_link {
+  text-align:center;
+}
+div.writearticle_link a {
+}
+
+
+div#userarea div#userinfo {
+	display:none;
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    S H O U T I N G - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+div#opt_components {
+}
+div#opt_components div#styleswitcher {
+  background: url(faded_line.gif) no-repeat;
+  padding:0px 50px 0px 10px;
+  margin-top: 25px;
+  text-align:left;
+  width:240px;
+}
+div#opt_components  div#styleswitcher form {
+}
+div#opt_components  div#styleswitcher form h3 {
+  border:0px;
+  font-size:10px;
+  font-weight:normal;
+  padding-left: 2px;
+  margin-bottom: 5px;
+}
+div#opt_components  div#styleswitcher form h3 span {
+}
+div#opt_components  div#styleswitcher form div {
+  padding: 5px;
+}
+div#opt_components  div#styleswitcher form div select {
+  width:100px;
+}
+div#opt_components  div#styleswitcher form div input {
+  width:100px;
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    D E B U G G I N G - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* ganzer debugging-bereich */
+#debugging {
+  position:absolute;
+  top: 0px;
+  left:0px;
+  z-index:2000;
+  background-color:#666;
+  color:#fff;
+}
+/* enthaelt jeweils die debugging-infos */
+#debugging pre {
+}
+
+h2#debugheader {
+}
+h2#debugheader span {
+}
+
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    C O P Y R I G H T - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+#copyright {
+  text-align:right;
+  padding:2px;
+}
+#copyright span {
+}
+#copyright span a {
+  border:0px;
+}
+

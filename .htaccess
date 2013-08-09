@@ -22,19 +22,19 @@ RewriteRule ^(.*)$ index.php [F,L]
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-s
-RewriteRule ^([\w|\+|\-]+)\/$ /main.php?cur_mname=$1 [L]
+RewriteRule ^([\w|\+|\-]+)\/$ /index.php?cur_mname=$1 [L]
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-s
-RewriteRule ^([\w|\+|\-]+)\/([\w|\+|\-]+)\/?$ /main.php?cur_mname=$1&func=$2 [L]
+RewriteRule ^([\w|\+|\-]+)\/([\w|\+|\-]+)\/?$ /index.php?cur_mname=$1&func=$2 [L]
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-s
-RewriteRule ^([\w|\+|\-]+)\/([\w|\+|\-]+)\/([0-9]+)$ /main.php?cur_mname=$1&func=$2&oid=$3 [L]
+RewriteRule ^([\w|\+|\-]+)\/([\w|\+|\-]+)\/([0-9]+)$ /index.php?cur_mname=$1&func=$2&oid=$3 [L]
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-s
-RewriteRule ^([\w|\+|\-]+)\/([\w|\+|\-]+)\/(.+)$ /main.php?cur_mname=$1&func=$2&oname=$3 [L]
+RewriteRule ^([\w|\+|\-]+)\/([\w|\+|\-]+)\/(.+)$ /index.php?cur_mname=$1&func=$2&oname=$3 [L]
 
 ##### OLD REGEX FROM HERE ON - KEPT ONLY FOR BACKWARDS COMPATIBILITY
 RewriteCond %{REQUEST_FILENAME} !-d

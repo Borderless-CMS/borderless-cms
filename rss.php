@@ -1,5 +1,16 @@
 <?php
+/* Borderless CMS - the easiest and most flexible way to a valid website
+ *   (c) 2004-2007 Alexander Heusingfeld <aheusingfeld@borderlesscms.de>
+ *   Distributed under the terms and conditions of the GPL as stated in /license.txt
+ * EXCLUSION:
+ *   The files in the folder /pear/* are part of the PHP PEAR Project and are therefore
+ *   distributed under the terms and conditions of the PHP License as stated in /pear/LICENSE
+ */
+
 /**
+ * @file rss.php
+ * Quick'n'dirty RSS generator for Borderless CMS
+ *
  * HTTP-HEADER anpassen, Content-Type:application/rss+xml und Accept-Charset:
  * utf-8
  *
@@ -7,32 +18,37 @@
  * http://www.w3.org/TR/NOTE-datetime 2002-10-02T10:00:00-05:00
  *
  * @author ahe <aheusingfeld@borderlesscms.de>
- * @since 0.11.???
+ * @since 0.11
+ * @todo Build an rss module!
+ * @ingroup plugins
  */
+require_once('global_defines.inc.php');
 
-define('BORDERLESS',true);
-define('BCMS_VERSION','(Version 0.13.183)');
-define('LOG_ERROR_LEVEL',(E_ALL ^ E_NOTICE));
-define('BASEPATH',dirname(__FILE__));
-error_reporting(LOG_ERROR_LEVEL);
+try {
+	// System initialisieren und allgemeine Funktionen laden
+	require_once 'inc/init.inc.php';
+	BcmsSystem::init();
 
-// include path setzen
-require_once 'includes/set_inc_path.inc.php';
+} catch (MissingConfigFileException $ex) {
+	header("location: install/install.php");
+} catch (Exception $ex) {
+	// \bug URGENT handle this exception
+}
 
-// Klassen initialisieren (incl. DB) und zusaetzliche Init-Dateien laden
-require_once 'init_part1.inc.php';
-require_once 'init_part2.inc.php';
+// pre initialize default system plugins
+BcmsSystem::initSystemPlugins();
+$category = BcmsSystem::getParser()->getGetParameter('rsscat');
+// @todo make rss-feed plugin dependent
 
-$category = BcmsFactory::getInstanceOf('Parser')->getGetParameter('rsscat');
-// TODO make rss-feed plugin dependent
-
+//@todo workaround until a RssManager is being used!
+$GLOBALS['bcms_classes']['ContentManager'] = 'content/ContentManager.php';
 // SQL-Query for getting content and author
-$articleDAL = new Article_DAL();
+$articleDAL = PluginManager::getPlgInstance('ContentManager')->getArticleDalObj();// @todo make rss-feed plugin dependent!!!
 $aArticles = $articleDAL->getRssArticles($category);
 $catRssText = null;
 // prepare strings
 if($category!=null){
-	$catRssText = ' - '.Factory::getObject('Dictionary')->getTrans('cont.categoryname')
+	$catRssText = ' - '.BcmsSystem::getDictionaryManager()->getTrans('cont.categoryname')
 			.': '.$category;
 }
 $refBcmsConfig = BcmsConfig::getInstance();
@@ -79,7 +95,7 @@ for($i=0;$i<count($aArticles);$i++) {
 		.$aArticles[$i]['history_id'].'.html';
 	echo '
     <item>
-      <title>'.$title.' ('.$author.', '.$pubdate.')></title>
+      <title>'.$title.' ('.$author.', '.$pubdate.')</title>
       <category>'.$aArticles[$i]['category'].'</category>
       <author>nospam@example.com  ('.$author.')</author>
       <pubDate>'.$refDate->getDateAsRSSDate($pubdate).'</pubDate>

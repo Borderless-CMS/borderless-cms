@@ -1,0 +1,26 @@
+@CHARSET "UTF-8";
+* {  margin:0px; }
+body { font-size: 72.5%; font-family:tahoma,geneva,arial,helvetica,sans-serif; width:700px; padding-left:5em;}
+
+div#installform input,label,select,textarea {font-size:1.01em;}
+h1 {color:#fff; background-color:#024; padding:0.3em;}
+h2 {margin-top:2em; font-size:1.6em; color:#026; padding:0.3em;}
+div.testresult { padding:3px; margin-left:6em; margin-top:1px; }
+div.testgood { background-color:#ad3;  }
+div.testbad { background-color:#c00;  }
+
+div#installform fieldset {margin:2em 0em 0em 0em; border:0px; border-bottom:3px solid #36b;}
+div#installform legend {font-size:1.4em;  font-weight:bolder; color:#ad3; margin:0px; padding:0px;}
+div#installform p {margin:0em 0em 1em 6em; padding:1.0em 0em; border-bottom:1px solid #ccc;}
+div#installform p label {display:block; font-weight:bold; clear:left;}
+div#installform p small {display:block;}
+div#installform p fieldset input,
+div#installform p select,
+div#installform p textarea { width:40%; margin-left:1em; margin-right:1em;}
+div#installform .required {  }
+div#installform .info { font-weight:normal; color:#666; }
+
+div#installform #install_form_footer { background-color: #cef;  border-bottom:1px solid #36b; padding:1em 1em 1em 6em; margin-bottom:1em;}
+div#installform #install_form_footer p {  margin:0em; border:0px; padding:0.5em 0em;}
+div#installform #install_form_footer label {  padding:0.5em; display:inline;}
+div#installform #install_form_footer input {  padding:0.5em; float:none;}

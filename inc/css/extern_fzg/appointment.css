@@ -1,0 +1,95 @@
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+*                    C O N T E N T L I S T - S E C T I O N
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+h3.storyheader {
+display:none;
+}
+h3.storyheader span {
+}
+
+div.contentlist {
+  text-align:left;
+  margin: 0px;
+  padding:0px;
+  border: 0px solid #999;
+  margin:10px 0px;
+}
+div.contentlist:hover {
+}
+
+
+div.contentlist h4.heading {
+  background-color:#ccc;
+  color: #000;
+  padding: 0px 4px;
+}
+div.contentlist h4.heading span {
+  background-image:url("news.gif");
+  background-repeat:no-repeat;
+  padding-left:16px;
+}
+
+div.contentlist h4.heading span.sr_desc{
+  /* Erlaeuterung zu "sr_desc" siehe oben */
+  display: none;
+}
+div.contentlist h4.heading span {
+}
+
+div.contentlist_info {
+  display: inline;
+  margin-left: 18px; 
+  padding-left: 7px; 
+  background:#fff url('pfeil_red.gif') no-repeat;
+}
+div.contentlist_info div.author {
+  display: inline;
+  padding-left: 5px; 
+}
+div.contentlist_info div.author a {
+}
+div.contentlist_info div.author .sr_desc{
+  /* Erlaeuterung zu "sr_desc" siehe oben */
+  display: none;
+}
+div.contentlist_info div.date {
+  display: inline;
+  padding-left: 10px; 
+
+}
+div.contentlist_info div.date .sr_desc{
+  /* Erlaeuterung zu "sr_desc" siehe oben */
+  display: none;
+}
+div.contentlist_info div.hits {
+  display: inline;
+  padding-left: 10px; 
+}
+div.contentlist_info div.hits .sr_desc{
+  /* Erlaeuterung zu "sr_desc" siehe oben */
+  display: none;
+}
+div.contentlist_info div.no_of_comments {
+  display: inline;
+  padding-left: 10px; 
+}
+div.contentlist_info div.no_of_comments .sr_desc{
+  /* Erlaeuterung zu "sr_desc" siehe oben */
+  display: none;
+}
+div.contentlist_info div.no_of_comments a {
+}
+
+div#prevNextArticle {
+  text-align:center;
+  padding:5px;
+}
+div#prevNextArticle span {
+  font-weight: bold;  
+}
+div#prevNextArticle span a {
+}
+
