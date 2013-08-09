@@ -1,0 +1,8 @@
+/* This CSS file holds the settings of default (small) font-size
+ * for ALL ELEMENTS!!!
+ */
+body {
+	font-size: 62.5%;
+}
+* {font-size:1.01em;}
+

@@ -1,0 +1,247 @@
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*  CSS-Default-Layout for www.goldstift.de
+*
+*  This CSS-File is copyright by goldstift. Feel free to take this as lecture
+*  though I don't think that anyone can use it. I think I was kind of too much
+*  in perfection-mode when I created the DOM of my cms. *hehe*
+*  But, well, what I gained is very near to FULL FLEXIBILITY... ;-)
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+/* ----------------------------------------------------------------------
+*  general element-definitions - in no order
+* ----------------------------------------------------------------------*/
+body {
+font-family:tahoma,geneva,arial,helvetica,sans-serif;
+background:#2B5428 url('bg_top.gif') repeat-x top left;
+color:#656565;
+}
+
+* {
+margin:0px;
+padding:0px;
+color:#423B0F;
+line-height:1.4em;
+}
+
+p { margin: 1.5em 0px; }
+
+abbr, acronym, address { font-style:normal; }
+
+
+/** Definition for form elements */
+fieldset {
+  margin:1em 0px;
+  padding:0.3em;
+  width:auto;
+}
+fieldset legend {
+  border-right: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
+  padding:0.02em 0.5em;
+  margin:0.5em 0px;
+  font-family:tahoma,arial,helvetica,sans-serif;
+	font-weight:normal;
+	font-size:1.4em;
+	background-color:#036;
+	color:#e4e4e4;
+}
+input, select, textarea {
+  border: 1px solid #bbb;
+  padding:1px;
+	font-size:1.0em;
+	font-family:inherit;
+font-family:tahoma,arial,helvetica,sans-serif;
+}
+label, input {
+	cursor:pointer;
+}
+/** END of form elements */
+
+code	{
+	font-family: Courier, monospace;
+	font-size:1em;
+	font-weight:bold;
+	color:#777;
+}
+dt	{
+	font-weight:bold;
+}
+
+q	{
+	quotes: '\0000BB' '\0000AB' '\00203A' '\002039';
+	font-style: normal;
+	color:#525b6e;
+}
+
+h1, h2 {
+ font-family:Georgia,"Times New Roman",serif;
+ font-weight: normal;
+}
+h3, h4, h5, h6 {
+ font-family:Tahoma,arial,helvetica,sans serif;
+ font-weight:normal;
+ letter-spacing:0.05em;
+ margin-bottom:0.6em;
+}
+h3 a, h4 a, h5 a, h6 a {
+ text-decoration:none;
+}
+h1 { font-size:2.0em; }
+h2 { font-size:1.9em; }
+h3 { font-size:1.8em; }
+h4 { font-size: 1.4em; }
+h5, h6 { font-size: 1.2em; }
+
+a {
+  color:#A93B14;
+}
+a img, a:hover img, a:focus img	{
+	border	 :	none;
+}
+a.button {
+  padding:2px 5px;
+  border:1px solid #000;
+  background-color:#ccc;
+  color:#333;
+  text-decoration:none;
+  font-size:1em;
+}
+a.button:active {
+  padding:2px 5px;
+  border:2px solid #000;
+  font-size:0.92em;
+}
+
+/* ----------------------------------------------------------------------*/
+/*  general class-definitions - in order of appearance                   */
+/* ----------------------------------------------------------------------*/
+.qfElement {
+	margin:1em 0em;
+}
+
+.qfElement input,
+.qfElement textarea,
+.qfElement button,
+.qfElement span+select {
+	margin-left:2.5em;
+	padding:1px;
+}
+.qfElement input,
+.qfElement textarea,
+.qfElement button {
+	width:90%;
+}
+.qfElement input[type="button"],
+.qfElement input[type="submit"],
+.qfElement input[type="reset"] { width:auto; display:inline; }
+
+.qfElement select option {
+margin-right:5px;
+}
+.qfLabel { display:block; font-size: inherit; }
+.qfLabel span { color:#000; display:block; font-weight: bold;}
+
+div.qfElement textarea {
+height:8em;
+font-family:tahoma,arial,helvetica,sans-serif;
+}
+
+.unsichtbar,
+#skipLink,
+.sr_desc {
+  /* displays additional information for screenreaders */
+  position:absolute;
+  left:-3000px;
+}
+.more	{
+	text-align:right;
+	margin-top:-.3em;
+}
+.small_link { font-size: 0.8em }
+/*
+::-moz-selection { background-color:#e4e4e4; }
+::selection { background-color:#e4e4e4; }
+*/
+/*   rendertime  */
+#rendertime {
+  display:none;
+  clear:both;
+  font-size:0.9em;
+}
+
+div.prevNextArticle { margin:1em auto; text-align:center; }
+div.prevNextArticle a { font-size:1.4em; margin:0em 0.3em; font-weight:bold;}
+
+.application_menu {font-size:0.9em; padding:2px 5px; background-color:#257; position:relative; left:-10px; border:1px solid #bbb;}
+.application_menu ul {list-style:none;}
+.application_menu ul li {display:inline; margin-right:4px; border-right:1px solid #fff; padding-right:2px;}
+.application_menu ul li a {color:#fff;font-weight:bold;text-decoration:none;}
+
+div.table_surrounder { margin-bottom:2em; }
+h3.table_list_heading { margin-top:0.5em; }
+table { padding:0px; border-collapse: collapse; width:98%;
+	border-right:1px solid #656565;
+	border-bottom:1px solid #656565;
+	border-top:1px solid #bbb;
+	border-left:1px solid #bbb;
+	font-size:inherit;
+}
+table * a {font-size:1em;}
+table .odd { background-color:#e0e0ee;}
+table .even { background-color:#f0f0ff;}
+table * { font-size:inherit; }
+thead { display: table-header-group }
+tbody { display: table-row-group }
+tfoot { display: table-footer-group }
+
+table div.author a { font-size:0.95em; }
+caption,
+tfoot,
+thead {
+	padding:2px 2px 2px 0.3em;
+	background-color:#036;
+	color:#e4e4e4;
+	border-bottom:1px solid #909099;
+	font-size:1em;
+	text-align:left;
+	font-weight:normal;
+}
+thead .sortarrow { font-size:1.2em}
+caption { font-size:2.0em; margin:1em 0 0 0; color:#fff;}
+thead {background-color:#efefb0;}
+thead * {
+	font-size:0.95em;
+	color:#000;
+	font-weight:normal;
+	width:auto;
+	text-decoration:none;
+	padding:0.2em 0;
+}
+div.action_select_div label,
+tfoot div.prevNextArticle {
+	margin:0px;
+	padding:0px;
+	color:#e4e4e4;
+	font-size:1em;
+	font-weight:normal;
+	width:auto;
+	text-decoration:none;
+	text-align:right;
+}
+tfoot div.prevNextArticle a
+{ color:#ffcc66; font-size:1.4em; margin:0em 0.3em; font-weight:bold;}
+th a:hover {text-decoration:underline; }
+
+td { padding:2px 5px; text-align:left;}
+
+div.toTopLink {
+	border-top:1px solid #e4e4e4;
+	text-align:right;
+	margin:1em 0em;
+	padding:1px 0px;
+}
+div.toTopLink a {
+	padding-right:18px;
+	background:transparent url('/gfx/silk/arrow_up.png') no-repeat top right;
+}

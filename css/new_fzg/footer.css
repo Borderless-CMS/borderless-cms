@@ -1,0 +1,96 @@
+/* footer.css */
+div#footer 			{ background-color:#e0e0e0; font-size:0.9em; }
+div#footer dl 		{ list-style:none; }
+div#footer dl dd 	{ position:absolute; left:-3000px; }
+div#footer dl dt 	{ display:inline; }
+div#footer dl dt a 	{ margin-right:1em; text-decoration:none;}
+
+/*				C O P Y R I G H T - S E C T I O N    */
+#copyright {
+	border-top: 1px solid #dfdfdf;
+	border-bottom: 1px solid #dfdfdf;
+	background-color:#921C02;
+	padding:4px 10px;
+}
+#copyright span 		{ color:#fff; }
+#copyright span a 		{ color:#eee; border:0px; }
+
+div#footer div#site_features {
+	display:block;
+	border-top:1px solid #e4e4e4;
+	border-bottom:1px solid #e4e4e4;
+	padding:3px 0px;
+	background: #efefef;
+}
+div#footer div#site_features a { border-right:1px solid #999; padding:0em 0.5em; }
+div#footer div.report_bug_link {
+	display:inline;
+	padding:3px 0px;
+	padding-left:22px;
+	background:transparent url('/gfx/silk/bug.png') no-repeat 5px 2px;
+}
+div#footer div.rss_link {
+	display:inline;
+	padding:3px 0px;
+	padding-left:22px;
+	background:transparent url('/gfx/silk/feed.png') no-repeat 5px 2px;
+}
+div#footer div.recommend_link {
+	display:inline;
+	padding:3px 0px;
+	padding-left:22px;
+	background:transparent url('/gfx/silk/email_go.png') no-repeat 5px 2px;
+}
+
+div#skipContent 		{ position:absolute; left:-3000px; }
+dl#valid_xhtml			{ text-align:right; margin:0.3em 0; }
+dl#valid_xhtml dt {
+	font-weight:normal;
+}
+
+/*				S Y S T E M - S E C T I O N 				 */
+div#systemmsg {
+  position: absolute;
+  top: 40px;
+  right:20%;
+  z-index:3000;
+  color:#000;
+  width:280px;
+  background-color:#e0e0ee;
+  border: 2px solid #333;
+  padding:0px;
+  margin:0px;
+  font-size:inherit;
+}
+
+div#systemmsg h2 		{
+	font-family:arial,helvetica,sans-serif;
+	padding:3px 6px;
+	background-color:#006;
+	border-bottom:1px solid #666
+}
+div#systemmsg h2 span 	{ font-weight:bold; color:#fff;}
+div#systemmsg div.message {
+	padding:5px;
+	font-size:1.0em;
+  border: 1px solid #666;
+  padding-left:35px;
+  margin:1px 1px 0px 1px;
+}
+div#systemmsg div.info { background:#ccf url(/gfx/silk/information.png) no-repeat 5px 5px; }
+div#systemmsg div.warning { background:#feb url(/gfx/silk/warning.png) no-repeat 5px 5px; }
+div#systemmsg div.failure { background:#fcc url(/gfx/silk/error.png) no-repeat 5px 5px; }
+div#systemmsg div.error { background:#ea9 url(/gfx/silk/error.png) no-repeat 5px 5px; }
+div#systemmsg div.critical { color:#fff; background:#b00 url(/gfx/silk/critical.png) no-repeat 5px 5px; }
+div#systemmsg div.critical * { color:#fff; }
+
+div#systemmsg div#systemmsg_weiter 		{ margin:10px 5px; }
+div#systemmsg div#systemmsg_weiter span { margin-right:10px; }
+* html div#systemmsg div span { font-size:1.1em; }
+
+/*				D E B U G G I N G - S E C T I O N				*/
+div#debugging { clear:both; background-color:#666; color:#fff; }
+div#debugging * {color:#fff; }
+div#debugging pre { font-size:1.4em;  color:#fff;}
+div#debugging h2#debugheader {}
+div#debugging h2#debugheader span {}

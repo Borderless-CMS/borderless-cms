@@ -1,0 +1,88 @@
+/*      OPTIONAL COMPONENTS */
+/*** FONTSIZE MENU ****/
+div#fontsize_menu {
+	margin: 20px 0px;
+}
+div#fontsize_menu h2#fs_info {
+  border:0px;
+}
+
+div#fontsize_menu ul {
+  list-style:none;
+  display:inline;
+  padding-left:1.5em;
+}
+div#fontsize_menu ul li {
+  display:inline;
+}
+div#fontsize_menu ul li a {
+	padding:0px 10px;
+	margin: 0px;
+	bordeR:0px;
+	font-weight:bold;
+  border:1px solid #ccc;
+  text-decoration:none;
+  background-color:#fff;
+}
+div#fontsize_menu ul li#fs_small {
+font-size:0.9em;
+}
+div#fontsize_menu ul li#fs_medium {
+font-size:1.0em;
+}
+div#fontsize_menu ul li#fs_large {
+font-size:1.2em;
+}
+
+/*--- styleswitcher ---*/
+div#opt_components div#styleswitcher {
+  margin-bottom: 5px;
+  text-align:left;
+}
+div#opt_components  div#styleswitcher form {
+}
+div#opt_components  div#styleswitcher form h2 {
+  border-top:0px;
+}
+div#opt_components  div#styleswitcher form div {
+  padding: 5px;
+}
+div#opt_components  div#styleswitcher form div select {
+  width:100px;
+}
+div#opt_components  div#styleswitcher form div input {
+  width:100px;
+}
+
+/* --- TopX CSS ---  */
+
+div#latestContent {
+border-top:1px solid #e4e4e4;
+padding-top:0.3em;
+}
+div.latestcont {
+margin:2em 0em;
+background-color:#f0f0f0;
+border:1px solid #aaa;
+}
+div.latestcont h3,
+div.latestcontent {
+	padding:0.2em;
+	padding-left:16px;
+}
+div.latestcont h3 {
+	letter-spacing:0em;
+	font-weight:bold;
+	font-size:1.0em;
+	background:transparent url("post.gif") no-repeat 3px 4px;
+	margin:0px;
+}
+div.latestinfo {
+	background:#921C02;
+}
+div.latestinfo * {
+	color:#fff;
+}
+div.latestinfo a {
+	text-decoration:underline;
+}

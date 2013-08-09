@@ -1,0 +1,102 @@
+/*    KOPF.CSS */
+
+/* welcome_div */
+div#welcome_div {
+background:#E26815 url('welcome_back.gif') repeat-x top left;
+height:200px;
+  border-bottom: 1px solid #666;
+  margin-bottom:5px;
+}
+h1#welcome {
+height:200px;
+background:transparent url('logo_redback.gif') no-repeat top right;
+  border-bottom: 2px solid #dfdfdf
+}
+h1#welcome span {
+  display:block;
+	background:transparent url('fzgtext_redback.gif') no-repeat top left;
+	height:200px;
+	/*folgendes laesst den Begruessungstext "verschwinden" */
+	font-size:0em;
+	color:#EBA33A;
+}
+
+div#site_usage {
+  /* displays usage information on the site for visually handicapped people
+     who are using screenreaders
+     Normal: Contains a link
+     When clicked: Contains info text
+  */
+}
+
+/*       A L L C O N T E N T - S E C T I O N     */
+
+div#allcontent div#articles {
+	clear:both;
+	padding:0px 10px;
+}
+
+h2#pathway {
+	position:absolute;
+	top:170px;
+	left:7%;
+	width:640px;
+  border:0px;
+	font-size:2.2em;
+}
+h2#pathway span#pathway_links {
+  color:#fff;
+}
+h2#pathway span#pathway_links a {
+	color:#fff;
+	  text-decoration:none;
+}
+
+div#articles ul.action_menu {
+	margin:0px;
+	list-style:none;
+}
+div#articles ul.action_menu li {
+	margin:0px;
+	display:inline;
+	padding:3px;
+	background-color: #a30;
+	border:1px solid #333;
+	margin-right:5px;
+}
+div#articles ul.action_menu li a {
+	color:#fff;
+	font-weight:bold;
+	padding:2px 0px;
+	padding-left:18px;
+	text-decoration:none;
+}
+div#articles ul.action_menu li a#write_article_link {
+	background:transparent url('/gfx/silk/page_add.png') no-repeat 0px 1px;
+}
+div#articles ul.action_menu li a#edit_article_link {
+	background:transparent url('/gfx/silk/page_edit.png') no-repeat 0px 1px;
+}
+div#allcontent div.logged_in {
+	margin-top:0.6em;
+}
+div#menu_description {
+  padding: 15px;
+font-size:1.1em;
+line-height:1.7em;
+}
+div#menu_description span.sr_desc {
+	position:absolute;
+	left:-3000px;
+}
+div#menu_description {
+}
+div#menu_description span#menu_image img {
+	border:1px solid #000;
+  margin:5px;
+  margin-bottom:15px;
+}
+div#menu_description span#desc {
+  display: block;
+}
+

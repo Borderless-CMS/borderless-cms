@@ -1,0 +1,148 @@
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*  CSS-Layout for home-section of borderLeSS CMS
+*                 ------------
+*  This CSS-File is copyright by goldstift. Feel free to take this as lecture
+*  though I don't think that anyone can use it. I think I was kind of too much
+*  in perfection-mode when I created the DOM of my cms. *hehe*
+*  But, well, what I gained is very near to FULL FLEXIBILITY... ;-)
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+
+div#homecontent {
+}
+
+div.content {
+}
+div.content:hover {
+}
+
+h3.storyheader {
+}
+h3.storyheader span {
+}
+div#edit_article_icon {
+}
+
+div#edit_article_icon img,
+div#edit_article_icon a {
+}
+
+div.storycontent {
+}
+div.storycontent span {
+}
+div.storycontent div.content {
+}
+div.storycontent div.content span.sr_desc {
+}
+div.storycontent div.content span.sr_desc strong {
+}
+div.storycontent div.content a {
+}
+div.storycontent div.content img {
+}
+div.storycontent div.description {
+}
+div.storycontent div.description span.sr_desc {
+}
+div.storycontent div.description span.sr_desc strong {
+}
+
+/* images inside of the articles */
+div.storycontent span #Image1 {
+}
+div.storycontent span #Image2 {
+}
+div.storycontent span #Image3 {
+}
+div.storycontent span #Image4 {
+}
+div.storycontent span #Image5 {
+}
+/* and so on */
+
+div.story_info {
+}
+div.story_info div.author {
+}
+div.story_info div.author span.sr_desc {
+	display:none;
+}
+div.story_info div.author a {
+}
+
+div.story_info div.edate {
+}
+div.story_info div.edate span.sr_desc {
+}
+div.story_info div.vdate {
+}
+div.story_info div.vdate span.sr_desc {
+}
+
+div.story_info div.editor {
+}
+div.story_info div.editor span.sr_desc {
+}
+div.story_info div.editor a {
+}
+div.story_info div.editdate {
+}
+div.story_info div.editdate span.sr_desc {
+}
+
+/* LATEST SECTION */
+
+div#homecontent div#latestContent h3.menuheader {
+}
+div#homecontent div#latestContent h3.menuheader span {
+}
+
+div#latestContent  form#latestForm {
+}
+div#latestContent  form#latestForm div#latest_type {
+}
+div#latestContent  form#latestForm div#latest_type select {
+}
+div#latestContent  form#latestForm div#latest_type select option {
+}
+
+div#latestContent  .latestcont {
+}
+
+div#latestContent  .latestcont h4.latestheader {
+}
+div#latestContent  .latestcont h4.latestheader span {
+}
+
+div#latestContent  .latestcont p.latestcontent {
+}
+div#latestContent  .latestcont p.latestcontent span {
+}
+div#latestContent  .latestcont p.latestcontent a {
+/* Link [mehr] bringt den User zum Artikel */
+}
+
+div#latestContent  .latestcont p.latestinfo  {
+}
+div#latestContent  .latestcont p.latestinfo  span.author {
+}
+div#latestContent  .latestcont p.latestinfo  span.date {
+}
+
+div#latestContent  #latestcont1 {
+}
+div#latestContent  #latestcont2 {
+}
+div#latestContent  #latestcont3 {
+}
+div#latestContent  #latestcont4 {
+}
+div#latestContent  #latestcont5 {
+}
+
+div#use_text_version {  
+}
+div#use_text_version p {
+}
